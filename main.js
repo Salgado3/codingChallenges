@@ -68,5 +68,5 @@ var min = function(list){
 
 var max = function(list){
     list.sort((a,b) => b-a)
-    return list[0];
+    return list[0]
 }
