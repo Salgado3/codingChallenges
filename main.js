@@ -102,3 +102,22 @@ function litres(time) {
 // basicOp('/', 49, 7)        // Output: 7
 function basicOp(operation, value1, value2)
 {return eval(value1 + operation + value2)}
+
+
+// Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero digits.
+function isDivisible(n, x, y) {
+  if(n%x ===0 && n%y === 0){
+    return true
+  }else {return false}
+}
+
+// You are given two sorted arrays that both only contain integers. Your task is to find a way to merge them into a single one, sorted in asc order. Complete the function mergeArrays(arr1, arr2), where arr1 and arr2 are the original sorted arrays.
+
+// You don't need to worry about validation, since arr1 and arr2 must be arrays with 0 or more Integers. If both arr1 and arr2 are empty, then just return an empty array.
+
+// Note: arr1 and arr2 may be sorted in different orders. Also arr1 and arr2 may have same integers. Remove duplicated in the returned result.
+function mergeArrays(arr1, arr2) {
+  let merged = arr1.concat(arr2).sort((a,b)=>a-b).reduce((unique,item)=> unique.includes(item)? unique : [...unique,item],[])
+  let mySet = new Set(merged)
+ return merged
+ }
