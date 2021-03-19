@@ -121,3 +121,5 @@ function mergeArrays(arr1, arr2) {
   let mySet = new Set(merged)
  return merged
  }
+
+//  3/18/2021
