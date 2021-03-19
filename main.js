@@ -148,3 +148,16 @@ function sumMix(x){
     let b = weight / height**2;
     return b <= 18.5 ? 'Underweight' : b <= 25.0 ? 'Normal' : b <= 30.0 ? 'Overweight' : 'Obese';
   }
+  // Given an array of integers.
+
+  // Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+  
+  // If the input array is empty or null, return an empty array.
+
+  function countPositivesSumNegatives(input) {
+    return !input || input.length <1 ? [] : [
+      input.filter(n => n > 0).length,
+      input.filter(n => n < 0).reduce((a, b) => a + b)
+    ];
+  }
+  
