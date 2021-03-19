@@ -132,3 +132,4 @@ function sumMix(x){
   return Number(x.reduce((a,b)=>(Number(a)+Number(b))))
 
 }
+// 3/19/2021
