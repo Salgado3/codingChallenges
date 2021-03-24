@@ -1,7 +1,7 @@
 # Coding Challenges
 
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** N/A just a js file
 
 ![alt tag](http://placecorgi.com/1200/650)
 
