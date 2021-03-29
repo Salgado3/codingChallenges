@@ -181,3 +181,11 @@ function isVow(a){
   });
 
 }
+
+// 3/29/2021
+// Write function RemoveExclamationMarks which removes all exclamation marks from a given string. The "g" is global so that it will find every individual occurance of !. gi would make it case sensative
+
+function removeExclamationMarks(str) {
+   
+  return str.replace(/!/g,"");
+}
