@@ -428,7 +428,7 @@ function oddOrEven(arr) {
 // 'Hello world' = true
 // ' Hello world' = false
 // 'Hello world  ' = false
-// 'Hello  world' = false
+// 'Hello  world' = false.
 // 'Hello' = true
 // // Even though there are no spaces, it is still valid because none are needed
 // 'Helloworld' = true 
