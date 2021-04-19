@@ -246,4 +246,4 @@ String.prototype.toJadenCase = function () {
     .join(' ');
 };
 
-//April 14th.
+//April 14th...
