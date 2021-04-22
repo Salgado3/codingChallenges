@@ -286,3 +286,5 @@ function switcher(x){
 };
   return x.map((el) => alphabet[el]).join('');
 }
+
+// 4/22/21 (1 of 5 strings)
