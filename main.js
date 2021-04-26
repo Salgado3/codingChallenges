@@ -329,10 +329,37 @@ return name.split(' ').map(x => x.substr(0, 1).toUpperCase()).join('.');
 
 // Your goal in this kata is to create complete the mouth_size method this method take one argument animal which corresponds to the animal encountered by frog. If this one is an alligator (case insensitive) return small otherwise return wide.
 function mouthSize(animal) {
-  if(animal == "alligator"){
+  if(animal.toLowerCase() == "alligator"){
     return "small"
   }else{
     return "wide"
   }
 }
+// OR
+
+function mouthSize(animal) {
+  return animal.toLowerCase() == "alligator" ? "small" : "wide"
+ }
 // (4 of 5 strings)
+//  Template Strings, this kata is mainly aimed at the new JS ES6 Update introducing Template Strings
+// Task
+// Your task is to return the correct string using the Template String Feature.
+// Input
+// Two Strings, no validation is needed.
+// Output
+// You must output a string containing the two strings with the word ```' are '```
+
+// Reference: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
+var TempleStrings = function(obj, feature) {
+  return `${obj} are ${feature}`
+}
+
+// (5 of 5 String)
+// You will be given an array a and a value x. All you need to do is check whether the provided array contains the value.
+
+// Array can contain numbers or strings. X can be either.
+
+// Return true if the array contains the value, false if not.
+function check(a,x){
+  return a.includes(x);
+};
