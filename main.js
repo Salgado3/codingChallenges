@@ -318,5 +318,5 @@ function apple(x){
 // Sam Harris => S.H
 
 // Patrick Feeney => P.F
-
+return name.split(' ').map(x => x.substr(0, 1).toUpperCase()).join('.');
 
