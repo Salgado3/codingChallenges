@@ -308,5 +308,15 @@ function apple(x){
   function apple(x){
     return Math.pow(x, 2) > 1000 ? 'It\'s hotter than the sun!!' : 'Help yourself to a honeycomb Yorkie for the glovebox.' ;
   }
+  //April 25th
+//Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
 
-  function andriod ()
+// The output should be two capital letters with a dot separating them.
+
+// It should look like this:
+
+// Sam Harris => S.H
+
+// Patrick Feeney => P.F
+
+
