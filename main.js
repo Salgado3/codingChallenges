@@ -308,7 +308,7 @@ function apple(x){
   function apple(x){
     return Math.pow(x, 2) > 1000 ? 'It\'s hotter than the sun!!' : 'Help yourself to a honeycomb Yorkie for the glovebox.' ;
   }
-  //April 25th
+  //April 25th (2 of 5 strings)
 //Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
 
 // The output should be two capital letters with a dot separating them.
@@ -320,7 +320,7 @@ function apple(x){
 // Patrick Feeney => P.F
 return name.split(' ').map(x => x.substr(0, 1).toUpperCase()).join('.');
 
-//April 26
+//April 26 (3 of 5 strings)
 // The wide mouth frog is particularly interested in the eating habits of other creatures.
 
 // He just can't stop asking the creatures he encounters what they like to eat. But then he meet the alligator who just LOVES to eat wide-mouthed frogs!
@@ -335,4 +335,4 @@ function mouthSize(animal) {
     return "wide"
   }
 }
-
+// (4 of 5 strings)
