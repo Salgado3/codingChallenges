@@ -407,5 +407,5 @@ function oddOrEven(arr) {
    }
   
    
-  //  May 1st (array)
+  //  May 1st (arrays)
  
