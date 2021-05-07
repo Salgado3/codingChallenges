@@ -439,3 +439,4 @@ function oddOrEven(arr) {
 function validSpacing(s) {
   return s.trim() == s && !s.includes("  ");
 }
+// May 7th
