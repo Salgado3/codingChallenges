@@ -464,12 +464,23 @@ console.log(mult(arr))
 
 let arr = [.5, 6, 3, 45, 24]
 
+function diffOfAges (arr) {
+  let youngest = arr.sort((a,b)=> a-b)
+  let oldest = arr.sort((a,b)=> b-a)
+  let difference = oldest - youngest
+  return [youngest,oldest,difference]
+}
 
 
-Three:
-Sum all the numbers of the array except the highest and the lowest element (the value, not the index!).
-Example:
-[ 6, 2, 1, 8, 10 ] => 16
-[ 1, 1, 11, 2, 3 ] => 6
 
+// Three:
+// Sum all the numbers of the array except the highest and the lowest element (the value, not the index!).
+// Example:
+// [ 6, 2, 1, 8, 10 ] => 16
+// [ 1, 1, 11, 2, 3 ] => 6
+function sumSansHighLow(arr) {
+const rmHighLow = arr.sort((a,b)=> a-b).pop().shift()
+const sum = rmHighLow.map((a,b)=> a+b)
+return sum
+}
 // May 12th
