@@ -60,9 +60,23 @@ Arrow syntax: filter((element, index, array) => { ... } )
 
 My Description: The filter method allows you to implement tests/functions and allows you to create a new array with the elements that pass the test
 
-How it works:
+How it works: Filter works by checking each element in an array to see if it passes the "test" or paremeters set in our function call. The new array is generated with elements that pass the test.
 
 Examples:
+lessThan20 (1)
+let arr = [1,2,4,25,67,3]
+let lessThanTwenty = arr.filter(x => x<20)
+console.log(lessThanTwenty) //[ 1, 2, 4, 3 ]
+
+applestoapples(2)
+let arr = ["apple", "apple sauce", "apple juice", "banana"]
+let apples = arr.filter(x => x =="apple")
+console.log(apples) //Array [ "apple" ]
+
+inbetween(3)
+let arr = [221,43,12,18,32,56]
+let betweenTwentyoneAndFourty = arr.filter(x => x<40 && x > 21)
+console.log(betweenTwentyoneAndFourty) // Array [ 32 ]
 ______________________________________________________________
 *forEach*
 MDN Description:
