@@ -48,11 +48,17 @@ let arr = [23,4,21,12,11,15,65]
 let difference = arr.reduce((a,b)=> a-b)
 console.log(difference) //-105
 
+//spell the word (3)
+let arr = ["h","e","l","l","o"]
+let spell = arr.reduce((a,b)=> a+b)
+console.log(spell) // hello
+
 ______________________________________________________________
 *filter*
-MDN Description:
+MDN Description: "The filter() method creates a new array with all elements that pass the test implemented by the provided function."
+Arrow syntax: filter((element, index, array) => { ... } )
 
-My Description:
+My Description: The filter method allows you to implement tests/functions and allows you to create a new array with the elements that pass the test
 
 How it works:
 
