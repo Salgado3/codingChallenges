@@ -5,6 +5,7 @@ Give a short description of what the method does, how it works, it's time comple
 
 *map*
 MDN Description: "The map() method creates a new array populated with the results of calling a provided function on every element in the calling array."
+Arrow Syntax: map((element, index, array) => { ... } )
 
 My Description: .map is an array method that allows you to iterate through all the elements within the array. It does not change the original array, but creates a new array.
 
@@ -29,14 +30,25 @@ const excited = hello.map(x => x+"!")
 console.log(excited)
 ______________________________________________________________
 *reduce*
-MDN Description:
+MDN Description: "The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value."
+Arrow syntax: reduce((accumulator, currentValue, index, array) => { ... }, initialValue)
 
-My Description:
+My Description: The reduce method allows you to iterate through the elements of the array and produce a single value. (in other words, taking an array and reducing it to a single element)
 
-How it works:
+How it works: "The first time the callback is called, accumulator and currentValue can be one of two values. If initialValue is provided in the call to reduce(), then accumulator will be equal to initialValue, and currentValue will be equal to the first value in the array. If no initialValue is provided, then accumulator will be equal to the first value in the array, and currentValue will be equal to the second."
 
 Examples:
+//sum of number(1)
+let arr = [1,2,3,4,5,6,7,8]
+let sum = arr.reduce((a,b)=> a+b)
+console.log(sum) //36
 
+//difference of numbers(2)
+let arr = [23,4,21,12,11,15,65]
+let difference = arr.reduce((a,b)=> a-b)
+console.log(difference) //-105
+
+______________________________________________________________
 *filter*
 MDN Description:
 
@@ -45,7 +57,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *forEach*
 MDN Description:
 
@@ -54,6 +66,7 @@ My Description:
 How it works:
 
 Examples:
+______________________________________________________________
 
 *sort*
 MDN Description:
@@ -64,6 +77,7 @@ How it works:
 
 Examples:
 
+______________________________________________________________
 *slice*
 MDN Description:
 
@@ -73,6 +87,7 @@ How it works:
 
 Examples:
 
+______________________________________________________________
 *pop*
 MDN Description:
 
@@ -81,7 +96,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *shift*
 MDN Description:
 
@@ -90,7 +105,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *push*
 MDN Description:
 
@@ -99,7 +114,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *unshift*
 MDN Description:
 
@@ -108,7 +123,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *includes*
 MDN Description:
 
@@ -117,7 +132,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *indexOf*
 MDN Description:
 
@@ -126,7 +141,7 @@ My Description:
 How it works:
 
 Examples:
-
+______________________________________________________________
 *every*
 MDN Description:
 
