@@ -101,23 +101,48 @@ let addFive = arr.forEach(function(x){
 ______________________________________________________________
 
 *sort*
-MDN Description:
+MDN Description: "The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values."
 
-My Description:
+My Description: The sort method allows you to sort an array in any order that you chose 
 
-How it works:
+How it works: If compareFunction is not supplied, all non-undefined array elements are sorted by converting them to strings and comparing strings in UTF-16 code units order. For example, "banana" comes before "cherry". In a numeric sort, 9 comes before 80, but because numbers are converted to strings, "80" comes before "9" in the Unicode order. All undefined elements are sorted to the end of the array. 
 
 Examples:
+ascending order(1)
+let arr = [4,12,5,4,1]
+let ascending = arr.sort((a,b)=>a-b)
+console.log(ascending) //[ 1, 4, 4, 5, 12 ]
+
+decending order(2)
+let arr = [4,12,5,4,1]
+let decending = arr.sort((a,b)=>b-a)
+console.log(decending) //[ 1, 4, 4, 5, 12 ]
 
 ______________________________________________________________
 *slice*
-MDN Description:
+MDN Description:"The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified."
+Syntax:
+slice()
+slice(start)
+slice(start, end)
 
-My Description:
+
+My Description: Slice allows you to take a portion of an array and produce a new array.
 
 How it works:
 
-Examples:
+Examples: 
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
 
 ______________________________________________________________
 *pop*
