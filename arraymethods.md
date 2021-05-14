@@ -129,7 +129,7 @@ slice(start, end)
 
 My Description: Slice allows you to take a portion of an array and produce a new array.
 
-How it works:
+How it works: Slice takes in one or two parameters. The first param. is the start index and the second is the end index. It does not modify the original array
 
 Examples: 
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
@@ -146,64 +146,142 @@ console.log(animals.slice(1, 5));
 
 ______________________________________________________________
 *pop*
-MDN Description:
+MDN Description: "The pop() method removes the last element from an array and returns that element. This method changes the length of the array."
 
-My Description:
+My Description: The pop method removes that last element in the array
 
-How it works:
+How it works: Pop removes the last element in an array
 
 Examples:
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+
+var popped = myFish.pop();
+
+console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+
+console.log(popped); // 'sturgeon'
 ______________________________________________________________
 *shift*
-MDN Description:
+MDN Description:"The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array."
 
-My Description:
+My Description: Shift removes the first element
 
-How it works:
+How it works: shift removes the first element in an array.
 
-Examples:
+Examples: (MDN)
+const array1 = [1, 2, 3];
+
+const firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+
 ______________________________________________________________
 *push*
-MDN Description:
+MDN Description: "The push() method adds one or more elements to the end of an array and returns the new length of the array."
 
-My Description:
+My Description: Push is pretty much the opposite of pop. It adds an element to the end of the array
 
 How it works:
+push(element0)
+push(element0, element1)
+push(element0, element1, ... , elementN)
 
-Examples:
+
+Examples:mdn
+let sports = ['soccer', 'baseball']
+let total = sports.push('football', 'swimming')
+
+console.log(sports)  // ['soccer', 'baseball', 'football', 'swimming']
+console.log(total)   // 4
+
 ______________________________________________________________
 *unshift*
-MDN Description:
+MDN Description: "The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array."
 
-My Description:
+My Description: the opposite of shift, it adds an element to the beginning of the array
 
 How it works:
+unshift(element0)
+unshift(element0, element1)
+unshift(element0, element1, ... , elementN)
 
-Examples:
+Examples:mdn
+let arr = [4, 5, 6]
+
+arr.unshift(1, 2, 3)
+console.log(arr);
+// [1, 2, 3, 4, 5, 6]
+
+arr = [4, 5, 6] // resetting the array
+
+arr.unshift(1)
+arr.unshift(2)
+arr.unshift(3)
+
+console.log(arr)
+// [3, 2, 1, 4, 5, 6]
+
 ______________________________________________________________
 *includes*
-MDN Description:
+MDN Description: "The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate."
 
-My Description:
+My Description: Includes method checks to see if there is an element that matches our parameter. If there is a match, it returns true, otherwise it returns false.
 
 How it works:
+includes(searchElement)
+includes(searchElement, fromIndex)
+
 
 Examples:
+[1, 2, 3].includes(2)      // true
+[1, 2, 3].includes(4)      // false
+[1, 2, 3].includes(3, 3)   // false
+[1, 2, 3].includes(3, -1)  // true
+[1, 2, NaN].includes(NaN)  // true
+
 ______________________________________________________________
 *indexOf*
-MDN Description:
+MDN Description: "The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present."
 
-My Description:
+My Description: The indexof method finds the first occurence of the element and returns the index location. If not preset, it returns -1
 
 How it works:
+indexOf(searchElement)
+indexOf(searchElement, fromIndex)
+
 
 Examples:
+var array = [2, 9, 9];
+array.indexOf(2);     // 0
+array.indexOf(7);     // -1
+array.indexOf(9, 2);  // 2
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0
+
 ______________________________________________________________
 *every*
-MDN Description:
+MDN Description: "The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value."
 
-My Description:
+My Description: The Every method checks all elements in an array. if they pass the test implimanted in our function it returns true. If one element does not pass, it returns false
 
 How it works:
+The every method executes the provided callbackFn function once for each element present in the array until it finds the one where callbackFn returns a falsy value. If such an element is found, the every method immediately returns false. Otherwise, if callbackFn returns a truthy value for all elements, every returns true.
+// Arrow function
+every((element) => { ... } )
+every((element, index) => { ... } )
+every((element, index, array) => { ... } )
 
-Examples:
+Examples:MDN
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+[12, 5, 8, 130, 44].every(isBigEnough);   // false
+[12, 54, 18, 130, 44].every(isBigEnough); // true
+
+
+[12, 5, 8, 130, 44].every(x => x >= 10);   // false
+[12, 54, 18, 130, 44].every(x => x >= 10); // true
