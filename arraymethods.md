@@ -79,13 +79,25 @@ let betweenTwentyoneAndFourty = arr.filter(x => x<40 && x > 21)
 console.log(betweenTwentyoneAndFourty) // Array [ 32 ]
 ______________________________________________________________
 *forEach*
-MDN Description:
-
+MDN Description: "The forEach() method executes a provided function once for each array element."
+Arrow Syntax: forEach((element, index, array) => { ... } )
 My Description:
 
 How it works:
-
+The forEach method is also used to loop through arrays, but it uses a function differently than the classic "for loop". 
 Examples:
+add2 (1)
+let arr = [1,2,3,4,5]
+let addTwo = arr.forEach(function(x){
+    console.log(x+2)
+}) // 3 4 5 6 7
+
+
+subtract 5(2)
+let arr = [1,2,3,4,5]
+let addFive = arr.forEach(function(x){
+    console.log(x-5)
+}) // -4 -3 -2 -1 0
 ______________________________________________________________
 
 *sort*
