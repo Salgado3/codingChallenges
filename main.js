@@ -566,3 +566,19 @@ function greet (name, owner) {
   return name == owner ? "Hello boss" : "Hello guest"
  }
  
+
+//  Just a simple sorting usage. Create a function that returns the elements of the input-array / list in a sorted manner.
+
+// input: names - unsorted array
+// output: sorted array
+sortme = function( names ){
+  return names.sort()
+}
+
+// Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+// Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+
+function lovefunc(f1, f2){
+  return (f1%2 ==0 && f2%2 !==0) || (f1%2 !==0 && f2%2 ==0) ? true : false
+}
