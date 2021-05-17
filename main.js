@@ -614,3 +614,8 @@ function lovefunc(flower1, flower2){
 var isSquare = function(n){
   return Math.sqrt(n) % 1 === 0;
 }
+
+// or
+var isSquare = function(n){
+  return Number.isInteger(Math.sqrt(n));
+}
