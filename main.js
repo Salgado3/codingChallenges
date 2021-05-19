@@ -645,3 +645,10 @@ function calculate(str) {
   return eval(str.split("plus").join("+").split("minus").join("-")).toString();
 
 }
+
+// or
+
+function calculate(str) {
+
+  return eval(str.replace(/plus/gi, '+').replace(/minus/gi, '-')).toString();
+}
