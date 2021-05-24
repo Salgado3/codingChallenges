@@ -691,4 +691,81 @@ function solution(string) {
   return string.join('')
 }
 
-// May21st (String 4 for due date may25th)
+// May24st (String 4 for due date may25th)
+
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+
+function disemvowel(str) {
+  var diemvoweledStr = str.replace(/[aeiou]/gi,"");
+  return diemvoweledStr;
+}
+
+// or 
+
+function disemvowel(string) {
+
+  let vowels = {
+    'a': true,
+    'e': true,
+    'i': true,
+    'o': true,
+    'u': true
+  };
+
+  let result = "";
+
+  for (let i = 0; i < string.length; i++) {
+    let letter = string[i].toLowerCase();
+    if (!vowels[letter]) {
+      result += string[i];
+    }
+  };
+  return result;
+};
+
+// May24st (String 5 for due date may25th)
+// Description
+
+// We need a function that can transform a string into a number. What ways of achieving this do you know?
+
+// Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
+// Examples
+
+// "1234" --> 1234
+// "605"  --> 605
+// "1405" --> 1405
+// "-7" --> -7
+
+var stringToNumber = function(str){
+  return Number(str)
+ }
+
+// May24st (String 6 for due date may25th)
+// Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+// Examples
+
+// maskify("4556364607935616") == "############5616"
+// maskify(     "64607935616") ==      "#######5616"
+// maskify(               "1") ==                "1"
+// maskify(                "") ==                 ""
+ 
+function maskify(cc) {
+  cc = cc.split("");
+  for(var i = 0; i < cc.length - 4; i++){
+    cc[i] = "#";
+}
+
+cc = cc.join("");
+return cc
+}
