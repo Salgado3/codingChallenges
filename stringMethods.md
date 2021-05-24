@@ -369,34 +369,73 @@ console.log(str.substr(2));
 ---
 
 _toLowerCase_
-MDN Description:
+MDN Description: "The toLowerCase() method returns the calling string value converted to lower case."
 
-My Description:
+My Description: The string method that turns uppercase to lowercase letters
 
 How it works:
+toLowerCase()
+Return value
+
+A new string representing the calling string converted to lower case.
+Description
+
+The toLowerCase() method returns the value of the string converted to lower case. toLowerCase() does not affect the value of the string str itself.
 
 Examples:
+console.log('ALPHABET'.toLowerCase()); // 'alphabet'
 
 ---
 
 _toUpperCase_
-MDN Description:
+MDN Description: "The toUpperCase() method returns the calling string value converted to uppercase (the value will be converted to a string if it isn't one)."
 
-My Description:
+My Description: Turns lowercase strings to uppercase
 
 How it works:
+toUpperCase()
+Return value
+
+A new string representing the calling string converted to upper case.
+Exceptions
+
+TypeError
+When called on null or undefined, for example, String.prototype.toUpperCase.call(undefined).
+
+Description
+
+The toUpperCase() method returns the value of the string converted to uppercase. This method does not affect the value of the string itself since JavaScript strings are immutable.
 
 Examples:
+console.log('alphabet'.toUpperCase()); // 'ALPHABET'
 
 ---
 
 _trim_
-MDN Description:
+MDN Description: "The trim() method removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.)."
 
-My Description:
+My Description: Removes the white space from the ends of a string. Could be useful for input fields that need to match exactly.
 
 How it works:
+trim()
+Return value
+
+A new string representing str stripped of whitespace from both its beginning and end.
+
+If neither the beginning or end of str has any whitespace, a new string is still returned (essentially a copy of str), with no exception being thrown.
+
+To return a new string with whitespace trimmed from just one end, use trimStart() or trimEnd().
 
 Examples:
+const greeting = ' Hello world! ';
+
+console.log(greeting);
+// expected output: " Hello world! ";
+
+console.log(greeting.trim());
+// expected output: "Hello world!";
+
+var orig = ' blue ';
+console.log(orig.trim()); // 'blue'
 
 ---
