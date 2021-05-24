@@ -23,7 +23,7 @@ str.charAt(3) // "s"
 _charCodeAt_
 MDN Description: "The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index."
 
-My Description:
+My Description: This string method returns the number associated with the given element of the string. https://asecuritysite.com/coding/asc2
 
 How it works:
 charCodeAt(index)
@@ -47,13 +47,30 @@ console.log(`The character code ${words.charCodeAt(index)} is equal to ${wrods.c
 ---
 
 _concat_
-MDN Description:
+MDN Description: "The concat() method concatenates the string arguments to the calling string and returns a new string. The concat() function concatenates the string arguments to the calling string and returns a new string. Changes to the original string or the returned string don't affect the other.
 
-My Description:
+If the arguments are not of the type string, they are converted to string values before concatenating."
+
+My Description: This method allows us to combine strings together.
 
 How it works:
+concat(str1)
+concat(str1, str2)
+concat(str1, str2, ... , strN)
 
 Examples:
+let hello = 'Hello, '
+console.log(hello.concat('Jimbo', '. Have a nice day.'))
+// Hello, Jimbo. Have a nice day.
+
+let greetList = ['Hello', ' ', 'Venkat', '!']
+"".concat(...greetList) // "Hello Venkat!"
+
+"".concat({}) // [object Object]
+"".concat([]) // ""
+"".concat(null) // "null"
+"".concat(true) // "true"
+"".concat(4, 5) // "45"
 
 ---
 
