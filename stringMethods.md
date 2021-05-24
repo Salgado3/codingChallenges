@@ -137,46 +137,136 @@ console.log(count) // displays 4
 ---
 
 _match_
-MDN Description:
+MDN Description: "The match() method retrieves the result of matching a string against a regular expression."
 
-My Description:
+My Description: This method allows us to locate part of the string using regex (mainly).
 
 How it works:
+match(regexp)
+Return value
 
+An Array whose contents depend on the presence or absence of the global (g) flag, or null if no matches are found.
+
+    If the g flag is used, all results matching the complete regular expression will be returned, but capturing groups will not.
+    if the g flag is not used, only the first complete match and its related capturing groups are returned. In this case, the returned item will have additional properties as described below.
+
+Additional properties
+
+As explained above, some results contain additional properties as described below.
+
+groups
+An object of named capturing groups whose keys are the names and values are the capturing groups or undefined if no named capturing groups were defined. See Groups and Ranges for more information.
+index
+The index of the search at which the result was found.
+input
+A copy of the search string.
 Examples:
+const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+const regexp = /[A-E]/gi;
+const matches_array = str.match(regexp);
+
+console.log(matches_array);
+// ['A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e']
 
 ---
 
 _repeat_
-MDN Description:
+MDN Description:"The repeat() method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together."
 
-My Description:
+My Description: The repeat method creates a new string and returns the given value x amount of times (depends on the count parameter)
 
 How it works:
+repeat(count)
+
+count
+An integer between 0 and +Infinity, indicating the number of times to repeat the string.
+
+Return value
+
+A new string containing the specified number of copies of the given string.
 
 Examples:
+const sayHello = "hello"
+console.log(sayHello.repeat(5)) //"hellohellohellohellohello"
 
 ---
 
 _replace_
-MDN Description:
+MDN Description: "The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first occurrence will be replaced.
 
-My Description:
+The original string is left unchanged."
+
+My Description: The replace method allows you to find a string and replace it with a new string. You can also use regex patterns.
 
 How it works:
+replace(regexp, newSubstr)
+replace(regexp, replacerFunction)
+
+replace(substr, newSubstr)
+replace(substr, replacerFunction)
+Parameters
+
+regexp (pattern)
+A RegExp object or literal. The match or matches are replaced with newSubstr or the value returned by the specified replacerFunction.
+substr
+A String that is to be replaced by newSubstr. It is treated as a literal string and is not interpreted as a regular expression. Only the first occurrence will be replaced.
+newSubstr (replacement)
+The String that replaces the substring specified by the specified regexp or substr parameter. A number of special replacement patterns are supported; see the "Specifying a string as a parameter" section below.
+replacerFunction (replacement)
+A function to be invoked to create the new substring to be used to replace the matches to the given regexp or substr. The arguments supplied to this function are described in the "Specifying a function as a parameter" section below.
+
+Return value
+
+A new string, with some or all matches of a pattern replaced by a replacement.
 
 Examples:
+let str = 'Twas the night before Xmas...';
+let newstr = str.replace(/xmas/i, 'Christmas');
+console.log(newstr); // Twas the night before Christmas...
+
+const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+
+console.log(p.replace('dog', 'monkey'));
+// expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
+
+const regex = /Dog/i;
+console.log(p.replace(regex, 'ferret'));
+// expected output: "The quick brown fox jumps over the lazy ferret. If the dog reacted, was it really lazy?"
 
 ---
 
 _search_
-MDN Description:
+MDN Description: "The search() method executes a search for a match between a regular expression and this String object. When you want to know whether a pattern is found, and also know its index within a string, use search(). (If you only want to know if it exists, use the similar test() method on the RegExp prototype, which returns a boolean.)
 
-My Description:
+For more information (but slower execution) use match() (similar to the regular expression exec() method)."
+
+My Description: This method allows you to search using a reg extression.
 
 How it works:
+search(regexp)
+Parameters
+
+regexp
+
+    A regular expression object.
+
+    If a non-RegExp object regexp is passed, it is implicitly converted to a RegExp with new RegExp(regexp).
+
+Return value
+
+The index of the first match between the regular expression and the given string, or -1 if no match was found.
 
 Examples:
+const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+
+// any character that is not a word character or whitespace
+const regex = /[^\w\s]/g;
+
+console.log(paragraph.search(regex));
+// expected output: 43
+
+console.log(paragraph[paragraph.search(regex)]);
+// expected output: "."
 
 ---
 
