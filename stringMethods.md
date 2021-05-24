@@ -271,35 +271,100 @@ console.log(paragraph[paragraph.search(regex)]);
 ---
 
 _slice_
-MDN Description:
+MDN Description:"The slice() method extracts a section of a string and returns it as a new string, without modifying the original string."
 
-My Description:
+My Description: The string method allows you to take a portion of a string. It takes in two parameters (second is optional). First param. is the index on where to begin the new string, the second is the ending index. If no second param. it will go till end of string.
 
 How it works:
+slice(beginIndex)
+slice(beginIndex, endIndex) endIndex non inclusive.
 
 Examples:
+const str = 'The quick brown fox jumps over the lazy dog.';
+
+console.log(str.slice(31));
+// expected output: "the lazy dog."
+
+console.log(str.slice(4, 19));
+// expected output: "quick brown fox"
+
+console.log(str.slice(-4));
+// expected output: "dog."
+
+console.log(str.slice(-9, -5));
+// expected output: "lazy"
 
 ---
 
 _split_
-MDN Description:
+MDN Description:"The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array. The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call."
+Return value
 
-My Description:
+An Array of strings, split at each point where the separator occurs in the given string.
+
+My Description: The split method is used to split a string into an array of substrings. Creates new array.
 
 How it works:
+split()
+split(separator)
+split(separator, limit)
+Parameters
+
+separator Optional
+
+    The pattern describing where each split should occur.  The separator can be a simple string or it can be a regular expression.
+
+        The simplest case is when separator is just a single character; this is used to split a delimited string.  For example, a string containing tab separated values (TSV) could be parsed by passing a tab character as the separator, like this: myString.split("\t").
+        If separator contains multiple characters, that entire character sequence must be found in order to split.
+        If separator is omitted or does not occur in str, the returned array contains one element consisting of the entire string.
+        If separator appears at the beginning (or end) of the string, it still has the effect of splitting.  The result is an empty (i.e. zero length) string, which appears at the first (or last) position of the returned array.
+        If separator is an empty string (""), str is converted to an array of each of its UTF-16 "characters".
+
+limit Optional
+
+    A non-negative integer specifying a limit on the number of substrings to be included in the array. If provided, splits the string at each occurrence of the specified separator, but stops when limit entries have been placed in the array. Any leftover text is not included in the array at all.
+
+        The array may contain fewer entries than limit if the end of the string is reached before the limit is reached.
+        If limit is 0, [] is returned.
 
 Examples:
+var str = "How are you doing today?";
+var res = str.split("o"); //H,w are y,u d,ing t,day?
+
+var str = "How are you doing today?";
+var res = str.split(""); //H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?
 
 ---
 
 _substr_
-MDN Description:
+MDN Description: "The substr() method returns a portion of the string, starting at the specified index and extending for a given number of characters afterwards."
 
-My Description:
+My Description: https://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
+
+Seems to work just like slice.
 
 How it works:
+substr(start)
+substr(start, length)
+Parameters
 
-Examples:
+start
+The index of the first character to include in the returned substring.
+length
+Optional. The number of characters to extract.
+
+Return value
+
+A new string containing the specified part of the given string.
+
+Examples: (MDN)
+const str = 'Mozilla';
+
+console.log(str.substr(1, 2));
+// expected output: "oz"
+
+console.log(str.substr(2));
+// expected output: "zilla"
 
 ---
 
