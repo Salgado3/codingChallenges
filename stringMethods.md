@@ -21,13 +21,28 @@ str.charAt(3) // "s"
 ---
 
 _charCodeAt_
-MDN Description:
+MDN Description: "The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index."
 
 My Description:
 
 How it works:
+charCodeAt(index)
+
+Parameters
+
+index
+An integer greater than or equal to 0 and less than the length of the string. If index is not a number, it defaults to 0.
+
+Return value
+
+A number representing the UTF-16 code unit value of the character at the given index. If index is out of range, charCodeAt() returns NaN.
 
 Examples:
+'ABC'.charCodeAt(0) // returns 65
+
+const words = "the red sheep jumped over the moon"
+const index = 3;
+console.log(`The character code ${words.charCodeAt(index)} is equal to ${wrods.charAt(index)}`); // "The character code 101 is equal to e"
 
 ---
 
