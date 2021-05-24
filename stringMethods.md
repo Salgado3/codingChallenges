@@ -1,12 +1,21 @@
 Please research the following string methods:
 _charAt_
-MDN Description:
+MDN Description: "The String object's charAt() method returns a new string consisting of the single UTF-16 code unit located at the specified offset into the string."
 
-My Description:
+My Description: A string method that utilizes the index of an array to create a new array with the UTF-16 (16-bit Unicode Transformation Format)
 
 How it works:
+charAt(index)
+
+index
+An integer between 0 and str.length - 1. If the index cannot be converted to the integer or no index is provided, the default is 0, so the first character of str is returned.
 
 Examples:
+const str = new String( "This is string" )
+str.charAt(0) //"T"
+str.charAt(1) // "h"
+str.charAt(2) // "i"
+str.charAt(3) // "s"
 
 ---
 
