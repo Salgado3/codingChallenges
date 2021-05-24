@@ -75,24 +75,64 @@ let greetList = ['Hello', ' ', 'Venkat', '!']
 ---
 
 _includes_
-MDN Description:
+MDN Description: "The includes() method performs a case-sensitive search to determine whether one string may be found within another string, returning true or false as appropriate."
 
-My Description:
+My Description: The includes string method checks to see if the parameter is in the string. More or less it searches the string to see if what we are looking for is there. If so, returns true, else false.
 
 How it works:
+includes(searchString)
+includes(searchString, position)
+
+searchString
+A string to be searched for within str.
+position Optional
+The position within the string at which to begin searching for searchString. (Defaults to 0.)
+
+Return value
+
+true if the search string is found anywhere within the given string; otherwise, false if not.
 
 Examples:
+'Blue Whale'.includes('blue') // returns false
+'Blue Whale'.includes('Blue') // returns True
 
 ---
 
 _indexOf_
-MDN Description:
+MDN Description: "The indexOf() method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found."
 
-My Description:
+My Description: The indexOf method finds the first occurrence in a string and returns its index position. If it is not found, it will return -1.
 
 How it works:
+indexOf(searchValue)
+indexOf(searchValue, fromIndex)
+Return value
+
+The index of the first occurrence of searchValue, or -1 if not found.
+
+An empty string searchValue produces strange results. With no fromIndex value, or any fromIndex value lower than the string's length, the returned value is the same as the fromIndex value:
 
 Examples:
+const str = 'To be, or not to be, that is the question.'
+let count = 0
+let position = str.indexOf('e')
+
+while (position !== -1) {
+count++
+position = str.indexOf('e', position + 1)
+}
+
+console.log(count) // displays 4
+
+'Blue Whale'.indexOf('Blue') // returns 0
+'Blue Whale'.indexOf('Blute') // returns -1
+'Blue Whale'.indexOf('Whale', 0) // returns 5
+'Blue Whale'.indexOf('Whale', 5) // returns 5
+'Blue Whale'.indexOf('Whale', 7) // returns -1
+'Blue Whale'.indexOf('') // returns 0
+'Blue Whale'.indexOf('', 9) // returns 9
+'Blue Whale'.indexOf('', 10) // returns 10
+'Blue Whale'.indexOf('', 11) // returns 10
 
 ---
 
