@@ -1,4 +1,5 @@
-Please research the following string methods:
+## Please research the following string methods:
+
 _charAt_
 MDN Description: "The String object's charAt() method returns a new string consisting of the single UTF-16 code unit located at the specified offset into the string."
 
