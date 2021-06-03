@@ -1,6 +1,8 @@
-What is React.js ?
+What is React.js ? "A Javascript library for building user interfaces."
 
-Why would you use React.js ?
+React is a library that allows devs to build reusable pieces of code (components) in a quick and easy manner. A lot of popular websites are built with React on top (Netflix, Fb, instagram, Scotch IO)
+
+Why would you use React.js? Scalability, open sources, allows for parts of user interface to render without refreshing entire page, and all in all, it's simple.
 
 What are components ?
 
