@@ -9,8 +9,7 @@
 // ######
 // #######
 
-for(let line = '#'; line.length <8; line +="#")
-console.log(line)
+for (let line = "#"; line.length < 8; line += "#") console.log(line);
 // FizzBuzz
 
 // Write a program that uses console.log to print all the numbers from 1 to 100, with two exceptions. For numbers divisible by 3, print "Fizz" instead of the number, and for numbers divisible by 5 (and not 3), print "Buzz" instead.
@@ -19,15 +18,16 @@ console.log(line)
 
 // (This is actually an interview question that has been claimed to weed out a significant percentage of programmer candidates. So if you solved it, your labor market value just went up.)
 
-
-for(let i=0;i <=100; i++){
-    if(i%3 == 0 && i%5 != 0){
-        console.log("fizz")
-    }else if(i%5 == 0 && i%3 != 0){
-        console.log("buzz")
-    }else if(i%5 == 0 && i%3 == 0){
-        console.log("fizzbuzz")
-    }else{
-        console.log(i)
-    }
+for (let i = 0; i <= 100; i++) {
+  if (i % 3 == 0 && i % 5 != 0) {
+    console.log("fizz");
+  } else if (i % 5 == 0 && i % 3 != 0) {
+    console.log("buzz");
+  } else if (i % 5 == 0 && i % 3 == 0) {
+    console.log("fizzbuzz");
+  } else {
+    console.log(i);
+  }
 }
+
+//6/13
