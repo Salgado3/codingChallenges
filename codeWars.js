@@ -851,3 +851,32 @@ function getCount(str) {
 function getCount(str) {
   return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
  }
+// July 3rd 2021
+
+// Given an array of integers, find the one that appears an odd number of times.
+
+// There will always be only one integer that appears an odd number of times.
+
+
+function findOdd(A) {
+  return A.reduce(function(c,v){return c^v;},0);
+}
+
+// or
+function findOdd(arr) {
+  var result, num = 0;
+
+  arr = arr.sort();
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i+1]) {
+      num++;
+    } else {
+      num++;
+      if (num % 2 != 0) {
+        result = arr[i];
+        break;
+      }
+    }
+  }
+  return result;
+}
