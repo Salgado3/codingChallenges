@@ -101,9 +101,21 @@ function litres(time) {
 // basicOp('*', 5, 5)         // Output: 25
 // basicOp('/', 49, 7)        // Output: 7
 function basicOp(operation, value1, value2)
-{return eval(value1 + operation + value2)}
-
-
+{
+  // Code
+  if( operation == "+") {
+    return value1 + value2
+  }
+  if( operation == "-") {
+    return value1 - value2
+  }
+  if( operation == "*") {
+    return value1 * value2
+  }
+  if( operation == "/") {
+    return value1 / value2
+  }
+}
 // Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero digits.
 function isDivisible(n, x, y) {
   if(n%x ===0 && n%y === 0){
@@ -978,3 +990,27 @@ function solution(number){
   }}
  return sum 
 }
+//Stand up
+
+// Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+// For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
+
+function squareSum(numbs){
+  // Need to loop through each element in array and sqaure it.
+    
+    return numbs.map(a => a*a).reduce((a,b)=> a+b, 0)
+    //add each squared element and return the Sum
+    
+    
+    
+  }
+  
+  // squareSum([1,2,3]) "15"
+  // squareSum([1,2]) "5"
+
+  or
+
+  function squareSum(numbers){
+    return numbers.reduce((sum,num) => sum + (num * num), 0);
+  }
