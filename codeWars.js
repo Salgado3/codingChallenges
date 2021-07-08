@@ -1014,3 +1014,89 @@ function squareSum(numbs){
   function squareSum(numbers){
     return numbers.reduce((sum,num) => sum + (num * num), 0);
   }
+
+  //7/8/21
+  //Please create a function that determines whether or not a word is a palindrome. You must make each letter lower case before doing the comparison, but we now exist in a world where .toLowerCase() only works on an indiviual letter...
+
+
+//word will always be a string. Always have a word. No special characters 
+
+function isWordPalindrome(str) {
+
+  //make all letters lowercase 
+  //reverse the word and see if the new word is equal to old word
+  newStr = str.split("").map(x => x.toLowerCase()).reverse().join("")
+   str = str.split("").map(x => x.toLowerCase()).join("")
+  
+  
+  // if (str == newStr){
+  //   return `The word ${str} is a Palindrome`
+  // }else{
+  //   return `The word ${str} is NOT a Palindrome`
+  // }
+  
+  return ((str == newStr)? `The word ${str} is a Palindrome`: `The word ${str} is NOT a Palindrome`)
+  
+  
+  //If equal the result would be it is a palindrome
+  
+  //if not equal the resutl is not a  palindrome
+  
+  
+  }
+  
+  
+  
+  
+  console.log(isWordPalindrome("mOm"), "The word mom is a Palindrome")
+  console.log(isWordPalindrome("rAt"), "The word rat is NOT a Palindrome")
+  console.log(isWordPalindrome("Bob"), "The word bob is a Palindrome")
+  console.log(isWordPalindrome("BobDSDKsfhhjfs"), )
+
+
+  // Given two arrays of strings, return the number of times each string of the second array appears in the first array.
+// //Case does not matter
+
+
+function addedArray(arr1, arr2){
+  //first we need to iterate through arr 1 and compare each element to array 2.
+   return arr2.map(x => arr1.filter(y=> y===x).length)
+  
+   
+  
+  
+  
+  
+  //var array = [[1, 2], [3, 4]];
+  // var double = x => x * 2;
+  // var doubledArray = array.map( subarray => subarray.map( double ));
+  
+  
+  //count the amount of times an element in arr1 appears in arr 2 and put that count into a new array 
+  
+  // for(let i = 0 ; i > arr1.length ; i++){
+  //   for(let j= 0 ; j > arr2; j++){
+  //     arr1[i] == arr2[j]
+  //   }
+  // }
+  
+  //filter:  words.filter(word => word.length > 6);
+    //  arr1.map()
+    //map(function callbackFn(element, index) { ... })
+  
+  }
+  
+  
+  //array1.map(x => x * 2);
+  
+  console.log(addedArray(['abc', 'abc', 'xyz', 'cde', 'uvw'], ['abc', 'cde', 'uap']))
+  
+  
+  Example
+  array1 = ['abc', 'abc', 'xyz', 'cde', 'uvw']
+  array2 = ['abc', 'cde', 'uap']
+  
+  Test.assertDeepEquals(solve(['abc', 'abc','xyz','abcd','cde'], ['abc', 'cde', 'uap']), [2, 1, 0]);
+  Test.assertDeepEquals(solve(['abc', 'xyz','abc', 'xyz','cde'], ['abc', 'cde', 'xyz']), [2, 1, 2]);
+  Test.assertDeepEquals(solve(['quick', 'brown', 'fox', 'is', 'quick'], ['quick', 'abc', 'fox']), [2, 0, 1]);
+  
