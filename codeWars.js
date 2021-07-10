@@ -1100,3 +1100,14 @@ function addedArray(arr1, arr2){
   Test.assertDeepEquals(solve(['abc', 'xyz','abc', 'xyz','cde'], ['abc', 'cde', 'xyz']), [2, 1, 2]);
   Test.assertDeepEquals(solve(['quick', 'brown', 'fox', 'is', 'quick'], ['quick', 'abc', 'fox']), [2, 0, 1]);
   
+
+  //7/9/2021
+
+//   Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+// Return your answer as a number.
+
+
+function sumMix(arr){
+  return arr.map(x=> Number(x)).reduce((a,b)=> a+b)
+  }
