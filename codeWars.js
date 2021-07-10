@@ -1111,3 +1111,15 @@ function addedArray(arr1, arr2){
 function sumMix(arr){
   return arr.map(x=> Number(x)).reduce((a,b)=> a+b)
   }
+
+  //7/10/2021
+
+//   Simple, given a string of words, return the length of the shortest word(s).
+
+// String will never be empty and you do not need to account for different data types.
+function findShort(str){
+  return str.split(" ").map(x=> x.length).sort((a,b)=> a-b).shift()
+}
+
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
