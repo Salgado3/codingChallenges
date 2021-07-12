@@ -1230,3 +1230,7 @@ function solve (str) {
 // Test.assertEquals(repeats([16, 0, 11, 4, 8, 16, 0, 11]),12);
 // Test.assertEquals(repeats([5, 17, 18, 11, 13, 18, 11, 13]),22);
 // Test.assertEquals(repeats([5, 10, 19, 13, 10, 13]),24);
+
+function repeats(arr){
+  return arr.filter(x => arr.indexOf(x) ===arr.lastIndexOf(x)).reduce((a,c)=> a+c,0)
+ };
