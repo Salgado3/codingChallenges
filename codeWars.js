@@ -1243,3 +1243,4 @@ function repeats(arr){
 
 // --> "alpha beta gamma delta alpha beta gamma delta"
 
+const removeConsecutiveDuplicates = s => s.split(" ").filter((x,i,arr) => x!=arr[i-1]).join(" ");
