@@ -1234,3 +1234,12 @@ function solve (str) {
 function repeats(arr){
   return arr.filter(x => arr.indexOf(x) ===arr.lastIndexOf(x)).reduce((a,c)=> a+c,0)
  };
+
+ //7/12/21
+
+//  Your task is to remove all consecutive duplicate words from a string, leaving only first words entries. For example:
+
+// "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
+
+// --> "alpha beta gamma delta alpha beta gamma delta"
+
