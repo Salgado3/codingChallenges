@@ -1244,3 +1244,109 @@ function repeats(arr){
 // --> "alpha beta gamma delta alpha beta gamma delta"
 
 const removeConsecutiveDuplicates = s => s.split(" ").filter((x,i,arr) => x!=arr[i-1]).join(" ");
+
+//Create a function that returns the capitilization of a name. No Arrays, No REGEX!
+//leon ~> Leon
+//bob ~> Bob
+//John ~> John
+
+// always strings. no empty strings. One name. 
+//no arrays and regex 
+function capitilization(str){
+  //isolate the first letter in our string and caplitalize 
+  return str.slice(0,1).toUpperCase() +
+   str.slice(1).toLowerCase()
+  
+  
+  
+   
+  //look at the remainding letters are all lower case. 
+  
+  //return string with proper capitilization
+  
+  
+  
+  }
+  
+  console.log(capitilization("sAM"), "Sam")
+  // console.log("sam"), "Sam"
+  
+  const cap = (str) => {
+    return str
+  
+  
+  }
+  console.log(cap('jIm'))
+
+
+  // Create a function truncate(str, maxlength) that checks the length of the str and, if it exceeds maxlength – replaces the end of str with the ellipsis character "…", to make its length equal to maxlength.
+
+// The result of the function should be the truncated (if needed) string.
+
+// For instance:
+
+// truncate("What I'd like to tell on this topic is:", 20) = "What I'd like to te…"
+
+// truncate("Hi everyone!", 20) = "Hi everyone!"
+
+
+
+// truncate("I would like one job plz", 10), "I would lik…"
+// truncate("I would like one job plz", 30), "I would like one job plz"
+
+function truncate (str, maxlength) {
+  //need to check to see if string is less than max length or not
+  // if (str.length <= maxlength) {
+  //   return str
+  // }else if (str.length > maxlength){
+  
+  // return str.slice(0,maxlength-1) + "…"
+  
+  // }
+  // if string is less than length we can return the string as is
+  return str.length <= maxlength? str : str.slice(0,maxlength-1) + "…" 
+  // if string is greater than maxlength, we need to reduce the string to add up to maxlength and return new string with ellipsis
+  
+  }
+  
+  console.log(truncate("What I'd like to tell on this topic is:", 20))
+  
+  // "What I'd like to te…"
+
+
+  // Write a function checkForImposterSyndrome(str) that returns true if str contains 'not ready' or "can't interview yet", otherwise false
+
+// P: will my function only take in a string? Will be different capitalization that I should account for? Will there ever be an empty string?
+// R: Am I returning a boolean? 
+// E: "I'm ready to interview!" => false
+//    "I can't interview yet!" => true
+      //"The pizza is ready!" => false
+// P:
+
+  //Make a function that takes in a string
+  function checkForImposterSyndrome(str) {
+    str = str.toLowerCase()
+    //check if the string includes "not ready" or "can't interview yet"
+    return str.includes("not ready") || str.includes("can't interview yet") 
+  }
+  
+  //if the str has either within it, return tru
+  //else return false
+
+
+console.log(checkForImposterSyndrome("I'm ready to interview!"))
+console.log(checkForImposterSyndrome("I can't interview yet!"))
+console.log(checkForImposterSyndrome("The pizza is ready"))
+console.log( checkForImposterSyndrome("The pizza is NOT ready"))
+
+//7/14/2021
+
+// Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+
+// domainName("http://github.com/carbonfive/raygun") == "github" 
+// domainName("http://www.zombie-bites.com") == "zombie-bites"
+// domainName("https://www.cnet.com") == "cnet"
+
+function domainName(url){
+  return url.replace("http://","").replace("https://","").replace('www.', "").split(".")[0]
+}
