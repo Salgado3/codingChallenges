@@ -1350,3 +1350,28 @@ console.log( checkForImposterSyndrome("The pizza is NOT ready"))
 function domainName(url){
   return url.replace("http://","").replace("https://","").replace('www.', "").split(".")[0]
 }
+
+//7/15/2021
+
+// Given a string, return a new string that has transformed based on the input:
+
+//     Change case of every character, ie. lower case to upper case, upper case to lower case.
+//     Reverse the order of words from the input.
+
+// Note: You will have to handle multiple spaces, and leading/trailing spaces.
+
+// For example:
+
+// "Example Input" ==> "iNPUT eXAMPLE"
+
+function stringTransformer(str) {
+  return str
+    .split(' ')
+    .reverse()
+    .join(' ')
+    .split('')
+    .map(v => v == v.toUpperCase() ?
+      v.toLowerCase() :
+      v.toUpperCase())
+    .join('');
+}
