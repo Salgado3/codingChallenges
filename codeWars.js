@@ -1375,3 +1375,55 @@ function stringTransformer(str) {
       v.toUpperCase())
     .join('');
 }
+
+// / Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+// Examples:
+
+// longest(a, b) -> "abcdefklmopqwxy"
+
+// a = "abcdefghijklmnopqrstuvwxyz"
+// longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+
+function longString (a,b) {
+  const longStr = a+b
+  return longStr.split("").sort().filter((v,i,arr) => v!==arr[i-1]).join()
+  }
+  
+  console.log(longString ("xyaabbbccccdefww","xxxxyyyyabklmopq"))
+  
+  
+  const newStr = a.concat(b).split("").sort().filter((v,i,arr) => v!==arr[i-1]).join("")
+
+
+  or
+
+  const longestPossible = (str1,str2) =>
+  [...new Set(str1+str2)].sort().join|
+
+
+  /* / John has invited some friends. His list is: */
+
+// Could you make a program that
+
+// makes this string uppercase
+// gives it sorted in alphabetical order by last name.
+// When the last names are the same, sort them by first name. Last name and first name of a guest come in the result between parentheses separated by a comma.
+
+
+// So the result of function meeting(s) will be:
+
+// "(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
+
+function sortedNames (s) {
+  return s.toUpperCase()
+    .split(";")
+    .map(name=> name.split(":").reverse())
+    .sort()
+    .map(name => `(${name[0]}, ${name[1]})`)
+    .join("")
+  
+  }
+  
+  /* return s.toUpperCase().split(";").map(name=> name.split(":").reverse()).sort().map(name => "("+ name[0]+ ", "+ name[1] + ")").join("") */
+  console.log(sortedNames("Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill"));
