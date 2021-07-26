@@ -1542,3 +1542,5 @@ function duplicateEncode(word){
     })
     .join('');
 }
+
+//7/26/2021
