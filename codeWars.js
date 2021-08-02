@@ -1621,4 +1621,9 @@ function findDeletedNumber(arr, mixArr) {
   let mixArrSum = mixArr.reduce((a,b) => a + b, 0)
   return arrSum - mixArrSum
 }
+
+// or
+function findDeletedNumber(arr, mixArr) {
+  return arr.find ((element) => {return !mixArr.includes (element)}) || 0;
+}
  
