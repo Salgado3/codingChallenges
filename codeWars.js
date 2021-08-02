@@ -1588,3 +1588,4 @@ var capitals = function (word) {
   return arr.filter(x=> x == x.toUpperCase()).map(x=>arr.indexOf(x))
 };
 
+//
