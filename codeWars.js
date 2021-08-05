@@ -1626,4 +1626,4 @@ function findDeletedNumber(arr, mixArr) {
 function findDeletedNumber(arr, mixArr) {
   return arr.find ((element) => {return !mixArr.includes (element)}) || 0;
 }
- 
+ //8/4/2021
