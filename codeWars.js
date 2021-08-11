@@ -1661,4 +1661,10 @@ var gimme = function (arr) {
 // ['aa', 'bbb', 'cccc'] => ['aaa', 'bbb', 'ccc'] // average length is 3
 // ['aa', 'bb', 'ddd', 'eee'] => ['aaa', 'bbb', 'ddd', 'eee'] // average length is 2.5 round up to 3
 // If the average length is not an integer, use Math.round().
-// The input array's length > 2
+// The input array's length > 1
+
+
+function averageLength(arr) {
+  const avg = Math.round(arr.join("").length / arr.length)
+  return arr.map( e => e[0].repeat(avg) )
+}
