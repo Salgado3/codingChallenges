@@ -1661,4 +1661,4 @@ var gimme = function (arr) {
 // ['aa', 'bbb', 'cccc'] => ['aaa', 'bbb', 'ccc'] // average length is 3
 // ['aa', 'bb', 'ddd', 'eee'] => ['aaa', 'bbb', 'ddd', 'eee'] // average length is 2.5 round up to 3
 // If the average length is not an integer, use Math.round().
-// The input array's length > 1
+// The input array's length > 2
