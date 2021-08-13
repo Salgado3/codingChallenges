@@ -1693,3 +1693,20 @@ function vowelCount(str) {
   
   console.log(vowelCount("hello how are you? you are doing great"))
   console.log(vowelCount("hello"))
+  //8/13
+
+//   Given an array of items, reverse the order.
+
+// No reverse method! Unless that is your brute force first...
+
+function reverseItems(arr){
+  let newItems = []
+  
+  for(let char of arr){
+     newItems.unshift(char)
+    
+  }
+  return newItems
+  }
+  
+  console.log(reverseItems(["pan", "door", "milk", "tree", "water"]))
