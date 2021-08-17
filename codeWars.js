@@ -1710,3 +1710,22 @@ function reverseItems(arr){
   }
   
   console.log(reverseItems(["pan", "door", "milk", "tree", "water"]))
+
+  //8/16/2021
+//   Given a phrase, reverse the order of the characters of each word.
+
+// describe("Reverse Words", () => {
+//  it("Should reverse words", () => {
+//   assert.equal(reverseWords("I love JavaScript!"), "I evol !tpircSavaJ");
+//  });
+// });
+
+// No Reverse Method! Unless that is your brute force...
+
+function reverseWords (str){
+
+  return str.split(" ").map(x => x.split("").reduce((a,b)=>b+a)).join(" ")
+  
+  
+  }
+  
