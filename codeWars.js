@@ -1728,4 +1728,86 @@ function reverseWords (str){
   
   
   }
+  //8/17
+
+//   Given a magazine of words and a ransom note, determine if it’s possible to “cut out” and create the ransom note from the magazine words.
+
+// const magazine =
+//  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+
+// describe("Ransom Note", () => {
+//  it("Should return true", () => {
+//   assert.equal(ransomNote("sit ad est sint", magazine), true);
+//  });
+
+// it("Should return false", () => {
+//   assert.equal(ransomNote("sit ad est love", magazine), false);
+//  });
+
+// it("Should return true", () => {
+//   assert.equal(ransomNote("sit ad est sint in in", magazine), true);
+//  });
+
+// it("Should return false", () => {
+//   assert.equal(ransomNote("sit ad est sint in in in in", magazine), false);
+//  });
+// });
+
+
+
+
+
+//8/19
+
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+ 
+
+// Example 1:
+
+// Input: prices = [7,1,5,3,6,4]
+// Output: 5
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+// Example 2:
+
+// Input: prices = [7,6,4,3,1]
+// Output: 0
+// Explanation: In this case, no transactions are done and the max profit = 0.
+
+ 
+
+// Constraints:
+
+//     1 <= prices.length <= 105
+//     0 <= prices[i] <= 104
+
+
+
+var maxProfit = function(prices) {
+  let min = Number.MAX_VALUE
+  let maxProf = 0;
   
+  for(let i=0;i<prices.length;i++){
+      if(prices[i]<min){
+          min = prices[i];
+      }
+      if(maxProf<(prices[i] - min)){
+          maxProf = prices[i] - min;
+      }
+  }
+  return maxProf;
+};
+
+//8/26
+
+// Write function that checks if a given string (case insensitive) is a palindrome.
+
+function isPalindrome(x) {
+  return x.toLowerCase() == x.toLowerCase().split("").reverse().join("") 
+}
