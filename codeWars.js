@@ -1859,3 +1859,15 @@ function generateRange(min, max, step){
 // Output: 3
 // Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
+//9/5/2021
+// Write function which will create a string from a list of strings, separated by space.
+
+// Example:
+
+// ["hello", "world"] -> "hello world"
+
+
+
+function wordsToSentence(words) {
+  return words.join(" ")
+}
