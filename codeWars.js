@@ -1871,7 +1871,7 @@ function generateRange(min, max, step){
 function wordsToSentence(words) {
   return words.join(" ")
 }
-///9/8/2021
+//9/8/2021
 
 // Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
 
@@ -1899,5 +1899,4 @@ function highestRank(arr){
      }
   })
   return parseInt(key);
-  
 }
