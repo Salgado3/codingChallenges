@@ -1946,7 +1946,7 @@ const remove = s => s.replace(/!+$/, '');
 function well(x){
   let pass = x.filter(e=> e=="good").length
   
-  return pass >=2 ? 'I smell a series!':pass > 0? "Publish!":"Fail!"
+  return pass >2 ? 'I smell a series!':pass > 0? "Publish!":"Fail!"
   
   }
 
