@@ -2192,4 +2192,34 @@ function lastDigit(n, d) {
     return nArr
   }
   
-   
+   //10/5/2021
+
+
+
+//    Complete the solution so that it reverses the string passed into it.
+
+// 'world'  =>  'dlrow'
+
+
+// function solution(str){
+
+  //using array methods
+  //   return str.split("").reverse().join("")
+  
+  //response#2
+  // let reversedStr = []
+  // for(let i=0;i<str.length;i++){
+  // reversedStr.unshift(str[i])
+  
+  // }
+    
+  //   return reversedStr.join("")
+  
+  // response#3
+  let revStr = ''
+  for(let i = str.length - 1; i >= 0; i--){
+    revStr+=str[i]
+    
+  }
+    return revStr
+  }
