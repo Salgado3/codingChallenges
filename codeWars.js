@@ -2264,14 +2264,14 @@ function tripleTrouble(one, two, three){
 
 // should produce result: [8, 8, 1, 5, 87, 45]
 function loopArr(arr, direction, steps) {
-  if(direction =="left"){
-    let end = arr.slice(0,2)
-  return arr.slice(2).concat(end)
+
+  for (let i = 0; i < steps; i++) {
+    if (direction === 'right'){
+      arr.unshift(arr.pop());
+    };
+    if (direction === 'left') {
+       arr.push(arr.shift());
+    };
   }
-  
-  if(direction =="right"){
-   let end = arr.slice(-2)
-  return end.concat(arr.slice(0,arr.length-2))
-  }
-  }
-  
+    return arr;
+}
