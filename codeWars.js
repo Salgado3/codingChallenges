@@ -2276,4 +2276,16 @@ function loopArr(arr, direction, steps) {
     return arr;
 }
 
-10/9/2021
+10/11/2021
+
+unction tripleTrouble(one, two, three){
+  let newStr = ""
+  for(let i = 0; i <one.length; i++){
+    newStr+=one[i]
+  newStr+=two[i]
+  newStr+=three[i]
+    
+  }
+  
+  return newStr
+   }
