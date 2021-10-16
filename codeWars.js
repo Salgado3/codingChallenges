@@ -2318,3 +2318,5 @@ function billboard(name, price = 30){
 function evenNumbers(array, number) {
   return array.filter(num=> num%2 == 0).slice(-number)
  }
+
+ //daily challeng
