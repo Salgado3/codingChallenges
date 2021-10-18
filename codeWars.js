@@ -2319,4 +2319,16 @@ function evenNumbers(array, number) {
   return array.filter(num=> num%2 == 0).slice(-number)
  }
 
- //daily challeng
+ //daily challenge 10/17
+
+ // You will be given an array of numbers in which two numbers occur once and the rest occur only twice. Your task will be to return the sum of the numbers that occur only once.
+
+// For example, repeats([4,5,7,5,4,8]) = 15 because only the numbers 7 and 8 occur once, and their sum is 15. Every other number occurs twice.
+
+function noRepeatSum(arr){ 
+  return arr.filter(num => arr.indexOf(num) === arr.lastIndexOf(num)).reduce((a,c)=>a+c,0)
+
+}
+
+console.log(noRepeatSum([4,5,7,5,4,8]), 15)
+console.log(noRepeatSum([4,5,3,5,4,8]), 11)
