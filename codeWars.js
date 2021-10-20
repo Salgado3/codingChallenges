@@ -2351,3 +2351,17 @@ console.log(noRepeatSum([4,5,3,5,4,8]), 11)
 function nthSmallest(arr, pos){
   return arr.sort((a,b)=> a-b)[pos-1]
 }
+
+
+// The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+// Examples
+
+// "din"      =>  "((("
+// "recede"   =>  "()()()"
+// "Success"  =>  ")())())"
+// "(( @"     =>  "))((" 
+
+function duplicateEncode(word){
+  return word.toLowerCase().split("").map(x=>word.indexOf(x)== word.lastIndexOf(x) ? "(":")").join("")
+}
+
