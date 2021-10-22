@@ -2365,3 +2365,5 @@ function duplicateEncode(word){
   return word.toLowerCase().split("").map(x=>word.indexOf(x)== word.lastIndexOf(x) ? "(":")").join("")
 }
 //10/21/2021
+
+//10/22/2021
