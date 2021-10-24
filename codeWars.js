@@ -2408,3 +2408,34 @@ var removeDuplicates = function(nums) {
    
    return pointer1 +1
   };
+
+  //10/24 
+//   Write a function that takes an array of values and moves all elements that are zero to the end of the array, otherwise preserving the order of the array. The zero elements must also maintain the order in which they occurred.
+
+// For example, the following array
+
+// [7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]
+
+// is transformed into
+
+// [7, 2, 3, 4, 6, 13, 78, 19, 14, 0, 0, 0, 0, 0, 0]
+
+// Zero elements are defined by either 0 or "0". Some tests may include elements that are not number literals.
+
+// You are NOT allowed to use any temporary arrays or objects. You are also not allowed to use any Array.prototype or Object.prototype methods.
+https://www.geeksforgeeks.org/move-zeroes-end-array/
+
+function zeroAtEnd (arr) {
+
+  let count = 0; //3
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== 0) arr[count++] = arr[i]; 
+      console.log(arr[i], "<-this is arr[i] for loop", `this is the the count-> ${count}`)
+  }
+  while (count < arr.length) arr[count++] = 0;
+  console.log(`while loop count ${count} and arr[count]-> ${arr[count]}`)
+  return arr;
+  }
+  
+  
+  console.log(zeroAtEnd([1,2,3,0,4,6,0,2]))
