@@ -2427,7 +2427,7 @@ https://www.geeksforgeeks.org/move-zeroes-end-array/
 
 function zeroAtEnd (arr) {
 
-  let count = 0; //3
+  let count = 0;
   for (let i = 0; i < arr.length; i++) {
       if (arr[i] !== 0) arr[count++] = arr[i]; 
       console.log(arr[i], "<-this is arr[i] for loop", `this is the the count-> ${count}`)
@@ -2439,3 +2439,106 @@ function zeroAtEnd (arr) {
   
   
   console.log(zeroAtEnd([1,2,3,0,4,6,0,2]))
+_________________________________________________________________
+
+
+
+// 155. Min Stack
+// Easy
+
+// Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+// Implement the MinStack class:
+
+//     MinStack() initializes the stack object.
+//     void push(int val) pushes the element val onto the stack.
+//     void pop() removes the element on the top of the stack.
+//     int top() gets the top element of the stack.
+//     int getMin() retrieves the minimum element in the stack.
+
+ 
+
+// Example 1:
+
+// Input
+// ["MinStack","push","push","push","getMin","pop","top","getMin"]
+// [[],[-2],[0],[-3],[],[],[],[]]
+
+// Output
+// [null,null,null,null,-3,null,0,-2]
+
+// Explanation
+// MinStack minStack = new MinStack();
+// minStack.push(-2);
+// minStack.push(0);
+// minStack.push(-3);
+// minStack.getMin(); // return -3
+// minStack.pop();
+// minStack.top();    // return 0
+// minStack.getMin(); // return -2
+
+ 
+
+// Constraints:
+
+//     -231 <= val <= 231 - 1
+//     Methods pop, top and getMin operations will always be called on non-empty stacks.
+//     At most 3 * 104 calls will be made to push, pop, top, and getMin.
+
+
+
+
+
+
+  
+var MinStack = function() {
+  this.storage = [];
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+  // push an object containing the value and current min with this new val added
+  this.storage.push({
+    value: val,
+    // if we're pushing into an empty stack then our min val would be this val we're pushing
+    // if we pushed into a non empty stack then we would assign the Math.min of the val we're pushing or the min value we assigned at the bottom most of our stack
+    min: !this.storage.length ? val : Math.min(val, this.getMin())
+  })
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+  // currently our stack is implemented in reverse order so our top of stack is  at the bottom so we can pop from the end which is technically our top
+  this.storage.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+  // since our stack is reverse ordered returning the end of our stack is actually our top
+  return this.storage[this.storage.length - 1].value;
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+  // since our stack is reverse ordered the min of our stack would be the min value we assigned to this el when we called our push method
+  return this.storage[this.storage.length - 1].min;
+};
+
+
+/** 
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
