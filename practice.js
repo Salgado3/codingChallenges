@@ -23,17 +23,24 @@
     
 //     console.log(targetSum([2,11,15,7],9))
 
-function zeroAtEnd (arr) {
+// function zeroAtEnd (arr) {
 
-    let count = 0; //3
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== 0) arr[count++] = arr[i]; 
-        console.log(arr[i], "<-this is arr[i] for loop", `this is the the count-> ${count}`)
-    }
-    while (count < arr.length) arr[count++] = 0;
-    console.log(`while loop count ${count} and arr[count]-> ${arr[count]}`)
-    return arr;
-    }
+//     let count = 0; //3
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] !== 0) arr[count++] = arr[i]; 
+//         console.log(arr[i], "<-this is arr[i] for loop", `this is the the count-> ${count}`)
+//     }
+//     while (count < arr.length) arr[count++] = 0;
+//     console.log(`while loop count ${count} and arr[count]-> ${arr[count]}`)
+//     return arr;
+//     }
     
     
-    console.log(zeroAtEnd([1,2,3,0,4,6,0,2]))
+//     console.log(zeroAtEnd([1,2,3,0,4,6,0,2]))
+
+let num1 = [[1, 2], [3, 4], [5, ]]
+let num2 = [...num1]
+num1[0][0] = 100
+console.log(num1)
+num1.pop()
+console.log(num2)

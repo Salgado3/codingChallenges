@@ -2534,11 +2534,50 @@ MinStack.prototype.getMin = function() {
 };
 
 
-/** 
- * Your MinStack object will be instantiated and called as such:
- * var obj = new MinStack()
- * obj.push(val)
- * obj.pop()
- * var param_3 = obj.top()
- * var param_4 = obj.getMin()
- */
+// ** 
+//  * Your MinStack object will be instantiated and called as such:
+//  * var obj = new MinStack()
+//  * obj.push(val)
+//  * obj.pop()
+//  * var param_3 = obj.top()
+//  * var param_4 = obj.getMin()
+ 
+
+
+// String transformer
+// 973292% of 6581,986 of 3,901tonytangau5 Issues Reported
+
+//     JavaScript
+//     Node v10.x
+
+//         VIM
+//         EMACS
+
+//     Instructions
+//     Output
+//     Past Solutions
+
+//     Given a string, return a new string that has transformed based on the input:
+//         Change case of every character, ie. lower case to upper case, upper case to lower case.
+//         Reverse the order of words from the input.
+
+//     Note: You will have to handle multiple spaces, and leading/trailing spaces.
+
+//     For example:
+
+//     "Example Input" ==> "iNPUT eXAMPLE"
+
+
+function stringTransformer(str) {
+  let swapArr = ""
+    
+    for(let i = 0; i <str.length; i++){
+        if(str[i] == str[i].toLowerCase()){
+         swapArr+=(str[i].toUpperCase())
+        }else{
+         swapArr+=(str[i].toLowerCase())
+        }
+  }
+    return swapArr.split(" ").reverse().join(" ")
+    
+  }
