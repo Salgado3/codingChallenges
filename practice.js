@@ -38,9 +38,43 @@
     
 //     console.log(zeroAtEnd([1,2,3,0,4,6,0,2]))
 
-let num1 = [[1, 2], [3, 4], [5, ]]
-let num2 = [...num1]
-num1[0][0] = 100
-console.log(num1)
-num1.pop()
-console.log(num2)
+// let num1 = [[1, 2], [3, 4], [5, ]]
+// let num2 = [...num1]
+// num1[0][0] = 100
+// console.log(num1)
+// num1.pop()
+// console.log(num2)
+
+var romanToInt = function(s) {
+    const map =  {
+    "I":1,
+    "V":5,
+    "X":10,
+    "L":50,
+    "C":100,
+    "D":500,
+    "M":1000
+    }
+    
+     let result = 0; 
+    
+        for (i=0; i < s.length; i++){
+            const cur = map[s[i]]; //map[s[0]] = map[I] = 1
+            const next = map[s[i+1]]; //map[s[0 + 1]] = map[V] = 5
+    
+            if (cur < next){
+                result += next - cur // IV -> 5 - 1 = 4
+                // 0 += 5 - 1
+                // 0 += 4
+                i++
+            } else {
+                result += cur
+            }
+        }
+    
+        return result; 
+    };
+    
+    // romanToInt(('XXVII'), 27)
+    // romanToInt(('IV'), 4)
+    console.log(romanToInt(('C'), 100000))
