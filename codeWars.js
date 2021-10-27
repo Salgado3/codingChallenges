@@ -2612,10 +2612,17 @@ function last(x){
 // Note: N may be 1 or less (in the latter case, the first array will be []).
 
 function findDeletedNumber(arr, mixArr) {
-  let sortedArr = [...arr, ...mixArr].sort((a,b)=>a-b).filter((e,index,arr)=>arr.indexOf(e)==arr.lastIndexOf(e))
+  let sortedArr = [...arr, ...mixArr].filter((e,index,arr)=>arr.indexOf(e)==arr.lastIndexOf(e))
 
 
  
  return Number(sortedArr)
+
+}
+
+or 
+
+function findDeletedNumber(arr, mixArr) {
+return arr.filter(num => mixArr.indexOf(num) === -1)[0] || 0
 
 }
