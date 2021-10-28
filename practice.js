@@ -45,36 +45,62 @@
 // num1.pop()
 // console.log(num2)
 
-var romanToInt = function(s) {
-    const map =  {
-    "I":1,
-    "V":5,
-    "X":10,
-    "L":50,
-    "C":100,
-    "D":500,
-    "M":1000
-    }
+// var romanToInt = function(s) {
+//     const map =  {
+//     "I":1,
+//     "V":5,
+//     "X":10,
+//     "L":50,
+//     "C":100,
+//     "D":500,
+//     "M":1000
+//     }
     
-     let result = 0; 
+//      let result = 0; 
     
-        for (i=0; i < s.length; i++){
-            const cur = map[s[i]]; //map[s[0]] = map[I] = 1
-            const next = map[s[i+1]]; //map[s[0 + 1]] = map[V] = 5
+//         for (i=0; i < s.length; i++){
+//             const cur = map[s[i]]; //map[s[0]] = map[I] = 1
+//             const next = map[s[i+1]]; //map[s[0 + 1]] = map[V] = 5
     
-            if (cur < next){
-                result += next - cur // IV -> 5 - 1 = 4
-                // 0 += 5 - 1
-                // 0 += 4
-                i++
-            } else {
-                result += cur
-            }
-        }
+//             if (cur < next){
+//                 result += next - cur // IV -> 5 - 1 = 4
+//                 // 0 += 5 - 1
+//                 // 0 += 4
+//                 i++
+//             } else {
+//                 result += cur
+//             }
+//         }
     
-        return result; 
-    };
+//         return result; 
+//     };
     
-    // romanToInt(('XXVII'), 27)
-    // romanToInt(('IV'), 4)
-    console.log(romanToInt(('C'), 100000))
+//     // romanToInt(('XXVII'), 27)
+//     // romanToInt(('IV'), 4)
+//     console.log(romanToInt(('C'), 100000))
+
+// var minDominoRotations = function(tops, bottoms) {
+//     const len = tops.length;
+
+//     const findMinRotations = (swaps, num) => {
+//         for (let i = 0; i < len; i++) {
+//             if (num !== tops[i] && num !== bottoms[i]) {
+//                 return -1;
+//             }
+//             swaps[0] += num !== tops[i];
+//             swaps[1] += num !== bottoms[i];
+//             console.log(num !== bottoms[i], `this is swaps 1 for i = ${i}`)
+//         }
+//         return Math.min(...swaps);
+//     };
+
+//     let minSwaps = findMinRotations([0, 0], tops[0]);
+    
+//     if (minSwaps === -1)
+//         minSwaps = findMinRotations([0, 0], bottoms[0]);
+
+//     return minSwaps;
+// };
+
+// minDominoRotations([2,1,2,4,2,2],[5,2,6,2,3,2])
+
