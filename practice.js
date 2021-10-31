@@ -104,3 +104,85 @@
 
 // minDominoRotations([2,1,2,4,2,2],[5,2,6,2,3,2])
 
+
+
+// 219. Contains Duplicate II
+// Easy
+
+// Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3,1], k = 3
+// Output: true
+
+// Example 2:
+
+// Input: nums = [1,0,1,1], k = 1
+// Output: true
+
+// Example 3:
+
+// Input: nums = [1,2,3,1,2,3], k = 2
+// Output: false
+
+// var containsNearbyDuplicate = function(nums, k) {
+//     let map = new Map()
+    
+//     for(let i = 0; i <nums.length; i++){
+//             let current = nums[i]
+//             console.log(map)
+//      if( map.has(current) && i - map.get(current)<=k){
+//     return true
+//     } else{
+//             map.set(nums[i], i)}
+
+    
+//        } 
+    
+//     return false
+//     };
+    
+    
+//     containsNearbyDuplicate([1,2,3,1,2,3],2)
+
+
+
+function maxCost(cost, labels, dailyCount) {
+    // Write your code here
+    let map = new Map()
+    let maxSum = 0
+    let tempSum = 0
+    let laptopCount = 0
+    
+     for(let i =0; i<labels.length;i++){
+         map.set(labels[i],cost[i])
+     }
+    console.log(map)
+    
+    for(let i =0; i<labels.length;i++) {
+        if(labels[i] === "legal"){
+            laptopCount++
+            tempSum += map.get(labels[i])
+        }else if(labels[i] === "illegal"){
+            tempSum += map.get(labels[i])
+        }
+
+            if(laptopCount=dailyCount){
+            maxSum = Math.max(tempSum, maxSum)
+            tempSum = 0
+            laptopCount = 0
+            }
+        
+        
+        
+    }
+    
+    
+    return maxSum
+
+}
+    
+    console.log(maxCost([2,5,3,11,1], ["legal","illegal", "legal","illegal","legal"], 2))
