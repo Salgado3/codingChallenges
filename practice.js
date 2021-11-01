@@ -150,39 +150,60 @@
 
 
 
-function maxCost(cost, labels, dailyCount) {
-    // Write your code here
-    let map = new Map()
-    let maxSum = 0
-    let tempSum = 0
-    let laptopCount = 0
+// function maxCost(cost, labels, dailyCount) {
+//     // Write your code here
+//     let map = new Map()
+//     let maxSum = 0
+//     let tempSum = 0
+//     let laptopCount = 0
     
-     for(let i =0; i<labels.length;i++){
-         map.set(labels[i],cost[i])
-     }
-    console.log(map)
+//      for(let i =0; i<labels.length;i++){
+//          map.set(labels[i],cost[i])
+//      }
+//     console.log(map)
     
-    for(let i =0; i<labels.length;i++) {
-        if(labels[i] === "legal"){
-            laptopCount++
-            tempSum += map.get(labels[i])
-        }else if(labels[i] === "illegal"){
-            tempSum += map.get(labels[i])
-        }
+//     for(let i =0; i<labels.length;i++) {
+//         if(labels[i] === "legal"){
+//             laptopCount++
+//             tempSum += map.get(labels[i])
+//         }else if(labels[i] === "illegal"){
+//             tempSum += map.get(labels[i])
+//         }
 
-            if(laptopCount=dailyCount){
-            maxSum = Math.max(tempSum, maxSum)
-            tempSum = 0
-            laptopCount = 0
-            }
+//             if(laptopCount=dailyCount){
+//             maxSum = Math.max(tempSum, maxSum)
+//             tempSum = 0
+//             laptopCount = 0
+//             }
         
         
         
-    }
+//     }
     
     
-    return maxSum
+//     return maxSum
 
+// }
+    
+//     console.log(maxCost([2,5,3,11,1], ["legal","illegal", "legal","illegal","legal"], 2))
+
+
+var gimme = function (inputArray) {
+console.log(inputArray, `this is array before reassignment`)
+
+function sort() {
+    
+   let sorted = inputArray.sort((a,b)=> a-b)[1]
+   console.log(sorted, `this is sorted after being sorted`)
+   return sorted
+   
 }
+
     
-    console.log(maxCost([2,5,3,11,1], ["legal","illegal", "legal","illegal","legal"], 2))
+    return inputArray.indexOf(sort())
+   
+   };
+   console.log((gimme([2, 3, 1])))
+   
+   
+   console.log((gimme([5, 10, 14])))
