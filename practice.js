@@ -188,22 +188,88 @@
 //     console.log(maxCost([2,5,3,11,1], ["legal","illegal", "legal","illegal","legal"], 2))
 
 
-var gimme = function (inputArray) {
-console.log(inputArray, `this is array before reassignment`)
+// var gimme = function (inputArray) {
+// console.log(inputArray, `this is array before reassignment`)
 
-function sort() {
+// function sort() {
     
-   let sorted = inputArray.sort((a,b)=> a-b)[1]
-   console.log(sorted, `this is sorted after being sorted`)
-   return sorted
+//    let sorted = inputArray.sort((a,b)=> a-b)[1]
+//    console.log(sorted, `this is sorted after being sorted`)
+//    return sorted
    
-}
+// }
 
     
-    return inputArray.indexOf(sort())
+//     return inputArray.indexOf(sort())
    
-   };
-   console.log((gimme([2, 3, 1])))
+//    };
+//    console.log((gimme([2, 3, 1])))
    
    
-   console.log((gimme([5, 10, 14])))
+//    console.log((gimme([5, 10, 14])))
+
+
+
+
+// var freqAlphabets = function(s) {
+//     let map = new Map()
+//     let result = ""
+  
+  
+  
+//   // //hash map built
+//    let alpha= " abcdefghijklmnopqrstuvwxyz"
+//   for(let i= 1; i<alpha.length;i++){
+//       if(i <=9){
+//    map.set(String(i),alpha[i])
+//   }else{
+//       map.set(i+"#",alpha[i])
+//   }
+//   }
+  
+  
+//   //iritarating through map and adding to result
+//   for(let i= 0; i<s.length;i++){
+  
+//   if(s[i+2]=="#"){
+  
+//   result += map.get(s.slice(i,i+3))
+//   i+=2;
+//   }else {
+//      result+=map.get(s[i])
+  
+  
+//   }
+    
+//   }
+  
+  
+//   return result
+//   };
+
+// console.log(freqAlphabets("10#11#12"))
+
+
+//11/2
+
+var isValid = function(s) {
+
+    let stack = []
+    for(let i=0;i<s.length;i++){
+     if(s[i]=="(" || s[i]=="{" || s[i]=="[")   {
+         
+         stack.push(s[i])
+     } else {
+         let last = stack.pop()
+    if(!((s[i] =="}" && last =="{")||(s[i] ==")" && last =="(")||(s[i] =="]" && last =="[") )){
+        return false
+    }
+         
+     }
+    
+    }if(stack.length !== 0){
+        return false}
+       return true
+    };
+
+    console.log(isValid("()[]{}"))
