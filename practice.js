@@ -211,65 +211,65 @@
 
 
 
-// var freqAlphabets = function(s) {
-//     let map = new Map()
-//     let result = ""
+var freqAlphabets = function(s) {
+    let map = new Map()
+    let result = ""
   
   
   
-//   // //hash map built
-//    let alpha= " abcdefghijklmnopqrstuvwxyz"
-//   for(let i= 1; i<alpha.length;i++){
-//       if(i <=9){
-//    map.set(String(i),alpha[i])
-//   }else{
-//       map.set(i+"#",alpha[i])
-//   }
-//   }
+  // //hash map built
+   let alpha= " abcdefghijklmnopqrstuvwxyz"
+  for(let i= 1; i<alpha.length;i++){
+      if(i <=9){
+   map.set(String(i),alpha[i])
+  }else{
+      map.set(i+"#",alpha[i])
+  }
+  }
   
   
-//   //iritarating through map and adding to result
-//   for(let i= 0; i<s.length;i++){
+  //iritarating through map and adding to result
+  for(let i= 0; i<s.length;i++){
   
-//   if(s[i+2]=="#"){
+  if(s[i+2]=="#"){
   
-//   result += map.get(s.slice(i,i+3))
-//   i+=2;
-//   }else {
-//      result+=map.get(s[i])
+  result += map.get(s.slice(i,i+3))
+  i+=2;
+  }else {
+     result+=map.get(s[i])
   
   
-//   }
+  }
     
-//   }
+  }
   
+ return map
   
-//   return result
-//   };
+  };
 
-// console.log(freqAlphabets("10#11#12"))
+console.log(freqAlphabets("10#11#12"))
 
 
 //11/2
 
-var isValid = function(s) {
+// var isValid = function(s) {
 
-    let stack = []
-    for(let i=0;i<s.length;i++){
-     if(s[i]=="(" || s[i]=="{" || s[i]=="[")   {
+//     let stack = []
+//     for(let i=0;i<s.length;i++){
+//      if(s[i]=="(" || s[i]=="{" || s[i]=="[")   {
          
-         stack.push(s[i])
-     } else {
-         let last = stack.pop()
-    if(!((s[i] =="}" && last =="{")||(s[i] ==")" && last =="(")||(s[i] =="]" && last =="[") )){
-        return false
-    }
+//          stack.push(s[i])
+//      } else {
+//          let last = stack.pop()
+//     if(!((s[i] =="}" && last =="{")||(s[i] ==")" && last =="(")||(s[i] =="]" && last =="[") )){
+//         return false
+//     }
          
-     }
+//      }
     
-    }if(stack.length !== 0){
-        return false}
-       return true
-    };
+//     }if(stack.length !== 0){
+//         return false}
+//        return true
+//     };
 
-    console.log(isValid("()[]{}"))
+//     console.log(isValid("()[]{}"))
