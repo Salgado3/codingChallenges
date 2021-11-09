@@ -2768,4 +2768,18 @@ function averageLength(arr) {
 return arr.map(x=> x[0].repeat(average))
 }
 
-11/5/2021
+// 11/9/2021
+// In this Kata, you will be given an array of strings and your task is to remove all consecutive duplicate letters from each string in the array.
+
+// For example:
+
+//     dup(["abracadabra","allottee","assessee"]) = ["abracadabra","alote","asese"].
+//     dup(["kelless","keenness"]) = ["keles","kenes"].
+
+// Strings will be lowercase only, no spaces. See test cases for more examples.
+
+// Good luck!
+
+// If you like this Kata, please try:
+
+return arr.map(str=> str.split("").filter((x,index,arr)=> x!= arr[index+1]).join(""))
