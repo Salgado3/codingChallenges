@@ -2818,4 +2818,44 @@ var lengthOfLastWord = function(s) {
   
    return arr[arr.length -1].length
   };
+  //11/12/2021
+
+//   Write a function that combines two arrays by alternatingly taking elements from each array in turn.
+
+// Examples:
+
+// [a, b, c, d, e], [1, 2, 3, 4, 5] becomes  [a, 1, b, 2, c, 3, d, 4, e, 5]
+
+// [1, 2, 3], [a, b, c, d, e, f] becomes [1, a, 2, b, 3, c, d, e, f]
+
+
+function mergeArrays(a, b) {
+
+  let stack = []
+     
+  if(a.length> b.length){
+  for(let i=0; i<a.length;i++){
+  if(a[i]!== undefined){
+    stack.push(a[i])
+  }
+    if(b[i]!== undefined){
+    stack.push(b[i])
+  }
+  }
   
+  }
+  if(a.length<= b.length){
+  for(let i=0; i< b.length;i++){
+  
+  if(a[i]!== undefined){
+    stack.push(a[i])
+  }
+    if(b[i]!== undefined){
+    stack.push(b[i])
+  }
+  
+  
+  }
+  }
+  return stack
+  }

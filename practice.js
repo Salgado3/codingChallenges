@@ -211,43 +211,43 @@
 
 
 
-var freqAlphabets = function(s) {
-    let map = new Map()
-    let result = ""
+// var freqAlphabets = function(s) {
+//     let map = new Map()
+//     let result = ""
   
   
   
-  // //hash map built
-   let alpha= " abcdefghijklmnopqrstuvwxyz"
-  for(let i= 1; i<alpha.length;i++){
-      if(i <=9){
-   map.set(String(i),alpha[i])
-  }else{
-      map.set(i+"#",alpha[i])
-  }
-  }
+//   // //hash map built
+//    let alpha= " abcdefghijklmnopqrstuvwxyz"
+//   for(let i= 1; i<alpha.length;i++){
+//       if(i <=9){
+//    map.set(String(i),alpha[i])
+//   }else{
+//       map.set(i+"#",alpha[i])
+//   }
+//   }
   
   
-  //iritarating through map and adding to result
-  for(let i= 0; i<s.length;i++){
+//   //iritarating through map and adding to result
+//   for(let i= 0; i<s.length;i++){
   
-  if(s[i+2]=="#"){
+//   if(s[i+2]=="#"){
   
-  result += map.get(s.slice(i,i+3))
-  i+=2;
-  }else {
-     result+=map.get(s[i])
+//   result += map.get(s.slice(i,i+3))
+//   i+=2;
+//   }else {
+//      result+=map.get(s[i])
   
   
-  }
+//   }
     
-  }
+//   }
   
- return map
+//  return map
   
-  };
+//   };
 
-console.log(freqAlphabets("10#11#12"))
+// console.log(freqAlphabets("10#11#12"))
 
 
 //11/2
@@ -273,3 +273,27 @@ console.log(freqAlphabets("10#11#12"))
 //     };
 
 //     console.log(isValid("()[]{}"))
+
+var singleNumber = function(nums) {
+    
+  let map = new Map()
+  let singleNum;
+
+for(let i=0;i<nums.length; i++){
+
+      if(map.has(nums[i])){
+        map.set(nums[i], 2)
+      }else{
+  
+      map.set(nums[i], 1)
+    }
+
+
+}
+nums.map(number => {
+  map.get(number) == 1 ? singleNum = number: false
+})
+  return singleNum
+};
+
+console.log(singleNumber( [4,1,2,1,2]))
