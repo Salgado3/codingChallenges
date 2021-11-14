@@ -274,26 +274,48 @@
 
 //     console.log(isValid("()[]{}"))
 
-var singleNumber = function(nums) {
+// var singleNumber = function(nums) {
     
-  let map = new Map()
-  let singleNum;
+//   let map = new Map()
+//   let singleNum;
 
-for(let i=0;i<nums.length; i++){
+// for(let i=0;i<nums.length; i++){
 
-      if(map.has(nums[i])){
-        map.set(nums[i], 2)
-      }else{
+//       if(map.has(nums[i])){
+//         map.set(nums[i], 2)
+//       }else{
   
-      map.set(nums[i], 1)
-    }
+//       map.set(nums[i], 1)
+//     }
 
 
+// }
+// nums.map(number => {
+//   map.get(number) == 1 ? singleNum = number: false
+// })
+//   return map
+// };
+
+// console.log(singleNumber( [4,1,2,1,2]))
+
+11/12/2021
+
+function absentVowel(x){
+ 
+  let map = new Map()
+    map.set("a",0)
+    map.set("e",1)
+    map.set("i",2)
+    map.set("o",3)
+    map.set("u",4)
+  let iterator = map.values()
+
+  for(let i = 0; i<x.length; i++){
+    map.delete(x[i])
 }
-nums.map(number => {
-  map.get(number) == 1 ? singleNum = number: false
-})
-  return singleNum
-};
-
-console.log(singleNumber( [4,1,2,1,2]))
+ 
+ 
+return iterator.next().value
+  }
+  
+  console.log(absentVowel("John Doe hs seven red pples under his bsket"))
