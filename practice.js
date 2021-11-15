@@ -298,29 +298,29 @@
 
 // console.log(singleNumber( [4,1,2,1,2]))
 
-11/12/2021
+// 11/12/2021
 
-function absentVowel(x){
+// function absentVowel(x){
  
-  let map = new Map()
-    map.set("a",0)
-    map.set("e",1)
-    map.set("i",2)
-    map.set("o",3)
-    map.set("u",4)
-  let iterator = map.values()
+//   let map = new Map()
+//     map.set("a",0)
+//     map.set("e",1)
+//     map.set("i",2)
+//     map.set("o",3)
+//     map.set("u",4)
+//   let iterator = map.values()
 
-  for(let i = 0; i<x.length; i++){
-    map.delete(x[i])
-}
+//   for(let i = 0; i<x.length; i++){
+//     map.delete(x[i])
+// }
  
  
-return iterator.next().value
-  }
+// return iterator.next().value
+//   }
   
-  console.log(absentVowel("John Doe hs seven red pples under his bsket"))
+//   console.log(absentVowel("John Doe hs seven red pples under his bsket"))
 
-  function decode(message){
+//   function decode(message){
 
     // let alpha = "abcdefghijklmnopqrstuvwxyz"
     // let reverseAlpha = alpha.split("").reverse().join("")
@@ -332,3 +332,11 @@ return iterator.next().value
     
     
     // }
+
+
+    for (let n = 1; n <= 100; n++) {
+      let output = "";
+      if (n % 2 == 0) output += "Fizz";
+      if (n % 3 == 0) output += "Buzz";
+      console.log(output || n);
+    }

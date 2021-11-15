@@ -2873,3 +2873,15 @@ function mergeArrays(a, b) {
     
     
     // }
+
+    //11/15/2021
+
+    Given a number as an input, print out every integer from 1 to that number. However, when the integer is divisible by 2, print out “Fizz”; when it’s divisible by 3, print out “Buzz”; when it’s divisible by both 2 and 3, print out “Fizz Buzz”.
+
+
+    for (let n = 1; n <= 100; n++) {
+      let output = "";
+      if (n % 2 == 0) output += "Fizz";
+      if (n % 3 == 0) output += "Buzz";
+      console.log(output || n);
+    }
