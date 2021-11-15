@@ -319,3 +319,16 @@ return iterator.next().value
   }
   
   console.log(absentVowel("John Doe hs seven red pples under his bsket"))
+
+  function decode(message){
+
+    // let alpha = "abcdefghijklmnopqrstuvwxyz"
+    // let reverseAlpha = alpha.split("").reverse().join("")
+    
+    // let indexArr = [...message].map((x,index,arr)=>alpha.indexOf(x))
+    
+    // return indexArr.map(x=> reverseAlpha[x]== " "? " ":reverseAlpha[x]).join("")
+    
+    
+    
+    // }
