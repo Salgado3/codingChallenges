@@ -334,9 +334,49 @@
     // }
 
 
-    for (let n = 1; n <= 100; n++) {
-      let output = "";
-      if (n % 2 == 0) output += "Fizz";
-      if (n % 3 == 0) output += "Buzz";
-      console.log(output || n);
-    }
+    // for (let n = 1; n <= 100; n++) {
+    //   let output = "";
+    //   if (n % 2 == 0) output += "Fizz";
+    //   if (n % 3 == 0) output += "Buzz";
+    //   console.log(output || n);
+    // }
+
+  //   var addDigits = function(num) {
+  //     if (isNaN(num) || num === 0) return 0;
+  //     if (num < 10) return num;
+  //     return num % 9 === 0 ? 9 : num % 9;
+  // };
+
+  //    console.log(addDigits(38))
+
+
+//   var reverseString = function(s) {
+//     let stack = []
+// for(let i=s.length-1; i>=0 ;i--) {
+// stack.push(s[i])
+
+// }
+// return stack
+// };
+
+
+// console.log(reverseString(["h","e","l","l","o"]))
+
+
+// Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)! 
+
+
+var reverseString = function(s) {
+ 
+for(let i =0; i<s.length/2;i++){
+let j = s.length-1
+
+    temp = s[i]
+      s[i] = s[j-i]
+   s[j-i] = temp
+ }
+
+return s
+};
+
+console.log(reverseString(["h","e","l","l","o"]))
