@@ -379,4 +379,6 @@ let j = s.length-1
 return s
 };
 
-console.log(reverseString(["h","e","l","l","o"]))
+// console.log(reverseString(["h","e","l","l","o"]))
+// console.log(reverseString(["h","e","l","l","o","!"]))
+console.log(reverseString(["h","e"]))
