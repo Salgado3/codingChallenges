@@ -366,19 +366,67 @@
 // Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)! 
 
 
-var reverseString = function(s) {
+// var reverseString = function(s) {
  
-for(let i =0; i<s.length/2;i++){
-let j = s.length-1
+// for(let i =0; i<s.length/2;i++){
+// let j = s.length-1
 
-    temp = s[i]
-      s[i] = s[j-i]
-   s[j-i] = temp
- }
+//     temp = s[i]
+//       s[i] = s[j-i]
+//    s[j-i] = temp
+//  }
 
-return s
-};
+// return s
+// };
 
-// console.log(reverseString(["h","e","l","l","o"]))
-// console.log(reverseString(["h","e","l","l","o","!"]))
-console.log(reverseString(["h","e"]))
+// // console.log(reverseString(["h","e","l","l","o"]))
+// // console.log(reverseString(["h","e","l","l","o","!"]))
+// console.log(reverseString(["h","e"]))
+
+
+
+
+var isAnagram = function(s, t) {
+
+  let map = new Map()
+  
+  if(s.length!=t.length){
+      return false
+  }
+  
+  
+  for(let i= 0;i<s.length;i++){
+      if(map.has(s[i])){
+       
+        map.set(s[i], map.get(s[i])+1)
+        console.log(map)
+      }
+
+   map.set(s[i],1)
+  }
+  
+  for(let i= 0;i<s.length;i++){
+if(map.get(s[i])==0){
+  map.delete(s[i])
+}
+
+  if(!map.has(t[i])){
+      return false
+  }else{
+   
+    map.set(s[i], map.get(s[i])-1)
+  }
+  
+  }
+  
+  return true    
+  };
+
+
+  // console.log(isAnagram("anagram",
+  // "nagaram"))
+
+
+  console.log(isAnagram( "aacc","ccac"))
+
+
