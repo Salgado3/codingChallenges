@@ -386,47 +386,70 @@
 
 
 
-var isAnagram = function(s, t) {
+// var isAnagram = function(s, t) {
 
-  let map = new Map()
+//   let map = new Map()
   
-  if(s.length!=t.length){
-      return false
-  }
+//   if(s.length!=t.length){
+//       return false
+//   }
   
   
-  for(let i= 0;i<s.length;i++){
-      if(map.has(s[i])){
+//   for(let i= 0;i<s.length;i++){
+//       if(map.has(s[i])){
        
-        map.set(s[i], map.get(s[i])+1)
-        console.log(map)
-      }
+//         map.set(s[i], map.get(s[i])+1)
+//         console.log(map)
+//       }
 
-   map.set(s[i],1)
-  }
+//    map.set(s[i],1)
+//   }
   
-  for(let i= 0;i<s.length;i++){
-if(map.get(s[i])==0){
-  map.delete(s[i])
-}
+//   for(let i= 0;i<s.length;i++){
+// if(map.get(s[i])==0){
+//   map.delete(s[i])
+// }
 
-  if(!map.has(t[i])){
-      return false
-  }else{
+//   if(!map.has(t[i])){
+//       return false
+//   }else{
    
-    map.set(s[i], map.get(s[i])-1)
+//     map.set(s[i], map.get(s[i])-1)
+//   }
+  
+//   }
+  
+//   return true    
+//   };
+
+
+//   // console.log(isAnagram("anagram",
+//   // "nagaram"))
+
+
+//   console.log(isAnagram( "aacc","ccac"))
+
+
+
+
+
+  function count (string) {  
+    let map = new Map() 
+  
+  if(string == "")
+  return {}
+  
+    for(let i =0; i<string.length;i++){
+    if(map.has(string[i])){
+         map.get(string[i])++
+  }else {
+    map.set(string[i],1)
   }
   
   }
+   
+  return map.entries()
   
-  return true    
-  };
+  }
 
-
-  // console.log(isAnagram("anagram",
-  // "nagaram"))
-
-
-  console.log(isAnagram( "aacc","ccac"))
-
-
+  console.log(count("abadfefdfgd"))
