@@ -2885,3 +2885,25 @@ function mergeArrays(a, b) {
       if (n % 3 == 0) output += "Buzz";
       console.log(output || n);
     }
+
+    //11/19/2021 
+    function count (string) {  
+      let map = new Map() 
+    
+    if(string == "")
+    return {}
+    
+      for(let i =0; i<string.length;i++){
+      if(map.has(string[i])){
+           map.get(string[i])++
+    }else {
+      map.set(string[i],1)
+    }
+    
+    }
+     
+    return map.entries()
+    
+    }
+  
+    console.log(count("abadfefdfgd"))
