@@ -494,25 +494,25 @@ Output: false
 
  */
 
-const wordPattern = function(pattern, str) {
-    const words = str.split(" ");
-    const map = new Map();
+// const wordPattern = function(pattern, str) {
+//     const words = str.split(" ");
+//     const map = new Map();
     
-    if(words.length !== pattern.length) return false;
-    if(new Set(words).size !== new Set(pattern).size) return false;
+//     if(words.length !== pattern.length) return false;
+//     if(new Set(words).size !== new Set(pattern).size) return false;
 
-    for(let i = 0; i < pattern.length; i++) {
-        if(map.has(pattern[i]) && 
-           map.get(pattern[i]) !== words[i]) return false;
-        map.set(pattern[i], words[i]);
-    }
-    return true;
-};
+//     for(let i = 0; i < pattern.length; i++) {
+//         if(map.has(pattern[i]) && 
+//            map.get(pattern[i]) !== words[i]) return false;
+//         map.set(pattern[i], words[i]);
+//     }
+//     return true;
+// };
 
-console.log(wordPattern("abba","dog cat dog cat"))
-console.log(wordPattern("abba","dog dog dog dog"))
+// console.log(wordPattern("abba","dog cat dog cat"))
+// console.log(wordPattern("abba","dog dog dog dog"))
 
-console.log(wordPattern("abba","dog cat cat dog fish"))
+// console.log(wordPattern("abba","dog cat cat dog fish"))
 
 
 // for (let n = 1; n <= 100; n++) {
@@ -521,3 +521,34 @@ console.log(wordPattern("abba","dog cat cat dog fish"))
   //   if (n % 3 == 0) output += "Buzz";
   //   console.log(output || n);
   // }
+
+
+//   Given a string of characters, return the character that appears the most often.
+
+// describe("Max Character", () => {
+//  it("Should return max character", () => {
+//   assert.equal(max("Hello World!"), "l");
+//  });
+// });
+
+// No String or Array Methods (well brute force it first, but then no methods)! 
+
+
+function mostStrings(str) {
+let noSpaceStr = str.split(" ").join("")
+let map = new Map()
+
+for(let i=0;i<noSpaceStr.length; i++){
+    if(map.has(noSpaceStr[i])){
+        map.set(noSpaceStr[i],map.get(noSpaceStr[i])+1) 
+
+    }else{
+      map.set(noSpaceStr[i],1)
+    }
+
+}
+return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
+}
+
+console.log(mostStrings("hello world"))
+console.log(mostStrings("Welcome to the Jungle and all that jazz"))
