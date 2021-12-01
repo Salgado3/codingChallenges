@@ -534,23 +534,63 @@ Output: false
 // No String or Array Methods (well brute force it first, but then no methods)! 
 
 
-function mostStrings(str) {
-let noSpaceStr = str.split(" ").join("")
-let map = new Map()
+// function mostStrings(str) {
+// let noSpaceStr = str.split(" ").join("")
+// let map = new Map()
 
-for(let i=0;i<noSpaceStr.length; i++){
-    if(map.has(noSpaceStr[i])){
-        map.set(noSpaceStr[i],map.get(noSpaceStr[i])+1) 
+// for(let i=0;i<noSpaceStr.length; i++){
+//     if(map.has(noSpaceStr[i])){
+//         map.set(noSpaceStr[i],map.get(noSpaceStr[i])+1) 
 
-    }else{
-      map.set(noSpaceStr[i],1)
-    }
+//     }else{
+//       map.set(noSpaceStr[i],1)
+//     }
+
+// }
+
+// return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
+// }
+
+// console.log(mostStrings("hello world"))
+// console.log(mostStrings("Welcome to the Jungle and all that jazz"))
+
+// __________________________________
+
+//11/30
+
+// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+// Example 1:
+
+// Input: nums = [1,2,3,1]
+// Output: true
+// Example 2:
+
+// Input: nums = [1,2,3,4]
+// Output: false
+// Example 3:
+
+// Input: nums = [1,1,1,3,3,4,3,2,4,2]
+// Output: true
+
+
+function dups(arr) {
+ let map = new Map() 
+
+ for(let i =0; i<arr.length; i++) {
+  if (map.has(arr[i])) {
+    return true
+  }else {
+    map.set(arr[i], true)
+  }
+
+ }
+ return false
+
 
 }
 
-return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
-}
-
-console.log(mostStrings("hello world"))
-console.log(mostStrings("Welcome to the Jungle and all that jazz"))
-
+// return new Set(arr).size != arr.length
+console.log(dups([1,1,1,3,3,4,3,2,4,2]))
+console.log(dups([1,2,3,4]))
+console.log(dups([1,2,3,1]))
