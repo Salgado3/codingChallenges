@@ -574,23 +574,55 @@ Output: false
 // Output: true
 
 
-function dups(arr) {
- let map = new Map() 
+// function dups(arr) {
+//  let map = new Map() 
 
- for(let i =0; i<arr.length; i++) {
-  if (map.has(arr[i])) {
-    return true
-  }else {
-    map.set(arr[i], true)
-  }
+//  for(let i =0; i<arr.length; i++) {
+//   if (map.has(arr[i])) {
+//     return true
+//   }else {
+//     map.set(arr[i], true)
+//   }
 
- }
- return false
+//  }
+//  return false
 
 
+// }
+
+// // return new Set(arr).size != arr.length
+// console.log(dups([1,1,1,3,3,4,3,2,4,2]))
+// console.log(dups([1,2,3,4]))
+// console.log(dups([1,2,3,1]))
+
+// -------
+// Given an array nums of size n, return the majority element.
+
+// The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+// Example 1:
+
+// Input: nums = [3,2,3]
+// Output: 3
+// Example 2:
+
+// Input: nums = [2,2,1,1,1,2,2]
+// Output: 2
+
+function majorityElement(arr) {
+
+  let map = new Map()
+
+  for(let i = 0; i<arr.length; i++){
+    if(map.has(arr[i])){
+      map.set(arr[i], map.get(arr[i])+1)
+    }else{
+      map.set(arr[i], 1)
+    }
+   
+    
 }
-
-// return new Set(arr).size != arr.length
-console.log(dups([1,1,1,3,3,4,3,2,4,2]))
-console.log(dups([1,2,3,4]))
-console.log(dups([1,2,3,1]))
+return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
+}
+console.log(majorityElement([2,2,1,1,1,2,2]))
+console.log(majorityElement([3,2,3]))
