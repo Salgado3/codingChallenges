@@ -609,20 +609,44 @@ Output: false
 // Input: nums = [2,2,1,1,1,2,2]
 // Output: 2
 
-function majorityElement(arr) {
+// function majorityElement(arr) {
 
-  let map = new Map()
+//   let map = new Map()
 
-  for(let i = 0; i<arr.length; i++){
-    if(map.has(arr[i])){
-      map.set(arr[i], map.get(arr[i])+1)
-    }else{
-      map.set(arr[i], 1)
-    }
+//   for(let i = 0; i<arr.length; i++){
+//     if(map.has(arr[i])){
+//       map.set(arr[i], map.get(arr[i])+1)
+//     }else{
+//       map.set(arr[i], 1)
+//     }
    
     
+// }
+// return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
+// }
+// console.log(majorityElement([2,2,1,1,1,2,2]))
+// console.log(majorityElement([3,2,3]))
+
+
+
+
+
+
+const maxNumberOfBalloons = text => {
+  let obj = {}, balloonCount = 0;
+  for (let el of text) {
+    obj[el] = (obj[el] || 0) + 1;
+  }
+  while (obj['a'] > 0 && obj['b'] >0 && obj['l']>1 && obj['n']>0 && obj['o']>1) {
+    balloonCount++;
+    obj['a']--;
+    obj['b']--;
+    obj['l'] -= 2;
+    obj['n']--;
+    obj['o'] -= 2;
+  }
+  return balloonCount;
 }
-return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
-}
-console.log(majorityElement([2,2,1,1,1,2,2]))
-console.log(majorityElement([3,2,3]))
+
+
+console.log(maxNumberOfBalloons("nlaebolko"))
