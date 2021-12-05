@@ -628,25 +628,52 @@ Output: false
 // console.log(majorityElement([3,2,3]))
 
 
+// const maxNumberOfBalloons = text => {
+//   let obj = {}, balloonCount = 0;
+//   for (let el of text) {
+//     obj[el] = (obj[el] || 0) + 1;
+//   }
+//   while (obj['a'] > 0 && obj['b'] >0 && obj['l']>1 && obj['n']>0 && obj['o']>1) {
+//     balloonCount++;
+//     obj['a']--;
+//     obj['b']--;
+//     obj['l'] -= 2;
+//     obj['n']--;
+//     obj['o'] -= 2;
+//   }
+//   return balloonCount;
+// }
 
 
+// console.log(maxNumberOfBalloons("nlaebolko"))
 
+// daily pratice Binary Tree
 
-const maxNumberOfBalloons = text => {
-  let obj = {}, balloonCount = 0;
-  for (let el of text) {
-    obj[el] = (obj[el] || 0) + 1;
-  }
-  while (obj['a'] > 0 && obj['b'] >0 && obj['l']>1 && obj['n']>0 && obj['o']>1) {
-    balloonCount++;
-    obj['a']--;
-    obj['b']--;
-    obj['l'] -= 2;
-    obj['n']--;
-    obj['o'] -= 2;
-  }
-  return balloonCount;
+class Node {
+constructor(val) {
+  this.val = val;
+  this.left = null;
+  this.right = null;
+   }
 }
 
 
-console.log(maxNumberOfBalloons("nlaebolko"))
+const a = new Node("a")
+const b = new Node("b")
+const c = new Node("c")
+const d = new Node("d")
+const e = new Node("e")
+const f = new Node("f")
+
+//     a
+//    /  \
+//   /    \
+//  b      c
+// / \      \
+// d  e      f
+
+a.left = b;
+a.right =c;
+b.left = d;
+b.right = e;
+c.right = f;
