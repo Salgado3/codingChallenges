@@ -677,3 +677,53 @@ a.right =c;
 b.left = d;
 b.right = e;
 c.right = f;
+
+//BFS
+
+// const breadthFirstPring = (root) => {
+// const queue = [ root ];
+
+// while(queue.length >0) {
+//   const curr = queue.shift();
+//       console.log(curr.val)
+
+//       if(curr.left !== null){
+//         queue.push(curr.left)
+//       }
+
+//       if(curr.right !== null){
+//         queue.push(curr.right)
+//       }
+
+// }
+
+// }
+
+// breadthFirstPring(a)
+
+
+
+// const  bfs = (root) => {
+//       let queue = [root ]
+   
+
+//       while(queue.length > 0) {
+//             curr = queue.shift()
+          
+//             if(curr.left){
+//               queue.push(curr.left)
+//             }
+
+//             if(curr.right){
+//               queue.push(curr.right)
+//             }
+//             console.log(curr.val)
+//       }
+
+     
+
+
+// }
+
+// bfs(a)
+
