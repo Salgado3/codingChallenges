@@ -750,96 +750,151 @@ c.right = f;
 
 // LeetCode 404. Sum of Left Leaves
 
-var sumOfLeftLeaves = function(root) {
-  let queue = [ root ]
-    let leftSum = 0
-        while(queue.length > 0){
-          let currNode = queue.shift()  
+// var sumOfLeftLeaves = function(root) {
+//   let queue = [ root ]
+//     let leftSum = 0
+//         while(queue.length > 0){
+//           let currNode = queue.shift()  
           
-          if(currNode.left){
-            queue.push(currNode.left)
-                leftSum+=currNode.left.val
-            }
+//           if(currNode.left){
+//             queue.push(currNode.left)
+//                 leftSum+=currNode.left.val
+//             }
 
-            if(currNode.right){
-            queue.push(currNode.right)
-            }
-
-
-}    
+//             if(currNode.right){
+//             queue.push(currNode.right)
+//             }
 
 
-return leftSum
-};
+// }    
 
 
-sumOfLeftLeaves([3,9,20,null,null,15,7])
+// return leftSum
+// };
 
 
-const isSameTree = function(p, q) {
-  const q1 = [];
-  q1.push(p);
+// sumOfLeftLeaves([3,9,20,null,null,15,7])
+
+
+// const isSameTree = function(p, q) {
+//   const q1 = [];
+//   q1.push(p);
   
-  const q2 = [];
-  q2.push(q);
+//   const q2 = [];
+//   q2.push(q);
   
-  while (q1.length && q2.length) {
-    const curr1 = q1.shift();
-    const curr2 = q2.shift();
+//   while (q1.length && q2.length) {
+//     const curr1 = q1.shift();
+//     const curr2 = q2.shift();
     
-    // checking null
-    if (curr1 === null || curr2 === null) {
-      if (curr1 !== curr2) {
-        return false;
-      } else {
-        continue;
-      }
-    }
+//     // checking null
+//     if (curr1 === null || curr2 === null) {
+//       if (curr1 !== curr2) {
+//         return false;
+//       } else {
+//         continue;
+//       }
+//     }
     
-    // checking val
-    if (curr1.val !== curr2.val) return false;
+//     // checking val
+//     if (curr1.val !== curr2.val) return false;
     
-    // adding children to queues
-    q1.push(curr1.left, curr1.right);
-    q2.push(curr2.left, curr2.right);
-  }
+//     // adding children to queues
+//     q1.push(curr1.left, curr1.right);
+//     q2.push(curr2.left, curr2.right);
+//   }
   
-  if (q1.length || q2.length) {
-    return false;
-  }
+//   if (q1.length || q2.length) {
+//     return false;
+//   }
   
-  return true;
-};
-// 12/6/2021
+//   return true;
+// };
+// // 12/6/2021
 
-// 206. Reverse Linked List
-// Easy
+// // 206. Reverse Linked List
+// // Easy
 
-// Given the head of a singly linked list, reverse the list, and return the reversed list.
+// // Given the head of a singly linked list, reverse the list, and return the reversed list.
 
- /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var reverseList = function(head) {
-  let prev = null
-  let next = null
+//  /**
+//  * Definition for singly-linked list.
+//  * function ListNode(val, next) {
+//  *     this.val = (val===undefined ? 0 : val)
+//  *     this.next = (next===undefined ? null : next)
+//  * }
+//  */
+// /**
+//  * @param {ListNode} head
+//  * @return {ListNode}
+//  */
+// var reverseList = function(head) {
+//   let prev = null
+//   let next = null
 
 
-while(head !== null){
-  next = head.next
-  head.next = prev
-  prev = head
-  head = next
+// while(head !== null){
+//   next = head.next
+//   head.next = prev
+//   prev = head
+//   head = next
+
+// }
+
+// return prev
+// };
+
+/////////////////////////////
+
+// Given a magazine of words and a ransom note, determine if it’s possible to “cut out” and create the ransom note from the magazine words.
+
+// const magazine =
+//  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+
+// describe("Ransom Note", () => {
+//  it("Should return true", () => {
+//   assert.equal(ransomNote("sit ad est sint", magazine), true);
+//  });
+
+// it("Should return false", () => {
+//   assert.equal(ransomNote("sit ad est love", magazine), false);
+//  });
+
+// it("Should return true", () => {
+//   assert.equal(ransomNote("sit ad est sint in in", magazine), true);
+//  });
+
+// it("Should return false", () => {
+//   assert.equal(ransomNote("sit ad est sint in in in in", magazine), false);
+//  });
+// });
+
+const magazine =
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+
+function RansomNote (note, magazine) {
+
+let magMap = magazine.split(" ")
+
+let map = new Map()
+
+for(let i=0; i<magMap.length;i++){
+map.set(magMap[i], map.get(magMap[i]) +1 || 1)
 
 }
 
-return prev
-};
+    let noteLetters = note.split(" ")
+for(let i=0; i<noteLetters.length;i++){
+        if(map.get(noteLetters[i]) >0){
+          map.set(noteLetters[i], map.get(noteLetters[i])-1 )
+         
+        }else{
+          return false
+        }
+}
+  return true
+}
+
+console.log(RansomNote("sit ad est love", magazine),false)
+ console.log(RansomNote("sit ad est sint in in", magazine),true)
+ console.log(RansomNote("sit ad est sint in in in in", magazine),false)
