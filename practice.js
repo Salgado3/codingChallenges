@@ -727,3 +727,86 @@ c.right = f;
 
 // bfs(a)
 
+// const bfs = (root) => {
+//     let queue = [ root ]
+
+//     while(queue.length>0){
+//         curr = queue.shift()
+       
+
+//         if(curr.left){
+//           queue.push(curr.left)
+//         }
+//         if(curr.right){
+//           queue.push(curr.right)
+//         }
+//         console.log(curr)
+//     }
+
+
+// }
+
+// bfs(a)
+
+// LeetCode 404. Sum of Left Leaves
+
+var sumOfLeftLeaves = function(root) {
+  let queue = [ root ]
+    let leftSum = 0
+        while(queue.length > 0){
+          let currNode = queue.shift()  
+          
+          if(currNode.left){
+            queue.push(currNode.left)
+                leftSum+=currNode.left.val
+            }
+
+            if(currNode.right){
+            queue.push(currNode.right)
+            }
+
+
+}    
+
+
+return leftSum
+};
+
+
+sumOfLeftLeaves([3,9,20,null,null,15,7])
+
+
+const isSameTree = function(p, q) {
+  const q1 = [];
+  q1.push(p);
+  
+  const q2 = [];
+  q2.push(q);
+  
+  while (q1.length && q2.length) {
+    const curr1 = q1.shift();
+    const curr2 = q2.shift();
+    
+    // checking null
+    if (curr1 === null || curr2 === null) {
+      if (curr1 !== curr2) {
+        return false;
+      } else {
+        continue;
+      }
+    }
+    
+    // checking val
+    if (curr1.val !== curr2.val) return false;
+    
+    // adding children to queues
+    q1.push(curr1.left, curr1.right);
+    q2.push(curr2.left, curr2.right);
+  }
+  
+  if (q1.length || q2.length) {
+    return false;
+  }
+  
+  return true;
+};
