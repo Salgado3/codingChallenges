@@ -869,32 +869,46 @@ c.right = f;
 //  });
 // });
 
-const magazine =
- "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+// const magazine =
+//  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
 
-function RansomNote (note, magazine) {
+// function RansomNote (note, magazine) {
 
-let magMap = magazine.split(" ")
+// let magMap = magazine.split(" ")
 
-let map = new Map()
+// let map = new Map()
 
-for(let i=0; i<magMap.length;i++){
-map.set(magMap[i], map.get(magMap[i]) +1 || 1)
+// for(let i=0; i<magMap.length;i++){
+// map.set(magMap[i], map.get(magMap[i]) +1 || 1)
 
-}
+// }
 
-    let noteLetters = note.split(" ")
-for(let i=0; i<noteLetters.length;i++){
-        if(map.get(noteLetters[i]) >0){
-          map.set(noteLetters[i], map.get(noteLetters[i])-1 )
+//     let noteLetters = note.split(" ")
+// for(let i=0; i<noteLetters.length;i++){
+//         if(map.get(noteLetters[i]) >0){
+//           map.set(noteLetters[i], map.get(noteLetters[i])-1 )
          
-        }else{
-          return false
-        }
-}
-  return true
+//         }else{
+//           return false
+//         }
+// }
+//   return true
+// }
+
+// console.log(RansomNote("sit ad est love", magazine),false)
+//  console.log(RansomNote("sit ad est sint in in", magazine),true)
+//  console.log(RansomNote("sit ad est sint in in in in", magazine),false)
+
+// Euclids algo 
+
+let gcd = (a,b) => {
+
+if(!b) {
+  return a
 }
 
-console.log(RansomNote("sit ad est love", magazine),false)
- console.log(RansomNote("sit ad est sint in in", magazine),true)
- console.log(RansomNote("sit ad est sint in in in in", magazine),false)
+return gcd(b, a%b)
+
+}
+
+console.log(gcd(1680,640))
