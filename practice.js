@@ -921,38 +921,49 @@ c.right = f;
 //  });
 // });
 
-function twoSum (nums, sum) {
-    let map = new Map() 
-    let resultArr = []
+// function twoSum (nums, sum) {
+//     let map = new Map() 
+//     let resultArr = []
 
-  for(let i=0; i<nums.length; i++){
-    let target = sum - nums[i]
+//   for(let i=0; i<nums.length; i++){
+//     let target = sum - nums[i]
 
-    if(!map.has(target)){
-      map.set(nums[i], true)
-    }else{
-        resultArr.push([target,nums[i]])
+//     if(!map.has(target)){
+//       map.set(nums[i], true)
+//     }else{
+//         resultArr.push([target,nums[i]])
    
-    }
-  }
+//     }
+//   }
 
 
-return resultArr
+// return resultArr
 
+// }
+
+
+
+// var twoSum = function(nums, target) {
+//   let map = new Map();
+  
+//   for(let i = 0; i < nums.length; i ++) {
+//       if(map.has(target - nums[i])) {
+//           return [map.get(target - nums[i]), i];
+//       } else {
+//           map.set(nums[i], i);
+//       }
+//   }
+// return [];
+// };
+// console.log(twoSum([1, 2, 2, 3, 4], 4))
+
+function fib(n) {
+ let arr =[0,1]
+if (n == 0){
+  return n
 }
 
+return n+fib(n-1)
+}
 
-
-var twoSum = function(nums, target) {
-  let map = new Map();
-  
-  for(let i = 0; i < nums.length; i ++) {
-      if(map.has(target - nums[i])) {
-          return [map.get(target - nums[i]), i];
-      } else {
-          map.set(nums[i], i);
-      }
-  }
-return [];
-};
-console.log(twoSum([1, 2, 2, 3, 4], 4))
+console.log(fib(4))
