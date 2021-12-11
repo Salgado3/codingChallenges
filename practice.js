@@ -967,3 +967,5 @@ return n+fib(n-1)
 }
 
 console.log(fib(4))
+
+// daily challenge
