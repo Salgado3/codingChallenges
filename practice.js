@@ -957,15 +957,23 @@ c.right = f;
 // };
 // console.log(twoSum([1, 2, 2, 3, 4], 4))
 
-function fib(n) {
- let arr =[0,1]
-if (n == 0){
-  return n
-}
-
-return n+fib(n-1)
-}
-
-console.log(fib(4))
-
 // daily challenge
+
+
+const productExceptSelf = function(nums) {
+  const res = [ 1 ];
+
+  for (let i = 1; i < nums.length; i++)
+      res.push( res[i - 1] * nums[i - 1] );
+
+  let right = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+      res[i] *= right;
+      right *= nums[i];
+  }
+
+  return res;
+};
+
+console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
+
