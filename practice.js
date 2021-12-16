@@ -960,22 +960,22 @@ c.right = f;
 // daily challenge
 
 
-const productExceptSelf = function(nums) {
-  const res = [ 1 ];
+// const productExceptSelf = function(nums) {
+//   const res = [ 1 ];
 
-  for (let i = 1; i < nums.length; i++)
-      res.push( res[i - 1] * nums[i - 1] );
+//   for (let i = 1; i < nums.length; i++)
+//       res.push( res[i - 1] * nums[i - 1] );
 
-  let right = 1;
-  for (let i = nums.length - 1; i >= 0; i--) {
-      res[i] *= right;
-      right *= nums[i];
-  }
+//   let right = 1;
+//   for (let i = nums.length - 1; i >= 0; i--) {
+//       res[i] *= right;
+//       right *= nums[i];
+//   }
 
-  return res;
-};
+//   return res;
+// };
 
-console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
+// console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
 
 /// 12/13
 
@@ -1001,16 +1001,6 @@ console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
 // Output: 3
 // Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
-function fib(n){
-  let arr = [0,1]
-  for(let i = 2; i <= n; i++){
-    arr[i] = arr[i - 2] + arr[i - 1]
-  }
-  return arr[n]
-}
-console.log(fib(2), 1)
-console.log(fib(4), 3)
-
 
 // Euclids algo 
 
@@ -1023,3 +1013,39 @@ console.log(fib(4), 3)
 // return gcd(smallNum, bigNum % smallNum)
 
 // }
+
+//12/16/2021
+
+
+// function fib(n){
+//   let arr = [0,1]
+//   for(let i = 2; i <= n; i++){
+//     arr[i] = arr[i - 2] + arr[i - 1]
+//   }
+//   return arr[n]
+// }
+// console.log(fib(2), 1)
+// console.log(fib(4), 3)
+
+
+
+
+function fib(n) {
+  let memo = new Map
+if (n <2){
+  return n
+}
+
+  if(!memo.has(n)){
+    let result = fib(n-1) + fib(n-2)
+    memo.set(n,result)
+    return result
+  }else {
+    return memo.get(n)
+  }
+
+
+}
+
+console.log(fib(2), 1)
+console.log(fib(4), 3)
