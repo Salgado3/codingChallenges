@@ -1010,3 +1010,16 @@ function fib(n){
 }
 console.log(fib(2), 1)
 console.log(fib(4), 3)
+
+
+// Euclids algo 
+
+// let gcd = (bigNum, smallNum) => {
+
+// if(!smallNum) {
+//   return bigNum
+// }
+
+// return gcd(smallNum, bigNum % smallNum)
+
+// }
