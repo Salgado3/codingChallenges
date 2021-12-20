@@ -1030,22 +1030,38 @@ c.right = f;
 
 
 
-function fib(n) {
-  let memo = new Map
-if (n <2){
-  return n
-}
+// function fib(n) {
+//   let memo = new Map()
+// if (n <2){
+//   return n
+// }
 
-  if(!memo.has(n)){
-    let result = fib(n-1) + fib(n-2)
-    memo.set(n,result)
-    return result
-  }else {
-    return memo.get(n)
+//   if(!memo.has(n)){
+//     let result = fib(n-1) + fib(n-2)
+//     memo.set(n,result)
+//     return result
+//   }else {
+//     return memo.get(n)
+//   }
+
+
+// }
+
+var fib = function(n) {
+  let memo = new Map()
+    if(n< 2){
+      return n
   }
-
-
-}
+  
+      if(!memo.has(n)){
+        let result = fib(n-1) + fib(n-2)
+        memo.set(n,result)
+        return result
+  }else {
+      return memo.get(n)
+  }
+      console.log(memo)
+  };
 
 console.log(fib(2), 1)
 console.log(fib(4), 3)
