@@ -1047,21 +1047,40 @@ c.right = f;
 
 // }
 
-var fib = function(n) {
-  let memo = new Map()
-    if(n< 2){
-      return n
-  }
+// var fib = function(n) {
+//   let memo = new Map()
+//     if(n< 2){
+//       return n
+//   }
   
-      if(!memo.has(n)){
-        let result = fib(n-1) + fib(n-2)
-        memo.set(n,result)
-        return result
-  }else {
-      return memo.get(n)
-  }
-      console.log(memo)
-  };
+//       if(!memo.has(n)){
+//         let result = fib(n-1) + fib(n-2)
+//         memo.set(n,result)
+//         return result
+//   }else {
+//       return memo.get(n)
+//   }
+//       console.log(memo)
+//   };
 
-console.log(fib(2), 1)
-console.log(fib(4), 3)
+// console.log(fib(2), 1)
+// console.log(fib(4), 3)
+
+const anagrams = (s1, s2) => {
+  let map1 = new Map()
+  let map2 = new Map()
+
+for(let i=0; i <s1.length; i++){
+    if(map1.has(s1[i])) {
+    map1.set(s1[i],map1.get(s1[i])+1)
+    }else {
+        map1.set(s1[i],1)
+      }
+
+} 
+console.log(map1)
+};
+
+anagrams('restful', 'fluster');
+
+
