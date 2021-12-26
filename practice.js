@@ -1066,21 +1066,40 @@ c.right = f;
 // console.log(fib(2), 1)
 // console.log(fib(4), 3)
 
-const anagrams = (s1, s2) => {
-  let map1 = new Map()
-  let map2 = new Map()
+// const anagrams = (s1, s2) => {
+//   let map1 = new Map()
+//   let map2 = new Map()
 
-for(let i=0; i <s1.length; i++){
-    if(map1.has(s1[i])) {
-    map1.set(s1[i],map1.get(s1[i])+1)
-    }else {
-        map1.set(s1[i],1)
-      }
+// for(let i=0; i <s1.length; i++){
+//     if(map1.has(s1[i])) {
+//     map1.set(s1[i],map1.get(s1[i])+1)
+//     }else {
+//         map1.set(s1[i],1)
+//       }
 
-} 
-console.log(map1)
+// } 
+// console.log(map1)
+// };
+
+// anagrams('restful', 'fluster');
+
+const pairSum = (numbers, targetSum) => {
+  let map = {}
+
+for(let i = 0; i<numbers.length; i++) {
+    let num1 = numbers[i] 
+    let compliment = targetSum - num1
+      
+      if(map[compliment]!== undefined) {
+        console.log([i,map[compliment]])
+    
+    }
+     map[num1] = i
+    
+}
+
 };
 
-anagrams('restful', 'fluster');
 
 
+pairSum([3, 2, 5, 4, 1], 8)
