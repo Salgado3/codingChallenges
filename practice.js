@@ -1083,23 +1083,46 @@ c.right = f;
 
 // anagrams('restful', 'fluster');
 
-const pairSum = (numbers, targetSum) => {
-  let map = {}
+// const pairSum = (numbers, targetSum) => {
+//   let map = {}
 
-for(let i = 0; i<numbers.length; i++) {
-    let num1 = numbers[i] 
-    let compliment = targetSum - num1
+// for(let i = 0; i<numbers.length; i++) {
+//     let num1 = numbers[i] 
+//     let compliment = targetSum - num1
       
-      if(map[compliment]!== undefined) {
-        console.log([i,map[compliment]])
+//       if(map[compliment]!== undefined) {
+//         console.log([i,map[compliment]])
     
+//     }
+//      map[num1] = i
+    
+// }
+
+// };
+
+
+
+// pairSum([3, 2, 5, 4, 1], 8)
+
+function bfs (root) {
+  let queue = [ root ]
+
+
+  while(queue>0) {
+      let current  = queue.shift()
+
+      if(current.left!==null) {
+          queue.push(current.left)
+
+      }
+      if(current.right!==null) {
+        queue.push(current.right)
+
     }
-     map[num1] = i
-    
+
+
+
+  }
+
+
 }
-
-};
-
-
-
-pairSum([3, 2, 5, 4, 1], 8)
