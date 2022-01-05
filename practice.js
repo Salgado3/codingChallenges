@@ -1104,25 +1104,100 @@ c.right = f;
 
 // pairSum([3, 2, 5, 4, 1], 8)
 
-function bfs (root) {
-  let queue = [ root ]
+// function bfs (root) {
+//   let queue = [ root ]
 
 
-  while(queue>0) {
-      let current  = queue.shift()
+//   while(queue>0) {
+//       let current  = queue.shift()
 
-      if(current.left!==null) {
-          queue.push(current.left)
+//       if(current.left!==null) {
+//           queue.push(current.left)
 
-      }
-      if(current.right!==null) {
-        queue.push(current.right)
+//       }
+//       if(current.right!==null) {
+//         queue.push(current.right)
 
-    }
-
-
-
-  }
+//     }
 
 
-}
+
+//   }
+
+
+// }
+
+
+
+
+
+// function meanArrays(arr) {
+//   let set = new Set()
+//   let meanArr = []
+//   let resultArr = []
+// for(let i = 0; i<arr.length; i++) {
+// let mean = arr[i].reduce((a,c)=> a+c,0)/arr[i].length
+//  meanArr.push(mean)
+
+// }
+
+// for(let i = 0; i<arr.length; i++) {
+//  if(meanArr.indexOf(meanArr[i])!== meanArr.lastIndexOf(meanArr[i])){
+//      set.add([meanArr.indexOf(meanArr[i]),meanArr.lastIndexOf(meanArr[i])])
+// }else {
+//   set.add(meanArr.indexOf(meanArr[i]))
+// }
+
+// }
+  
+// return set
+// }
+
+
+// console.log(meanArrays([[3,3,4,2], [4,4],[4,0,3,3],[2,3],[3,3,3]]))
+
+
+
+// function division(a, k) {
+// let hashMap = new Map()
+// let count = 0
+// //check if we add two elements together can we get 0 from % k
+// for(let i = 0 ; i < a.length; i++) {
+//        let current = a[i]
+//        let compliment = current % k
+//     if(hashMap.has()) {
+
+//       count++
+//     }else {
+//       hashMap.set(current)
+//     }
+
+
+
+// }
+
+
+
+
+// }
+
+// console.log(division([1,2,3,4,5], 3))
+
+//google
+// let number;
+// for(var i =0 ; i <5; i++) {
+//   number = i;
+// setTimeout(function(){
+//   console.log(number)},1000)
+
+// }
+// console.log(number)
+
+
+
+// for(let i =0 ; i <5; i++) {
+ 
+// setTimeout(function(){
+//   console.log(i)},1000)
+
+// }
