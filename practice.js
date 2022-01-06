@@ -960,22 +960,23 @@ c.right = f;
 // daily challenge
 
 
-// const productExceptSelf = function(nums) {
-//   const res = [ 1 ];
+var productExceptSelf = function(nums) {
+  const res = [ 1 ];
 
-//   for (let i = 1; i < nums.length; i++)
-//       res.push( res[i - 1] * nums[i - 1] );
+  for (let i = 1; i < nums.length; i++)
+      res.push( res[i - 1] * nums[i - 1] );
 
-//   let right = 1;
-//   for (let i = nums.length - 1; i >= 0; i--) {
-//       res[i] *= right;
-//       right *= nums[i];
-//   }
+  let right = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+      res[i] *= right;
+      right *= nums[i];
+  }
 
-//   return res;
-// };
+  return res;
+};
 
-// console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
+console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
+
 
 /// 12/13
 
