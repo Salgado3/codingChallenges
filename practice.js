@@ -960,22 +960,22 @@ c.right = f;
 // daily challenge
 
 
-var productExceptSelf = function(nums) {
-  const res = [ 1 ];
+// var productExceptSelf = function(nums) {
+//   const res = [ 1 ];
 
-  for (let i = 1; i < nums.length; i++)
-      res.push( res[i - 1] * nums[i - 1] );
+//   for (let i = 1; i < nums.length; i++)
+//       res.push( res[i - 1] * nums[i - 1] );
 
-  let right = 1;
-  for (let i = nums.length - 1; i >= 0; i--) {
-      res[i] *= right;
-      right *= nums[i];
-  }
+//   let right = 1;
+//   for (let i = nums.length - 1; i >= 0; i--) {
+//       res[i] *= right;
+//       right *= nums[i];
+//   }
 
-  return res;
-};
+//   return res;
+// };
 
-console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
+// console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
 
 
 /// 12/13
@@ -1202,3 +1202,32 @@ console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
 //   console.log(i)},1000)
 
 // }
+
+// 1/6/2022
+// most frequent char
+
+// Write a function, mostFrequentChar, that takes in a string as an argument. The function should return the most frequent character of the string. If there are ties, return the character that appears earlier in the string.
+
+// You can assume that the input string is non-empty.
+
+const mostFrequentChar = (s) => {
+  let map = new Map() 
+  let max = 0
+  let maxChar
+for( let char of s) {
+   map.has(char) ? map.set(char,map.get(char)+1): map.set(char,1)
+}
+
+
+for(let [key,value] of map.entries()) {
+  if(value> max) {
+     max =value
+    maxChar = key
+}
+
+}
+
+return maxChar
+};
+
+console.log(mostFrequentChar('bookeeper'))
