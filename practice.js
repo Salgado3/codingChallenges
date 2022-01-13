@@ -1250,22 +1250,39 @@ console.log(mostFrequentChar('bookeeper'))
 //   }
 // }
 
-const removeNode = (head, targetVal) => {
-  if(head.val === targetVal) return head.next
-         let previous = null
-         let current = head
+// const removeNode = (head, targetVal) => {
+//   if(head.val === targetVal) return head.next
+//          let previous = null
+//          let current = head
   
   
-      while(current!==null){
-        if(current.val === targetVal) {
-          prev.next = current.next
-           break;
-         }
-             prev = current
-           current = current.next
-      }
+//       while(current!==null){
+//         if(current.val === targetVal) {
+//           prev.next = current.next
+//            break;
+//          }
+//              prev = current
+//            current = current.next
+//       }
   
-    return head
-  };
+//     return head
+//   };
   
-  
+// 1/12/2022 
+
+// String ends with? (JavaScript)
+// ← back to kata solutions
+// 55015767,542jhoffner
+// countTheShellz12
+
+// function solution(str, ending){
+ 
+// for(let i = 0; i < ending.length; i++) {
+//     if(str[str.length-1-i] === ending[ending.length-1-i]){
+//            continue
+//           }else {return false} 
+     
+// }
+
+// return true
+// }
