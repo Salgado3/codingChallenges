@@ -1210,27 +1210,7 @@ c.right = f;
 
 // You can assume that the input string is non-empty.
 
-const mostFrequentChar = (s) => {
-  let map = new Map() 
-  let max = 0
-  let maxChar
-for( let char of s) {
-   map.has(char) ? map.set(char,map.get(char)+1): map.set(char,1)
-}
 
-
-for(let [key,value] of map.entries()) {
-  if(value> max) {
-     max =value
-    maxChar = key
-}
-
-}
-
-return maxChar
-};
-
-console.log(mostFrequentChar('bookeeper'))
 //1/8/2022
 
 // remove node
@@ -1286,3 +1266,26 @@ console.log(mostFrequentChar('bookeeper'))
 
 // return true
 // }
+// 1/14/2022
+
+const mostFrequentChar = (s) => {
+  let map = new Map() 
+  let max = 0
+  let maxChar
+for( let char of s) {
+   map.has(char) ? map.set(char,map.get(char)+1): map.set(char,1)
+}
+
+
+for(let [key,value] of map.entries()) {
+  if(value> max) {
+     max =value
+    maxChar = key
+}
+
+}
+
+return maxChar
+};
+
+console.log(mostFrequentChar('bookeeper'))
