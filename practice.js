@@ -1268,24 +1268,82 @@ c.right = f;
 // }
 // 1/14/2022
 
-const mostFrequentChar = (s) => {
-  let map = new Map() 
-  let max = 0
-  let maxChar
-for( let char of s) {
-   map.has(char) ? map.set(char,map.get(char)+1): map.set(char,1)
-}
+// const mostFrequentChar = (s) => {
+//   let map = new Map() 
+//   let max = 0
+//   let maxChar
+// for( let char of s) {
+//    map.has(char) ? map.set(char,map.get(char)+1): map.set(char,1)
+// }
 
 
-for(let [key,value] of map.entries()) {
-  if(value> max) {
-     max =value
-    maxChar = key
-}
+// for(let [key,value] of map.entries()) {
+//   if(value> max) {
+//      max =value
+//     maxChar = key
+// }
 
-}
+// }
 
-return maxChar
+// return maxChar
+// };
+
+// console.log(mostFrequentChar('bookeeper'))
+
+// 1/15/2022 building a graph from edge list
+
+// undirected path
+
+// Write a function, undirectedPath, that takes in an array of edges for an undirected graph and two nodes (nodeA, nodeB). The function should return a boolean indicating whether or not there exists a path between nodeA and nodeB.
+// test_00:
+const undirectedPath = (edges, nodeA, nodeB) => {
+  let graph = buildGraph(edges)
+  let stack = [nodeA]
+  let visited = new Set()
+  
+  while(stack.length > 0) {
+    let current = stack.pop()
+    if(current === nodeB) return true
+
+for(let neighbor of graph[current]){
+   if(visited.has(neighbor)){
+          continue;
+       }else{
+       visited.add(neighbor)  
+       stack.push(neighbor)  
+        }
+
+   }
+
+  }
+
+return false
 };
 
-console.log(mostFrequentChar('bookeeper'))
+
+function buildGraph(edges) {
+ const graph = {} 
+
+
+for(let edge of edges) {
+    const [a,b] = edge
+
+if(!(a in graph)) graph[a] = []  
+if(!(b in graph)) graph[b] = []   
+ graph[a].push(b)
+ graph[b].push(a)
+}
+return graph
+}
+
+
+
+const edges = [
+  ['i', 'j'],
+  ['k', 'i'],
+  ['m', 'k'],
+  ['k', 'l'],
+  ['o', 'n']
+];
+
+console.log(undirectedPath(edges, 'j', 'm')); // -> true
