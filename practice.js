@@ -1428,3 +1428,4 @@ return arr
 }
 
 console.log(zerosAtEnd([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]))
+
