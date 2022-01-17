@@ -1348,3 +1348,83 @@ c.right = f;
 
 // console.log(buildGraph(edges)); // -> true
 
+// 121. Best Time to Buy and Sell Stock
+// Easy
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+ 
+// Example 1:
+
+// Input: prices = [7,1,5,3,6,4]
+// Output: 5
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+// Example 2:
+
+// Input: prices = [7,6,4,3,1]
+// Output: 0
+// Explanation: In this case, no transactions are done and the max profit = 0.
+
+
+// function sellStock(arr) {
+//    let profit = 0
+//    let min = Infinity
+
+// for(let prices of arr) {
+//     if(prices < min) min = prices 
+//     if(profit <prices-min) profit = prices-min
+// }
+
+// return profit
+// }
+
+// console.log(sellStock([7,1,5,3,6,4]),  5)
+
+// In this Kata, you will be given an array of unique elements, and your task is to rearrange the values so that the first max value is followed by the first minimum, followed by second max value then second min value, etc.
+
+// For example:
+
+// solve([15,11,10,7,12]) = [15,7,12,10,11]
+
+// The first max is 15 and the first min is 7. The second max is 12 and the second min is 10 and so on.
+
+// More examples in the test cases.
+
+// Good luck!
+
+// function minMaxArr(arr) {
+//   let sorted = arr.sort((a,b)=>a-b)
+//   let resultArr =[]
+//   while(arr.length > 0) {
+//    if(arr.length > 0) resultArr.push(sorted.pop())
+//    if(arr.length > 0) resultArr.push(sorted.shift())
+//   }
+
+//  return resultArr
+// }
+
+// console.log(minMaxArr([15,11,10,7,12]),[15,7,12,10,11])
+
+
+function zerosAtEnd (arr){
+  let i = 0
+  let j = arr.length-1
+
+
+  while(i<j){
+  if(arr[j] == 0) {
+   j--
+  }else if(arr[i] !== 0){
+    i++
+  }else {
+   [arr[i],arr[j]] = [ arr[j],arr[i] ]
+   
+  }
+
+}
+return arr
+}
+
+console.log(zerosAtEnd([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]))
