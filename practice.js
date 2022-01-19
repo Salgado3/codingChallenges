@@ -1408,24 +1408,41 @@ c.right = f;
 // console.log(minMaxArr([15,11,10,7,12]),[15,7,12,10,11])
 
 
-function zerosAtEnd (arr){
-  let i = 0
-  let j = arr.length-1
+// function zerosAtEnd (arr){
+//   let i = 0
+//   let j = arr.length-1
 
 
-  while(i<j){
-  if(arr[j] == 0) {
-   j--
-  }else if(arr[i] !== 0){
-    i++
-  }else {
-   [arr[i],arr[j]] = [ arr[j],arr[i] ]
+//   while(i<j){
+//   if(arr[j] == 0) {
+//    j--
+//   }else if(arr[i] !== 0){
+//     i++
+//   }else {
+//    [arr[i],arr[j]] = [ arr[j],arr[i] ]
    
-  }
+//   }
 
-}
-return arr
-}
+// }
+// return arr
+// }
 
-console.log(zerosAtEnd([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]))
+// console.log(zerosAtEnd([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]))
 
+
+
+const grid = [
+  ['W', 'L', 'W', 'W', 'W'],
+  ['W', 'L', 'W', 'W', 'W'],
+  ['W', 'W', 'W', 'L', 'W'],
+  ['W', 'W', 'L', 'L', 'W'],
+  ['L', 'W', 'W', 'L', 'L'],
+  ['L', 'L', 'W', 'W', 'W'],
+];
+
+
+console.log(grid[0])
+console.log(grid[0].length)
+
+console.log(grid)
+console.log(grid.length)
