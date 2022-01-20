@@ -1456,94 +1456,111 @@ c.right = f;
 // word : "FAD"=> true
 // word : "ACE" => false
 
-function wordSearch(grid, word) {
-    let visited = new Set()
-  for(let r = 0; r < grid.length; r++) {
-   for(let c = 0; c <grid[0].length; c++){
-       if(grid[r][c] === word.charAt(0) && explore(grid,word, r, c, visited, 0)) {
+// function wordSearch(grid, word) {
+//     let visited = new Set()
+//   for(let r = 0; r < grid.length; r++) {
+//    for(let c = 0; c <grid[0].length; c++){
+//        if(grid[r][c] === word.charAt(0) && explore(grid,word, r, c, visited, 0)) {
 
-        return true
+//         return true
 
-       }
+//        }
 
-   }
+//    }
 
-  }
-  return false
-}
+//   }
+//   return false
+// }
 
-function explore(grid,word, r, c, visited, count) {
-  const rowInbounds = 0<= r && r < grid.length
-  const colInbounds = 0<= c && c < grid[0].length
-  if(!rowInbounds || colInbounds) return false
+// function explore(grid,word, r, c, visited, count) {
+//   const rowInbounds = 0<= r && r < grid.length
+//   const colInbounds = 0<= c && c < grid[0].length
+//   if(!rowInbounds || colInbounds) return false
 
-  let pos = `${r},${c}`
-  if(visited.has(pos)) return false
-  visited.add(pos)
+//   let pos = `${r},${c}`
+//   if(visited.has(pos)) return false
+//   visited.add(pos)
     
-      if(!grid[r][c] !== word.charAt(count)) return false
+//       if(!grid[r][c] !== word.charAt(count)) return false
 
     
-  explore(grid,word, r, c, visited, count+1)
-  explore(grid,word, r, c, visited, count+1)
-  explore(grid,word, r, c, visited, count+1)
-  explore(grid,word, r, c, visited, count+1)
+//   explore(grid,word, r, c, visited, count+1)
+//   explore(grid,word, r, c, visited, count+1)
+//   explore(grid,word, r, c, visited, count+1)
+//   explore(grid,word, r, c, visited, count+1)
  
-  return true
-} 
+//   return true
+// } 
 
-let grid = [
-  ["A","B","C","D"],
-  ["A","A","F","A"],
-  ["A","B","D","D"],
-]
+// let grid = [
+//   ["A","B","C","D"],
+//   ["A","A","F","A"],
+//   ["A","B","D","D"],
+// ]
 
-console.log(wordSearch(grid,"ABC"))
+// console.log(wordSearch(grid,"ABC"))
 
 
-The idea
+// The idea
 
-Since it's obvious that there will be a lot of repetitive work, such as checking up, down, left, right for lots of characters, we can use recusion to simplify our code.
-Our base case will need to check:
+// Since it's obvious that there will be a lot of repetitive work, such as checking up, down, left, right for lots of characters, we can use recusion to simplify our code.
+// Our base case will need to check:
 
-    are we getting out of boundary? if yes, get out.
-    are we getting a wrong character? If yes, get out.
-    did we find every character from the work? If yes, great, we have found this word.
-    Otherwise keep exploring characters for all directions.
+//     are we getting out of boundary? if yes, get out.
+//     are we getting a wrong character? If yes, get out.
+//     did we find every character from the work? If yes, great, we have found this word.
+//     Otherwise keep exploring characters for all directions.
 
-/**
- * @param {character[][]} board
- * @param {string} word
- * @return {boolean}
- */
-var exist = function(board, word) {
-    let result = false;
-    var check = function(r, c, i) {
-        if (!result) {
-            if (r < 0 || c < 0 || r >= board.length || c >= board[0].length) return; // out of boundary
-            if (board[r][c] != word[i]) return; // wrong character
-            if (i == word.length - 1) { // got to the end means we found a correct path
-                result = true;
-                return;
-            }
-            board[r][c] = null; // mark our path so we dont go back and forth
-			// try all directions
-            check(r+1,c,i+1)
-            check(r-1,c,i+1)
-            check(r,c+1,i+1)
-            check(r,c-1,i+1)
-            board[r][c] = word[i] // reset our board , very important
-        }
-    }
+// /**
+//  * @param {character[][]} board
+//  * @param {string} word
+//  * @return {boolean}
+//  */
+// var exist = function(board, word) {
+//     let result = false;
+//     var check = function(r, c, i) {
+//         if (!result) {
+//             if (r < 0 || c < 0 || r >= board.length || c >= board[0].length) return; // out of boundary
+//             if (board[r][c] != word[i]) return; // wrong character
+//             if (i == word.length - 1) { // got to the end means we found a correct path
+//                 result = true;
+//                 return;
+//             }
+//             board[r][c] = null; // mark our path so we dont go back and forth
+// 			// try all directions
+//             check(r+1,c,i+1)
+//             check(r-1,c,i+1)
+//             check(r,c+1,i+1)
+//             check(r,c-1,i+1)
+//             board[r][c] = word[i] // reset our board , very important
+//         }
+//     }
 
-    for (let i=0;i<board.length;i++) {
-        for (let j=0;j<board[0].length;j++) {
-            if (board[i][j] == word[0]) {
-                check(i, j, 0)
-                if (result) return result;
-            }
-        }
-    }
+//     for (let i=0;i<board.length;i++) {
+//         for (let j=0;j<board[0].length;j++) {
+//             if (board[i][j] == word[0]) {
+//                 check(i, j, 0)
+//                 if (result) return result;
+//             }
+//         }
+//     }
     
-    return result;
+//     return result;
+// };
+
+
+// 1/21/2022
+
+const anagrams = (s1, s2) => {
+  let map = new Map()
+
+ for(char of s1) {
+   !map.has(char) ?  map.set(char, 1):  map.set(char, map.get(char)+1)
+
+
+
+}
+return map
 };
+
+console.log(anagrams('night', 'thing'))
