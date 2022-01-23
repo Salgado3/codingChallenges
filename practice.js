@@ -1564,3 +1564,43 @@ return map
 };
 
 console.log(anagrams('night', 'thing'))
+
+
+const rotate = function(nums, k) {
+  k = k % nums.length
+
+nums.reverse()
+  revNums(nums,0, k-1)
+  revNums(nums, k, nums.length-1)
+
+return nums
+
+}
+
+const revNums = (nums, start, end)=> {
+ 
+  while(start < end){
+   [nums[start], nums[end]] =  [nums[end], nums[start]]
+
+  start++
+  end--
+}
+
+}
+
+
+const maxArea = function(height) {
+  let area = 0, left = 0, right = height.length-1
+
+
+ while(left < right) {
+      const tempArea =(right-left)*Math.min(height[left], height[right])
+
+    height[left] <= height[right] ? left++ : right --    
+
+   area = Math.max(tempArea, area)
+
+
+ }
+  return area
+};
