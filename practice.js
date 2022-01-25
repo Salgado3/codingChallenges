@@ -1665,3 +1665,17 @@ function mostNum (nums) {
 console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12]), 12)
 console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12, 10]), 12) 
 console.log(mostNum([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]),3)
+
+
+
+const runningSum = nums => {
+  nums.reduce((a,c,i,arr) => arr[i] += a)
+  return nums
+}
+var runningSum = function(nums) {
+  for(let i=1;i<nums.length;i++){
+      nums[i]+=nums[i-1]
+  }
+  return nums
+};
+
