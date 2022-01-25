@@ -1551,75 +1551,117 @@ c.right = f;
 
 // 1/21/2022
 
-const anagrams = (s1, s2) => {
-  let map = new Map()
+// const anagrams = (s1, s2) => {
+//   let map = new Map()
 
- for(char of s1) {
-   !map.has(char) ?  map.set(char, 1):  map.set(char, map.get(char)+1)
-
-
-
-}
-return map
-};
-
-console.log(anagrams('night', 'thing'))
+//  for(char of s1) {
+//    !map.has(char) ?  map.set(char, 1):  map.set(char, map.get(char)+1)
 
 
-const rotate = function(nums, k) {
-  k = k % nums.length
 
-nums.reverse()
-  revNums(nums,0, k-1)
-  revNums(nums, k, nums.length-1)
+// }
+// return map
+// };
 
-return nums
+// console.log(anagrams('night', 'thing'))
 
-}
 
-const revNums = (nums, start, end)=> {
+// const rotate = function(nums, k) {
+//   k = k % nums.length
+
+// nums.reverse()
+//   revNums(nums,0, k-1)
+//   revNums(nums, k, nums.length-1)
+
+// return nums
+
+// }
+
+// const revNums = (nums, start, end)=> {
  
-  while(start < end){
-   [nums[start], nums[end]] =  [nums[end], nums[start]]
+//   while(start < end){
+//    [nums[start], nums[end]] =  [nums[end], nums[start]]
 
-  start++
-  end--
-}
+//   start++
+//   end--
+// }
 
-}
-
-
-const maxArea = function(height) {
-  let area = 0, left = 0, right = height.length-1
+// }
 
 
- while(left < right) {
-      const tempArea =(right-left)*Math.min(height[left], height[right])
-
-    height[left] <= height[right] ? left++ : right --    
-
-   area = Math.max(tempArea, area)
+// const maxArea = function(height) {
+//   let area = 0, left = 0, right = height.length-1
 
 
- }
-  return area
-};
+//  while(left < right) {
+//       const tempArea =(right-left)*Math.min(height[left], height[right])
+
+//     height[left] <= height[right] ? left++ : right --    
+
+//    area = Math.max(tempArea, area)
 
 
+//  }
+//   return area
+// };
 
 
 
-const numIdenticalPairs = function(nums) {
-  const map = {}
-  let count = 0
+
+
+// const numIdenticalPairs = function(nums) {
+//   const map = {}
+//   let count = 0
   
-  for (const number of nums) {
-      if (map[number]) {
-          count += map[number];
-          map[number] += 1;
-      } else {
-          map[number] = 1;
-      }
+//   for (const number of nums) {
+//       if (map[number]) {
+//           count += map[number];
+//           map[number] += 1;
+//       } else {
+//           map[number] = 1;
+//       }
+//   }
+//   return count
+// };
+// Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+
+// Note: no empty arrays will be given.
+// Examples
+
+// [12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+// [12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+// [12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+
+
+
+function mostNum (nums) {
+  let map = new Map()
+  let max = 0
+  let maxKey = 0
+  for(let num of nums) {
+  if(map.has(num)) map.set(num, map.get(num)+1)
+  
+  else map.set(num, 1)
+  
   }
-  return count
-};
+  for(let [key,value] of map.entries()) {
+   if(value > max){ 
+   max = value 
+   maxKey = key
+  }
+   if(value === max) {
+       if(maxKey < key) {
+   max = value 
+   maxKey = key
+    }
+     }
+    }
+  
+  return maxKey
+  }
+  
+
+
+console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12]), 12)
+console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12, 10]), 12) 
+console.log(mostNum([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]),3)
