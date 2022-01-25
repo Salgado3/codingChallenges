@@ -1683,22 +1683,16 @@ c.right = f;
 
 function majorityEl (arr) {
 let map = new Map()
-let maxKey = 0
-let maxVal = 0
 
 for (let num of arr) {
 if(map.has(num)) map.set(num,map.get(num)+1);
 else map.set(num,1);
 }
 
-for(let [key,value] of map.entries() ){
- if(value > maxVal){
-   maxVal = value
-   maxKey = key
- }
+for(let i=0; i < arr.length; i++){
+ return map.get(arr[i]) > arr.length/2 ? arr[i] :false
 
 }
-return maxKey
 }
 
 console.log(majorityEl([3,2,3]), 3)
