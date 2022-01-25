@@ -1634,48 +1634,72 @@ c.right = f;
 
 
 
-function mostNum (nums) {
-  let map = new Map()
-  let max = 0
-  let maxKey = 0
-  for(let num of nums) {
-  if(map.has(num)) map.set(num, map.get(num)+1)
+// function mostNum (nums) {
+//   let map = new Map()
+//   let max = 0
+//   let maxKey = 0
+//   for(let num of nums) {
+//   if(map.has(num)) map.set(num, map.get(num)+1)
   
-  else map.set(num, 1)
+//   else map.set(num, 1)
   
-  }
-  for(let [key,value] of map.entries()) {
-   if(value > max){ 
-   max = value 
-   maxKey = key
-  }
-   if(value === max) {
-       if(maxKey < key) {
-   max = value 
-   maxKey = key
-    }
-     }
-    }
+//   }
+//   for(let [key,value] of map.entries()) {
+//    if(value > max){ 
+//    max = value 
+//    maxKey = key
+//   }
+//    if(value === max) {
+//        if(maxKey < key) {
+//    max = value 
+//    maxKey = key
+//     }
+//      }
+//     }
   
-  return maxKey
-  }
+//   return maxKey
+//   }
   
 
 
-console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12]), 12)
-console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12, 10]), 12) 
-console.log(mostNum([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]),3)
+// console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12]), 12)
+// console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12, 10]), 12) 
+// console.log(mostNum([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]),3)
 
 
 
-const runningSum = nums => {
-  nums.reduce((a,c,i,arr) => arr[i] += a)
-  return nums
+// const runningSum = nums => {
+//   nums.reduce((a,c,i,arr) => arr[i] += a)
+//   return nums
+// }
+// var runningSum = function(nums) {
+//   for(let i=1;i<nums.length;i++){
+//       nums[i]+=nums[i-1]
+//   }
+//   return nums
+// };
+
+// 169. Majority Element 
+
+function majorityEl (arr) {
+let map = new Map()
+let maxKey = 0
+let maxVal = 0
+
+for (let num of arr) {
+if(map.has(num)) map.set(num,map.get(num)+1);
+else map.set(num,1);
 }
-var runningSum = function(nums) {
-  for(let i=1;i<nums.length;i++){
-      nums[i]+=nums[i-1]
-  }
-  return nums
-};
 
+for(let [key,value] of map.entries() ){
+ if(value > maxVal){
+   maxVal = value
+   maxKey = key
+ }
+
+}
+return maxKey
+}
+
+console.log(majorityEl([3,2,3]), 3)
+console.log(majorityEl([2,2,1,1,1,2,2]), 2)
