@@ -1727,51 +1727,72 @@ c.right = f;
 
 
 
-function pinterestGrid(pins, colNums) {
-  let resultArr = []
-  let i = 0
-  while(i < colNums ) {
-  resultArr.push([])
-   i++
-  }
+// function pinterestGrid(pins, colNums) {
+//   let resultArr = []
+//   let i = 0
+//   while(i < colNums ) {
+//   resultArr.push([])
+//    i++
+//   }
   
-  for(let pin of pins) {
-     let {id, height} = pin
-  if(resultArr[0].length === 0){
-    resultArr[0].push({id, height})
-    continue
-  } 
-  
-  
-  let min = Infinity
-  let minIndex = 0
-  if(resultArr[0].length>0){
-  
-  for(let i = 0; i<resultArr.length; i++) {
+//   for(let pin of pins) {
+//      let {id, height} = pin
+//   if(resultArr[0].length === 0){
+//     resultArr[0].push({id, height})
+//     continue
+//   } 
   
   
-         let totalHeight = 0
-     for(let obj of resultArr[i]){
-         totalHeight+=obj.height
+//   let min = Infinity
+//   let minIndex = 0
+//   if(resultArr[0].length>0){
   
-     }
-     console.log(totalHeight)
-      if(totalHeight < min) {
-        min = totalHeight
-        minIndex = i  
-      }
-  }
+//   for(let i = 0; i<resultArr.length; i++) {
   
-  }
   
-  resultArr[minIndex].push({id, height})
-  }
+//          let totalHeight = 0
+//      for(let obj of resultArr[i]){
+//          totalHeight+=obj.height
   
-  return resultArr
-  }
+//      }
+//      console.log(totalHeight)
+//       if(totalHeight < min) {
+//         min = totalHeight
+//         minIndex = i  
+//       }
+//   }
   
-  console.log(pinterestGrid([ {'id': 1, 'height':200},
-  {'id': 2, 'height':150},
-  {'id': 3, 'height':50},
-  {'id': 4, 'height':100} ], 3))
+//   }
   
+//   resultArr[minIndex].push({id, height})
+//   }
+  
+//   return resultArr
+//   }
+  
+//   console.log(pinterestGrid([ {'id': 1, 'height':200},
+//   {'id': 2, 'height':150},
+//   {'id': 3, 'height':50},
+//   {'id': 4, 'height':100} ], 3))
+  
+
+function vowelShift(str) {
+let vowels = "aeiou"
+let vowelArr = []
+
+for(let char of str){
+if(vowels.includes(char)) vowelArr.push(char)
+}
+vowelArr.unshift(vowelArr.pop())
+
+let result = []
+for(let char of str) {
+  if(vowels.includes(char)) result.push(vowelArr.shift())
+  else result.push(char)
+}
+
+return result.join("")
+}
+
+
+ console.log(vowelShift( "codesignal"),"cadosegnil")  
