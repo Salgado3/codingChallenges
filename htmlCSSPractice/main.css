@@ -1,0 +1,16 @@
+*{box-sizing: border-box;}
+
+div {
+    border: 5px solid #fe6ebe;
+    border-radius: 25% 55%;
+    height: 100px;
+    width: 75%;
+    font-size: 64px;
+    box-shadow: rgb(88, 59, 59);
+    float: left;
+    clear: both;
+    margin-left: 5%;
+    margin-top: 10%;
+    padding: 1% 10%;
+}
+

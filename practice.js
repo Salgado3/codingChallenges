@@ -1681,19 +1681,97 @@ c.right = f;
 
 // 169. Majority Element 
 
-function majorityEl (arr) {
-let map = new Map()
+// function majorityEl (arr) {
+// let map = new Map()
 
-for (let num of arr) {
-if(map.has(num)) map.set(num,map.get(num)+1);
-else map.set(num,1);
-}
+// for (let num of arr) {
+// if(map.has(num)) map.set(num,map.get(num)+1);
+// else map.set(num,1);
+// }
 
-for(let i=0; i < arr.length; i++){
- return map.get(arr[i]) > arr.length/2 ? arr[i] :false
+// for(let i=0; i < arr.length; i++){
+//  return map.get(arr[i]) > arr.length/2 ? arr[i] :false
 
-}
-}
+// }
+// }
 
-console.log(majorityEl([3,2,3]), 3)
-console.log(majorityEl([2,2,1,1,1,2,2]), 2)
+// console.log(majorityEl([3,2,3]), 3)
+// console.log(majorityEl([2,2,1,1,1,2,2]), 2)
+
+
+// Write a function that takes a list of pin objects, each with a height attribute and an id attribute, and returns a grid layout.  
+
+// 1. The function also takes a number of columns.
+// 2. Column ‘height’ is the sum of the heights of the pins already placed in that column.  
+// 3. The highest scoring pins, should be placed in the column with the smallest column height.  If there is a tie, insert the pin into the first/leftmost column.  Return a grid layout of the pins.
+// 4. The output should be a list of lists
+
+// Input
+
+// pins = [ {'id': 1, 'height':200},
+// {'id': 2, 'height':150},
+// {'id': 3, 'height':50},
+// {'id': 4, 'height':100} ]
+
+// layout(pins, 2)
+
+// Output
+// [
+//    # This list has the pins for the first column
+//    [ {'id': 1, 'height': 200}, 
+//      {'id': 4, 'height': 100} ], 
+//    # This list has the pins for the second column
+//    [ {'id': 2, 'height': 150}, 
+//      {'id': 3, 'height': 50} ]
+// ]
+
+
+
+function pinterestGrid(pins, colNums) {
+  let resultArr = []
+  let i = 0
+  while(i < colNums ) {
+  resultArr.push([])
+   i++
+  }
+  
+  for(let pin of pins) {
+     let {id, height} = pin
+  if(resultArr[0].length === 0){
+    resultArr[0].push({id, height})
+    continue
+  } 
+  
+  
+  let min = Infinity
+  let minIndex = 0
+  if(resultArr[0].length>0){
+  
+  for(let i = 0; i<resultArr.length; i++) {
+  
+  
+         let totalHeight = 0
+     for(let obj of resultArr[i]){
+         totalHeight+=obj.height
+  
+     }
+     console.log(totalHeight)
+      if(totalHeight < min) {
+        min = totalHeight
+        minIndex = i  
+      }
+  }
+  
+  }
+  
+  resultArr[minIndex].push({id, height})
+  }
+  
+  return resultArr
+  }
+  
+  console.log(pinterestGrid([ {'id': 1, 'height':200},
+  {'id': 2, 'height':150},
+  {'id': 3, 'height':50},
+  {'id': 4, 'height':100} ], 3))
+  
