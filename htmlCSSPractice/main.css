@@ -1,16 +1,42 @@
 *{box-sizing: border-box;}
 
-div {
-    border: 5px solid #fe6ebe;
-    border-radius: 25% 55%;
-    height: 100px;
-    width: 75%;
-    font-size: 64px;
-    box-shadow: rgb(88, 59, 59);
-    float: left;
-    clear: both;
-    margin-left: 5%;
-    margin-top: 10%;
-    padding: 1% 10%;
+h1{ 
+    color: white;
+    text-align: center;
+}
+h2{
+    color: white; 
+   border: 1px solid red;
 }
 
+body{
+    background: rgb(120,206,233);
+    border: 5px solid rgb(0,203,73);
+    padding: 20px; 
+}
+p{
+    color: white; 
+}
+a{
+    color: rgb(0,203,73); 
+}
+ul{
+    color: white;
+}
+nav{
+    text-align: center;
+}
+img{
+    max-width: 125px;
+    height: auto; 
+    float: right; 
+    margin-top: (0,0,0,15%)
+}
+
+.paragraph{
+ width: 75%;
+}
+
+.imgDiv {
+    width: 15%;
+}

@@ -1796,3 +1796,38 @@ return result.join("")
 
 
  console.log(vowelShift( "codesignal"),"cadosegnil")  
+
+ ///
+
+
+ Simple Text Editor
+
+ function processData(input) {
+  let lines = input.split("\n");
+  let str = "";
+  let last = [];
+  
+  for (var i=1; i <= parseInt(lines[0]); i++) {
+      var command = parseInt(lines[i].split(" ")[0]),
+          args = lines[i].split(" ")[1];
+
+      switch (command) {
+          case 1:
+              last.push(str);
+              str = str + args;
+              break;
+          case 2:
+              last.push(str);
+              str = str.substring(0, str.length - parseInt(args));
+              break;
+          case 3:
+              console.log(str.charAt(parseInt(args) - 1));
+              break;
+          case 4:
+              str = last.pop();
+              break;
+      }
+      
+  }
+  
+} 
