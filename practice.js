@@ -1776,58 +1776,72 @@ c.right = f;
 //   {'id': 4, 'height':100} ], 3))
   
 
-function vowelShift(str) {
-let vowels = "aeiou"
-let vowelArr = []
+// function vowelShift(str) {
+// let vowels = "aeiou"
+// let vowelArr = []
 
-for(let char of str){
-if(vowels.includes(char)) vowelArr.push(char)
-}
-vowelArr.unshift(vowelArr.pop())
+// for(let char of str){
+// if(vowels.includes(char)) vowelArr.push(char)
+// }
+// vowelArr.unshift(vowelArr.pop())
 
-let result = []
-for(let char of str) {
-  if(vowels.includes(char)) result.push(vowelArr.shift())
-  else result.push(char)
-}
+// let result = []
+// for(let char of str) {
+//   if(vowels.includes(char)) result.push(vowelArr.shift())
+//   else result.push(char)
+// }
 
-return result.join("")
-}
-
-
- console.log(vowelShift( "codesignal"),"cadosegnil")  
-
- ///
+// return result.join("")
+// }
 
 
- Simple Text Editor
+//  console.log(vowelShift( "codesignal"),"cadosegnil")  
 
- function processData(input) {
-  let lines = input.split("\n");
-  let str = "";
-  let last = [];
+//  ///
+
+
+//  Simple Text Editor
+
+//  function processData(input) {
+//   let lines = input.split("\n");
+//   let str = "";
+//   let last = [];
   
-  for (var i=1; i <= parseInt(lines[0]); i++) {
-      var command = parseInt(lines[i].split(" ")[0]),
-          args = lines[i].split(" ")[1];
+//   for (var i=1; i <= parseInt(lines[0]); i++) {
+//       var command = parseInt(lines[i].split(" ")[0]),
+//           args = lines[i].split(" ")[1];
 
-      switch (command) {
-          case 1:
-              last.push(str);
-              str = str + args;
-              break;
-          case 2:
-              last.push(str);
-              str = str.substring(0, str.length - parseInt(args));
-              break;
-          case 3:
-              console.log(str.charAt(parseInt(args) - 1));
-              break;
-          case 4:
-              str = last.pop();
-              break;
-      }
+//       switch (command) {
+//           case 1:
+//               last.push(str);
+//               str = str + args;
+//               break;
+//           case 2:
+//               last.push(str);
+//               str = str.substring(0, str.length - parseInt(args));
+//               break;
+//           case 3:
+//               console.log(str.charAt(parseInt(args) - 1));
+//               break;
+//           case 4:
+//               str = last.pop();
+//               break;
+//       }
       
-  }
+//   }
   
-} 
+// } 
+
+
+let obj ={
+jotNote: "Testing on the 27th to make sure it still works",
+timeStamp: "0:02",
+title: "Do You Know Enough JavaScript To Learn React",
+url: "https://youtu.be/JR9wsVYp8RQ?t=2",}
+
+for(let keys in obj) {
+  if(keys ==="jotNote") obj[keys] = "hello world"
+}
+
+
+console.log(obj)
