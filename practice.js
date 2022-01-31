@@ -1871,21 +1871,24 @@ let text = "Hello, this is CodeSignal!"
 let letters = ["e", "i", "h", "l", "o", "s"]
 
 
-var canBeTypedWords = function(text, letters) {
-  let textArr = text.split(" ");
-  let punctuation = "!,.?`+-="
-  let count = 0;
-  for(let word of letters){
-      for(let i=0; i<word.length; i++){
-          if(textArr.includes(word[i])){
-             
-              count++;
-              break;
-          }else if( punctuation.includes(word[i])){
-            count++;
-            break;
-          }
-      }
-  }
-  return words.length - count;
-};
+function oneJobPlease (text, letters) {
+  let textArr = text.split(" ")
+  let count = 0
+ for(let word of textArr) {
+   for(let i = 0; i<word.length; i++) {
+     if(letters.includes(word[i]) || word.charCodeAt(word[i]) <65){
+       console.log(word.charCodeAt(word[i]))
+     }else {
+     count++
+      break
+   }
+      
+   }
+ 
+   
+ }
+ 
+ return textArr.length - count
+ 
+ }
+ console.log(oneJobPlease(text,letters),2)
