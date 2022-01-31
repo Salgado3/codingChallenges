@@ -1833,15 +1833,59 @@ c.right = f;
 // } 
 
 
-let obj ={
-jotNote: "Testing on the 27th to make sure it still works",
-timeStamp: "0:02",
-title: "Do You Know Enough JavaScript To Learn React",
-url: "https://youtu.be/JR9wsVYp8RQ?t=2",}
+// let obj ={
+// jotNote: "Testing on the 27th to make sure it still works",
+// timeStamp: "0:02",
+// title: "Do You Know Enough JavaScript To Learn React",
+// url: "https://youtu.be/JR9wsVYp8RQ?t=2",}
 
-for(let keys in obj) {
-  if(keys ==="jotNote") obj[keys] = "hello world"
-}
+// for(let keys in obj) {
+//   if(keys ==="jotNote") obj[keys] = "hello world"
+// }
 
 
-console.log(obj)
+// console.log(obj)
+// 3. Longest Substring Without Repeating Characters
+// var lengthOfLongestSubstring = function(s) {
+//   const set = new Set();
+//   let longest = 0;
+//   let i = 0;
+//   let j = 0;
+
+//   while (i < s.length && j < s.length) {
+//       if (!set.has(s[j])) {
+//           set.add(s[j]);
+//           longest = Math.max(longest, j - i + 1);
+//           j += 1;
+//       } else {
+//           set.delete(s[i]);
+//           i += 1;
+//       }
+//   }
+//   return longest;
+// };
+// console.log(lengthOfLongestSubstring("pwwkew"),3)
+// // console.log(lengthOfLongestSubstring("dvdf"),3)
+
+let text = "Hello, this is CodeSignal!" 
+let letters = ["e", "i", "h", "l", "o", "s"]
+
+
+var canBeTypedWords = function(text, letters) {
+  let textArr = text.split(" ");
+  let punctuation = "!,.?`+-="
+  let count = 0;
+  for(let word of letters){
+      for(let i=0; i<word.length; i++){
+          if(textArr.includes(word[i])){
+             
+              count++;
+              break;
+          }else if( punctuation.includes(word[i])){
+            count++;
+            break;
+          }
+      }
+  }
+  return words.length - count;
+};
