@@ -1749,13 +1749,11 @@ c.right = f;
   
 //   for(let i = 0; i<resultArr.length; i++) {
   
-  
 //          let totalHeight = 0
 //      for(let obj of resultArr[i]){
 //          totalHeight+=obj.height
   
 //      }
-//      console.log(totalHeight)
 //       if(totalHeight < min) {
 //         min = totalHeight
 //         minIndex = i  
@@ -1773,7 +1771,7 @@ c.right = f;
 //   console.log(pinterestGrid([ {'id': 1, 'height':200},
 //   {'id': 2, 'height':150},
 //   {'id': 3, 'height':50},
-//   {'id': 4, 'height':100} ], 3))
+//   {'id': 4, 'height':100} ], 2))
   
 
 // function vowelShift(str) {
@@ -1867,28 +1865,28 @@ c.right = f;
 // console.log(lengthOfLongestSubstring("pwwkew"),3)
 // // console.log(lengthOfLongestSubstring("dvdf"),3)
 
-let text = "Hello, this is CodeSignal!" 
-let letters = ["e", "i", "h", "l", "o", "s"]
+// let text = "Hello, this is CodeSignal!" 
+// let letters = ["e", "i", "h", "l", "o", "s"]
 
 
-function oneJobPlease (text, letters) {
-  let textArr = text.split(" ")
-  let count = 0
- for(let word of textArr) {
-   for(let i = 0; i<word.length; i++) {
-     if(letters.includes(word[i]) || word.charCodeAt(word[i]) <65){
-       console.log(word.charCodeAt(word[i]))
-     }else {
-     count++
-      break
-   }
+// function oneJobPlease (text, letters) {
+//   let textArr = text.split(" ")
+//   let count = 0
+//  for(let word of textArr) {
+//    for(let i = 0; i<word.length; i++) {
+//      if(letters.includes(word[i]) || word.charCodeAt(word[i]) <65){
+//        console.log(word.charCodeAt(word[i]))
+//      }else {
+//      count++
+//       break
+//    }
       
-   }
+//    }
  
    
- }
+//  }
  
- return textArr.length - count
+//  return textArr.length - count
  
- }
- console.log(oneJobPlease(text,letters),2)
+//  }
+//  console.log(oneJobPlease(text,letters),2)
