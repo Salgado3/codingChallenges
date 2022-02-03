@@ -1988,55 +1988,263 @@ c.right = f;
   
 // console.log(fib(1000), 9227465)  
 
+// function textEditor(queries){
+//   let resultArr = []
+//   let str = ""
+//   let cursor = 0
+//   let select = []
+
+//   for(let query of queries) {
+//     query.length === 3 ? [command, start, finish] = query : [command, action] = query
+    
+//      if(command === "APPEND") {
+//           if(select.length) {
+//              [left, right] =select.pop()
+//             let selected = str.substring(left, right)
+//             let firstHalf = str.substring(0, left) + action
+//           resultArr.push(firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() )
+//           str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
+//           }
+//          if(cursor < str.length) {
+//           let firstHalf = str.substring(0, cursor) + action
+//           cursor = firstHalf.length
+//           resultArr.push(firstHalf + " " + str.substring(cursor).replace(/\s{2,}/g, ' ').trim() )
+           
+//          } else{
+//         cursor += action.length
+//         str += action
+//         resultArr.push(str)
+//         }
+//      }
+//      if(command === "MOVE") {
+//          if(action > cursor) {
+//             continue
+//         }else if(resultArr[resultArr.length-1].length === str){
+//              resultArr.push("")
+//         }else {
+//             cursor = action
+//          }
+//      }
+//     if(command === "DELETE") {
+//       if(select.length) {
+//         [left, right] =select.pop()
+//          if(right > str.length) { 
+//             resultArr.push(str.substring(0, left))
+//             str= str.substring(0, left)
+//          }
+//        let selected = str.substring(left, right)
+//        let firstHalf = str.substring(0, left)
+//        resultArr.push(firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() )
+//           str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
+//      resultArr.push(firstHalf )
+//      }
+//       if(cursor === str.length) {
+//         resultArr.push("")
+//       }else{
+//         resultArr.push(str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
+//       }
+      
+//     } 
+//     if(command ==="SELECT") {
+//        select.push([start, finish])
+//        resultArr.push(str)
+//     }
+
+//   }
+
+//  return resultArr
+// }
+
+// console.log(textEditor( [
+//     ["APPEND", "Hey you"],           
+//     ["MOVE", "3"],                   
+//     ["APPEND", ","]                  
+// ]))
+
+// console.log(textEditor( [
+//     ["APPEND", "Hello! world!"],      
+//     ["MOVE", "5"],                   
+//     ["DELETE"],                      
+//     ["APPEND", ","]                  
+// ]
+// ))
+
+// returns: [ "Hello! world!",
+//            "Hello! world!",
+//            "Hello world!", --> str.substring(0, 5) + str.substring(6)
+//            "Hello, world!" ]
+
+// console.log(textEditor( [         
+//   ["APPEND", "!"],                
+//   ["DELETE"],                        
+//   ["MOVE", "0"],               
+//   ["DELETE"],                   
+//   ["DELETE"]                    
+// ]))
+
+// returns: [ "!",
+//            "", --> empty bc nothing to delete
+//            "",
+//            "",
+//            "" ]
+// console.log(textEditor([
+//   ["APPEND", "Hello cruel world!"],  
+//   ["SELECT", "5", "11"],             
+//   ["APPEND", ","],                   
+//   ["SELECT", "5", "12"],            
+//   ["DELETE"],                        
+//   ["SELECT", "4", "6"],              
+//   ["MOVE", "1"]                      
+// ]))
+
+// returns: [ "Hello cruel world!", | "" -> "Hello cruel world!"
+//            "Hello cruel world!", | selects " cruel"
+//            "Hello, world!",      | "Hello cruel world!" -> "Hello, world!"
+//            "Hello, world!",       | selects ", world"
+//            "Hello!",             | "Hello, world!" -> "Hello!"
+//            "Hello!",             | selects "o!"
+//            "Hello!" ]            | moves cursor before "e", deselects "o!"
+
+
+
 function textEditor(queries){
   let resultArr = []
   let str = ""
   let cursor = 0
+  let select = []
 
   for(let query of queries) {
-     [command, action] = query
-      console.log(`this is the command: ${command}  and this is the action: ${action} `)
+    console.log("string", str)
+    const [command, action] = query
      if(command === "APPEND") {
-         if(cursor < str.length) {
-          let firstHalf = str.substring(0, cursor) + action
-          cursor = firstHalf.length
-          resultArr.push(firstHalf + " " + str.substring(cursor))
-           console.log("if statement running for append", cursor)
-         } else{
-        cursor += action.length
-        str += action
-        resultArr.push(str)
-        }
+        resultArr.push(append(query, str, cursor, select))
      }
      if(command === "MOVE") {
-        resultArr.push(str)
-         if(action > cursor) {
-            continue
-         }else {
-            cursor = action
-         }
+         let updateStr = move(query, str, cursor, select)
+         resultArr.push(updateStr)
      }
     if(command === "DELETE") {
-      //resultArr.push(str.substring(0, cursor) + str.slice(`${Number(cursor) + 1}`))
-      resultArr.push(str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
+          resultArr.push(deleteFunction(query, str, cursor, select))
+      
     } 
-    // console.log(str.replace(str.substring(5, 6), ""))
+    if(command ==="SELECT") {
+       resultArr.push(select(query, str, cursor, select))
+    }
 
   }
 
  return resultArr
 }
 
-console.log(textEditor(queries = [
-    ["APPEND", "Hey you"],           
-    ["MOVE", "3"],                   
-    ["APPEND", ","]                  
-]))
+// APPEND <text> should append the inputted string text to the document starting from the current position of the cursor. After the operation, the cursor should be at the end of the added string.
+const append = (query, str, cursor, select) => {
+  const [command, action] = query
+  console.log(`${str} this is the string in append`)
+  if(select.length) {
+    const [left, right] =select.pop()
+    let selected = str.substring(left, right)
+    let firstHalf = str.substring(0, left) + action
+    str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
+    // return str
+  }else if(cursor < str.length || cursor === str.length) {
+  let firstHalf = str.substring(0, cursor) + action
+  cursor = firstHalf.length
+   str = firstHalf
+  // return str
+   
+ } else{
+  str = str + action
+  cursor = str.length
+// return str
+}
 
-console.log(textEditor(queries = queries = [
-    ["APPEND", "Hello! world!"],      
-    ["MOVE", "5"],                   
-    ["DELETE"],                      
-    ["APPEND", ","]                  
-]
-))
+return str
+}
+
+// MOVE <position> should move the cursor to the specified position. The cursor should be positioned between document characters, and are enumerated sequentially starting from 0. If the specified position is out of bounds, then move the cursor to the nearest available position.
+const move = (query, str, cursor, select) => {
+  const [command, action] = query
+  if(action > cursor) {
+    cursor = str.length
+    console.log(str, "checking string in move")
+    
+}else if(cursor === str.length){
+     cursor = str.length
+}else {
+  cursor = action
+}
+return str
+}
+
+
+const deleteFunction = (query, str, cursor, select) => {
+  const [command, action] = query
+ 
+  if(select.length) {
+    [left, right] =select.pop()
+     if(right > str.length) { 
+      str= str.substring(0, left)
+      return str
+     }
+   let selected = str.substring(left, right)
+   let firstHalf = str.substring(0, left)
+   str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
+   return str
+ }
+
+  if(cursor === str.length) {
+    return ""
+  }else{
+    return (str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
+  }
+  
+} 
+
+
+const select = (query, str, cursor, select) => {
+ const [command, start, finish] = query
+    select.push([start, finish])
+    return str
+
+
+}
+
+
+console.log(textEditor( [
+      ["APPEND", "Hey you"],           
+      ["MOVE", "3"],                   
+      ["APPEND", ","]                  
+  ]))
+  
+//   console.log(textEditor( [
+//       ["APPEND", "Hello! world!"],      
+//       ["MOVE", "5"],                   
+//       ["DELETE"],                      
+//       ["APPEND", ","]                  
+//   ]
+//   ))
+  
+
+
+// console.log(textEditor( [         
+//   ["APPEND", "!"],                
+//   ["DELETE"],                        
+//   ["MOVE", "0"],               
+//   ["DELETE"],                   
+//   ["DELETE"]                    
+// ]))
+
+
+// console.log(textEditor( [
+//       ["APPEND", "Hello! world!"],      
+//       ["MOVE", "5"],                   
+//       ["DELETE"],                      
+//       ["APPEND", ","]                  
+//   ]
+//   ))
+  
+  // returns: [ "Hello! world!",
+  //            "Hello! world!",
+  //            "Hello world!", --> str.substring(0, 5) + str.substring(6)
+  //            "Hello, world!" ]
+  
