@@ -1890,3 +1890,153 @@ c.right = f;
  
 //  }
 //  console.log(oneJobPlease(text,letters),2)
+// function performActions(actions) {
+//   const result = [];
+//   const undoStack = [];
+//   const redoStack = [];
+
+//   actions.reverse();
+
+//   for (
+//     let action = actions.pop();
+//     action !== undefined;
+//     action = actions.pop()
+//   ) {
+//     if (action[0] === "INSERT") {
+//       result.push(action[1]);
+//       undoStack.push(action);
+//     } else if (action[0] === "DELETE") {
+//       const deletedLetter = result.pop();
+//       undoStack.push([action[0], deletedLetter]);
+//     } else if (action[0] === "UNDO") {
+//       if (undoStack.length) {
+//         const undoAction = undoStack.pop();
+//         if (undoAction[0] === "INSERT") result.pop();
+//         else if (undoAction[0] === "DELETE") result.push(undoAction[1]);
+//         redoStack.push(undoAction);
+//       }
+//     } else if (action[0] === "REDO") {
+//       if (redoStack.length) actions.push(redoStack.pop());
+//     }
+//   }
+//   console.log(result.join(""));
+//   return result.join("");
+// }
+
+// performActions([
+//   ["INSERT", "a"],
+//   ["INSERT", "b"]
+// ]);
+// // Output: 'ab';
+
+// performActions([["INSERT", "a"], ["INSERT", "b"], ["UNDO"]]);
+// // Output: "a"
+
+// performActions([["INSERT", "a"], ["INSERT", "b"], ["UNDO"], ["REDO"]]);
+// // Output: "ab"
+
+// performActions([
+//   ["INSERT", "a"],
+//   ["INSERT", "b"],
+//   ["UNDO"],
+//   ["REDO"],
+//   ["DELETE"]
+// ]);
+// // Output: "a"
+
+// performActions([
+//   ["INSERT", "a"],
+//   ["INSERT", "b"],
+//   ["UNDO"],
+//   ["REDO"],
+//   ["DELETE"],
+//   ["UNDO"]
+// ]);
+// // Output: "ab"
+
+// performActions([
+//   ["INSERT", "a"],
+//   ["INSERT", "b"],
+//   ["UNDO"],
+//   ["REDO"],
+//   ["REDO"]
+// ]);
+// const fib = (n, memo = {}) => {
+//   if (n === 0 || n === 1) return n;
+
+//   if (n in memo) return memo[n];
+
+//   memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
+//   return memo[n];
+// };
+
+// const fib = (n) => {
+ 
+//   if(n ===0 || n === 1) return n
+//       let result = []
+//         result[0] = 1
+//         result[1] = 1
+    
+//      for(let i =2; i < n; i++) {
+//      result[i] = result[i-1] + result[i-2]
+//      console.log(result)
+//    }
+  
+//   return result[n-1]
+//   };
+  
+  
+// console.log(fib(1000), 9227465)  
+
+function textEditor(queries){
+  let resultArr = []
+  let str = ""
+  let cursor = 0
+
+  for(let query of queries) {
+     [command, action] = query
+      console.log(`this is the command: ${command}  and this is the action: ${action} `)
+     if(command === "APPEND") {
+         if(cursor < str.length) {
+          let firstHalf = str.substring(0, cursor) + action
+          cursor = firstHalf.length
+          resultArr.push(firstHalf + " " + str.substring(cursor))
+           console.log("if statement running for append", cursor)
+         } else{
+        cursor += action.length
+        str += action
+        resultArr.push(str)
+        }
+     }
+     if(command === "MOVE") {
+        resultArr.push(str)
+         if(action > cursor) {
+            continue
+         }else {
+            cursor = action
+         }
+     }
+    if(command === "DELETE") {
+      //resultArr.push(str.substring(0, cursor) + str.slice(`${Number(cursor) + 1}`))
+      resultArr.push(str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
+    } 
+    // console.log(str.replace(str.substring(5, 6), ""))
+
+  }
+
+ return resultArr
+}
+
+console.log(textEditor(queries = [
+    ["APPEND", "Hey you"],           
+    ["MOVE", "3"],                   
+    ["APPEND", ","]                  
+]))
+
+console.log(textEditor(queries = queries = [
+    ["APPEND", "Hello! world!"],      
+    ["MOVE", "5"],                   
+    ["DELETE"],                      
+    ["APPEND", ","]                  
+]
+))
