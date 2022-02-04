@@ -1987,123 +1987,68 @@ c.right = f;
   
   
 // console.log(fib(1000), 9227465)  
-
-// function textEditor(queries){
+// V2 2/3/2022
+// function textEditor(queries) {
 //   let resultArr = []
 //   let str = ""
 //   let cursor = 0
 //   let select = []
 
-//   for(let query of queries) {
+//   for (let query of queries) {
 //     query.length === 3 ? [command, start, finish] = query : [command, action] = query
-    
-//      if(command === "APPEND") {
-//           if(select.length) {
-//              [left, right] =select.pop()
-//             let selected = str.substring(left, right)
-//             let firstHalf = str.substring(0, left) + action
-//           resultArr.push(firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() )
-//           str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
-//           }
-//          if(cursor < str.length) {
-//           let firstHalf = str.substring(0, cursor) + action
-//           cursor = firstHalf.length
-//           resultArr.push(firstHalf + " " + str.substring(cursor).replace(/\s{2,}/g, ' ').trim() )
-           
-//          } else{
+
+//     if (command === "APPEND") {
+//       if (select.length) {
+//         [left, right] = select.pop()
+//         let selected = str.substring(left, right)
+//         let firstHalf = str.substring(0, left) + action
+//         resultArr.push(firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim())
+//         str = firstHalf + " " + str.substring(right).trim()
+//         //break;
+//       } else if (cursor < str.length) {
+//         let firstHalf = str.substring(0, cursor) + action
+//         cursor = firstHalf.length
+//         resultArr.push(firstHalf + " " + str.substring(cursor).replace(/\s{2,}/g, ' ').trim())
+//       } else {
 //         cursor += action.length
 //         str += action
 //         resultArr.push(str)
+//       }
+//     }
+//     // MOVE <position> should move the cursor to the specified position. The cursor should be positioned between document characters, and are enumerated sequentially starting from 0. If the specified position is out of bounds, then move the cursor to the nearest available position.
+//     if (command === "MOVE") {
+//       if (action > cursor) {
+//         cursor = str.length
+//         }else{
+//          cursor = action
+//       }
+//       resultArr.push(str)
+//     }
+//     if (command === "DELETE") {
+//       if (select.length) {
+//         [left, right] = select.pop()
+//         if (right > str.length) {
+//           resultArr.push(str.substring(0, left) + str.substring(left, str.length))
+//           str = str.substring(0, left) + str.substring(left, str.length)
+//         }else{
+//            resultArr.push(str.substring(0, left)+ str.substring(right))
+//            str = str.substring(0, left)+ str.substring(right)
 //         }
-//      }
-//      if(command === "MOVE") {
-//          if(action > cursor) {
-//             continue
-//         }else if(resultArr[resultArr.length-1].length === str){
-//              resultArr.push("")
-//         }else {
-//             cursor = action
-//          }
-//      }
-//     if(command === "DELETE") {
-//       if(select.length) {
-//         [left, right] =select.pop()
-//          if(right > str.length) { 
-//             resultArr.push(str.substring(0, left))
-//             str= str.substring(0, left)
-//          }
-//        let selected = str.substring(left, right)
-//        let firstHalf = str.substring(0, left)
-//        resultArr.push(firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() )
-//           str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
-//      resultArr.push(firstHalf )
-//      }
-//       if(cursor === str.length) {
-//         resultArr.push("")
-//       }else{
+//       } else if (cursor === str.length) {
+//         resultArr.push(str)
+//       } else {
 //         resultArr.push(str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
 //       }
-      
-//     } 
-//     if(command ==="SELECT") {
-//        select.push([start, finish])
-//        resultArr.push(str)
 //     }
-
+//     // SELECT <left> <right> should select the text between the left and right cursor positions. Selection borders should be returned to the bounds of the document. If the selection is empty, it becomes a cursor position. Any modification operation replace the selected text and places the cursor at the end of the modified segment.
+//     if (command === "SELECT") {
+//       select.push([start, finish])
+//       resultArr.push(str)
+//     }
 //   }
-
-//  return resultArr
+//   return resultArr
 // }
 
-// console.log(textEditor( [
-//     ["APPEND", "Hey you"],           
-//     ["MOVE", "3"],                   
-//     ["APPEND", ","]                  
-// ]))
-
-// console.log(textEditor( [
-//     ["APPEND", "Hello! world!"],      
-//     ["MOVE", "5"],                   
-//     ["DELETE"],                      
-//     ["APPEND", ","]                  
-// ]
-// ))
-
-// returns: [ "Hello! world!",
-//            "Hello! world!",
-//            "Hello world!", --> str.substring(0, 5) + str.substring(6)
-//            "Hello, world!" ]
-
-// console.log(textEditor( [         
-//   ["APPEND", "!"],                
-//   ["DELETE"],                        
-//   ["MOVE", "0"],               
-//   ["DELETE"],                   
-//   ["DELETE"]                    
-// ]))
-
-// returns: [ "!",
-//            "", --> empty bc nothing to delete
-//            "",
-//            "",
-//            "" ]
-// console.log(textEditor([
-//   ["APPEND", "Hello cruel world!"],  
-//   ["SELECT", "5", "11"],             
-//   ["APPEND", ","],                   
-//   ["SELECT", "5", "12"],            
-//   ["DELETE"],                        
-//   ["SELECT", "4", "6"],              
-//   ["MOVE", "1"]                      
-// ]))
-
-// returns: [ "Hello cruel world!", | "" -> "Hello cruel world!"
-//            "Hello cruel world!", | selects " cruel"
-//            "Hello, world!",      | "Hello cruel world!" -> "Hello, world!"
-//            "Hello, world!",       | selects ", world"
-//            "Hello!",             | "Hello, world!" -> "Hello!"
-//            "Hello!",             | selects "o!"
-//            "Hello!" ]            | moves cursor before "e", deselects "o!"
 
 
 
@@ -2114,137 +2059,166 @@ function textEditor(queries){
   let select = []
 
   for(let query of queries) {
-    console.log("string", str)
+ 
     const [command, action] = query
      if(command === "APPEND") {
-        resultArr.push(append(query, str, cursor, select))
+     
+        resultArr.push(append(query, str, cursor, select)[0])
+          str= append(query, str, cursor, select)[0]
+         cursor = append(query, str, cursor, select)[2]
+         select.length ? select.pop() : select
      }
+     
      if(command === "MOVE") {
-         let updateStr = move(query, str, cursor, select)
-         resultArr.push(updateStr)
+        console.log("move 0",move(action, str, cursor, select)) 
+         resultArr.push(str)
+        cursor = move(action, str, cursor, select)
      }
     if(command === "DELETE") {
-          resultArr.push(deleteFunction(query, str, cursor, select))
-      
+           str = deleteFunction(query, str, cursor, select)
+          resultArr.push(str)
+          select.length ? select.pop() : select
     } 
     if(command ==="SELECT") {
-       resultArr.push(select(query, str, cursor, select))
-    }
+      select.push(selectFunction(query, str, cursor, select))
 
+       resultArr.push(str)
+    }
+    
   }
 
  return resultArr
 }
 
 // APPEND <text> should append the inputted string text to the document starting from the current position of the cursor. After the operation, the cursor should be at the end of the added string.
-const append = (query, str, cursor, select) => {
+function append(query, str, cursor, select){
   const [command, action] = query
-  console.log(`${str} this is the string in append`)
   if(select.length) {
-    const [left, right] =select.pop()
-    let selected = str.substring(left, right)
-    let firstHalf = str.substring(0, left) + action
-    str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
-    // return str
-  }else if(cursor < str.length || cursor === str.length) {
-  let firstHalf = str.substring(0, cursor) + action
-  cursor = firstHalf.length
-   str = firstHalf
-  // return str
-   
- } else{
-  str = str + action
-  cursor = str.length
-// return str
-}
-
-return str
+    [left, right] = select.pop()
+    if(right > str.length) {
+       firstHalf = str.substring(0, left) + action 
+       cursor = firstHalf.length
+       str = firstHalf
+       return [result, str, cursor]
+    }else {
+     let firstHalf = str.substring(0,left) + action
+     cursor = str.substring(right).length
+     let result = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim()
+      str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim()
+      return [result, str, cursor]
+   }
+  }
+  if (cursor < str.length && !select.length) {
+    let firstHalf = str.substring(0, cursor) + action
+    
+    str  = firstHalf + " " + str.substring(cursor).replace(/\s{2,}/g, ' ').trim()
+    cursor = firstHalf.length
+   let result = str
+    return [result, str, cursor]
+  } else {
+    cursor = action.length
+    str += action
+    let result = str
+    return [result, str, cursor]
+  }
 }
 
 // MOVE <position> should move the cursor to the specified position. The cursor should be positioned between document characters, and are enumerated sequentially starting from 0. If the specified position is out of bounds, then move the cursor to the nearest available position.
-const move = (query, str, cursor, select) => {
-  const [command, action] = query
-  if(action > cursor) {
-    cursor = str.length
-    console.log(str, "checking string in move")
-    
-}else if(cursor === str.length){
-     cursor = str.length
-}else {
-  cursor = action
-}
-return str
+function move(action, str, cursor, select) {
+  
+   action >str.length ?  cursor = str.length: cursor = action
+  
+  return cursor
 }
 
 
 const deleteFunction = (query, str, cursor, select) => {
   const [command, action] = query
- 
+  
   if(select.length) {
     [left, right] =select.pop()
+
      if(right > str.length) { 
-      str= str.substring(0, left)
+      str= str.substring(0, str.length)
       return str
+     }else{
+       str = str.substring(0,left) + str.substring(right)
      }
-   let selected = str.substring(left, right)
-   let firstHalf = str.substring(0, left)
-   str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim() 
-   return str
+ 
  }
 
-  if(cursor === str.length) {
-    return ""
+  if(cursor === str.length && !select.length) {
+    return str
   }else{
-    return (str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
+      str = (str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
+      
+    return str
   }
   
 } 
 
-
-const select = (query, str, cursor, select) => {
+// 4. SELECT <left> <right> should select the text between the left and right cursor positions. Selection borders should be returned to the bounds of the document. If the selection is empty, it becomes a cursor position. Any modification operation replace the selected text and places the cursor at the end of the modified segment.
+const selectFunction = (query, str, cursor, select) => {
  const [command, start, finish] = query
-    select.push([start, finish])
-    return str
-
+      let selectParams = [start,finish]
+      console.log("select is pushing", selectParams)
+    return selectParams
 
 }
 
 
-console.log(textEditor( [
-      ["APPEND", "Hey you"],           
-      ["MOVE", "3"],                   
-      ["APPEND", ","]                  
-  ]))
-  
-//   console.log(textEditor( [
-//       ["APPEND", "Hello! world!"],      
-//       ["MOVE", "5"],                   
-//       ["DELETE"],                      
-//       ["APPEND", ","]                  
-//   ]
-//   ))
-  
 
+// console.log(textEditor([
+//     ["APPEND", "Hey you"],           
+//     ["MOVE", "3"],                   
+//     ["APPEND", ","]                  
+// ]))
 
-// console.log(textEditor( [         
-//   ["APPEND", "!"],                
-//   ["DELETE"],                        
-//   ["MOVE", "0"],               
-//   ["DELETE"],                   
-//   ["DELETE"]                    
+// console.log(textEditor([         
+//     ["APPEND", "!"],                
+//     ["DELETE"],                   
+//     ["MOVE", "0"],                  
+//     ["DELETE"],                     
+//     ["DELETE"]                     
 // ]))
 
 
-// console.log(textEditor( [
-//       ["APPEND", "Hello! world!"],      
-//       ["MOVE", "5"],                   
-//       ["DELETE"],                      
-//       ["APPEND", ","]                  
-//   ]
-//   ))
-  
-  // returns: [ "Hello! world!",
-  //            "Hello! world!",
-  //            "Hello world!", --> str.substring(0, 5) + str.substring(6)
-  //            "Hello, world!" ]
-  
+// returns: [ "!",
+//            "!",
+//            "!",
+//            "",
+//            "" ]
+
+// console.log(textEditor([
+//     ["APPEND", "Hello! world!"],      
+//     ["MOVE", "5"],                   
+//     ["DELETE"],                      
+//     ["APPEND", ","]                  
+// ]
+// ))
+// returns: [ "Hello! world!",
+//            "Hello! world!",
+//            "Hello world!",
+//            "Hello, world!" ]
+
+//
+
+
+
+ console.log(textEditor([
+ ["APPEND", "Hello cruel world!"],  //| "" -> "Hello cruel world!"
+ ["SELECT", "5", "11"],             //| selects " cruel"
+ ["APPEND", ","],                   //| "Hello cruel world!" -> "Hello, world!"
+ ["SELECT", "5", "12"],             //| selects ", world"
+ ["DELETE"],                        //| "Hello, world!" -> "Hello!"
+ ["SELECT", "4", "6"],              //| selects "o!"
+ ["MOVE", "1"]                      //| moves cursor before "e", deselects "o!"
+ ])) 
+
+ // returns: [ "Hello cruel world!",
+//            "Hello cruel world!",
+//            "Hello, world!",
+//            "Hello, world!",
+//            "Hello!",
+//            "Hello!",
+//            "Hello!" ]
