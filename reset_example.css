@@ -1,0 +1,11 @@
+*{box-sizing:border-box;}
+html,body{width:100%;min-height:100vh; font-size:16px;margin:0;padding:0;color:#000;background:#1D2838;}
+html{text-rendering:optimizeLegibility !important;}
+body{letter-spacing:0.1rem;}
+
+h1{margin:0; font-size:4rem; }
+h2{}
+h3{}
+ul{list-style-type:none;margin:0;padding:0}
+ul.l{text-align:left; list-style-type: disc; margin-left: 40px;}
+a{color:#C59952; text-decoration:none; }

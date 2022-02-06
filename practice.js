@@ -1987,238 +1987,49 @@ c.right = f;
   
   
 // console.log(fib(1000), 9227465)  
-// V2 2/3/2022
-// function textEditor(queries) {
-//   let resultArr = []
-//   let str = ""
-//   let cursor = 0
-//   let select = []
-
-//   for (let query of queries) {
-//     query.length === 3 ? [command, start, finish] = query : [command, action] = query
-
-//     if (command === "APPEND") {
-//       if (select.length) {
-//         [left, right] = select.pop()
-//         let selected = str.substring(left, right)
-//         let firstHalf = str.substring(0, left) + action
-//         resultArr.push(firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim())
-//         str = firstHalf + " " + str.substring(right).trim()
-//         //break;
-//       } else if (cursor < str.length) {
-//         let firstHalf = str.substring(0, cursor) + action
-//         cursor = firstHalf.length
-//         resultArr.push(firstHalf + " " + str.substring(cursor).replace(/\s{2,}/g, ' ').trim())
-//       } else {
-//         cursor += action.length
-//         str += action
-//         resultArr.push(str)
-//       }
-//     }
-//     // MOVE <position> should move the cursor to the specified position. The cursor should be positioned between document characters, and are enumerated sequentially starting from 0. If the specified position is out of bounds, then move the cursor to the nearest available position.
-//     if (command === "MOVE") {
-//       if (action > cursor) {
-//         cursor = str.length
-//         }else{
-//          cursor = action
-//       }
-//       resultArr.push(str)
-//     }
-//     if (command === "DELETE") {
-//       if (select.length) {
-//         [left, right] = select.pop()
-//         if (right > str.length) {
-//           resultArr.push(str.substring(0, left) + str.substring(left, str.length))
-//           str = str.substring(0, left) + str.substring(left, str.length)
-//         }else{
-//            resultArr.push(str.substring(0, left)+ str.substring(right))
-//            str = str.substring(0, left)+ str.substring(right)
-//         }
-//       } else if (cursor === str.length) {
-//         resultArr.push(str)
-//       } else {
-//         resultArr.push(str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
-//       }
-//     }
-//     // SELECT <left> <right> should select the text between the left and right cursor positions. Selection borders should be returned to the bounds of the document. If the selection is empty, it becomes a cursor position. Any modification operation replace the selected text and places the cursor at the end of the modified segment.
-//     if (command === "SELECT") {
-//       select.push([start, finish])
-//       resultArr.push(str)
-//     }
-//   }
-//   return resultArr
-// }
-
-
-
-
-function textEditor(queries){
-  let resultArr = []
-  let str = ""
-  let cursor = 0
-  let select = []
-
-  for(let query of queries) {
- 
-    const [command, action] = query
-     if(command === "APPEND") {
-     
-        resultArr.push(append(query, str, cursor, select)[0])
-          str= append(query, str, cursor, select)[0]
-         cursor = append(query, str, cursor, select)[2]
-         select.length ? select.pop() : select
-     }
-     
-     if(command === "MOVE") {
-        console.log("move 0",move(action, str, cursor, select)) 
-         resultArr.push(str)
-        cursor = move(action, str, cursor, select)
-     }
-    if(command === "DELETE") {
-           str = deleteFunction(query, str, cursor, select)
-          resultArr.push(str)
-          select.length ? select.pop() : select
-    } 
-    if(command ==="SELECT") {
-      select.push(selectFunction(query, str, cursor, select))
-
-       resultArr.push(str)
-    }
-    
-  }
-
- return resultArr
-}
-
-// APPEND <text> should append the inputted string text to the document starting from the current position of the cursor. After the operation, the cursor should be at the end of the added string.
-function append(query, str, cursor, select){
-  const [command, action] = query
-  if(select.length) {
-    [left, right] = select.pop()
-    if(right > str.length) {
-       firstHalf = str.substring(0, left) + action 
-       cursor = firstHalf.length
-       str = firstHalf
-       return [result, str, cursor]
-    }else {
-     let firstHalf = str.substring(0,left) + action
-     cursor = str.substring(right).length
-     let result = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim()
-      str = firstHalf + " " + str.substring(right).replace(/\s{2,}/g, ' ').trim()
-      return [result, str, cursor]
-   }
-  }
-  if (cursor < str.length && !select.length) {
-    let firstHalf = str.substring(0, cursor) + action
-    
-    str  = firstHalf + " " + str.substring(cursor).replace(/\s{2,}/g, ' ').trim()
-    cursor = firstHalf.length
-   let result = str
-    return [result, str, cursor]
-  } else {
-    cursor = action.length
-    str += action
-    let result = str
-    return [result, str, cursor]
-  }
-}
-
-// MOVE <position> should move the cursor to the specified position. The cursor should be positioned between document characters, and are enumerated sequentially starting from 0. If the specified position is out of bounds, then move the cursor to the nearest available position.
-function move(action, str, cursor, select) {
+var canFinish = function(numCourses, prerequisites) {
+  const graph = buildGraph(numCourses, prerequisites)
+  const distance = {}
   
-   action >str.length ?  cursor = str.length: cursor = action
+for(let node in graph){
+if(graph[node].length === 0) distance[node] = true
+
+}
   
-  return cursor
+for(let node in graph) {
+if (traverse(graph, node, distance) === false) return false
+
+}   
+  
+  return true
+};
+
+
+const traverse = (graph, node, distance)=> {
+if(node in distance) return true
+
+
+for(let neighbor of graph[node]){
+ if(traverse(graph, neighbor, distance) === true) return true
+}
+return false
 }
 
 
-const deleteFunction = (query, str, cursor, select) => {
-  const [command, action] = query
-  
-  if(select.length) {
-    [left, right] =select.pop()
-
-     if(right > str.length) { 
-      str= str.substring(0, str.length)
-      return str
-     }else{
-       str = str.substring(0,left) + str.substring(right)
-     }
- 
- }
-
-  if(cursor === str.length && !select.length) {
-    return str
-  }else{
-      str = (str.replace(str.substring(Number(cursor), Number(cursor) + 1), ""))
-      
-    return str
-  }
-  
-} 
-
-// 4. SELECT <left> <right> should select the text between the left and right cursor positions. Selection borders should be returned to the bounds of the document. If the selection is empty, it becomes a cursor position. Any modification operation replace the selected text and places the cursor at the end of the modified segment.
-const selectFunction = (query, str, cursor, select) => {
- const [command, start, finish] = query
-      let selectParams = [start,finish]
-      console.log("select is pushing", selectParams)
-    return selectParams
-
+const buildGraph = (numCourses, prerequisites) => {
+let graph = {}
+let reverse = prerequisites.reverse()
+for(let i = 0; i < numCourses; i++) {
+    graph[i] = []
 }
 
+for(let edge of reverse) {
+ const[a,b] = edge
 
+graph[a].push(b)
 
-// console.log(textEditor([
-//     ["APPEND", "Hey you"],           
-//     ["MOVE", "3"],                   
-//     ["APPEND", ","]                  
-// ]))
+}
+return graph
+}
 
-// console.log(textEditor([         
-//     ["APPEND", "!"],                
-//     ["DELETE"],                   
-//     ["MOVE", "0"],                  
-//     ["DELETE"],                     
-//     ["DELETE"]                     
-// ]))
-
-
-// returns: [ "!",
-//            "!",
-//            "!",
-//            "",
-//            "" ]
-
-// console.log(textEditor([
-//     ["APPEND", "Hello! world!"],      
-//     ["MOVE", "5"],                   
-//     ["DELETE"],                      
-//     ["APPEND", ","]                  
-// ]
-// ))
-// returns: [ "Hello! world!",
-//            "Hello! world!",
-//            "Hello world!",
-//            "Hello, world!" ]
-
-//
-
-
-
- console.log(textEditor([
- ["APPEND", "Hello cruel world!"],  //| "" -> "Hello cruel world!"
- ["SELECT", "5", "11"],             //| selects " cruel"
- ["APPEND", ","],                   //| "Hello cruel world!" -> "Hello, world!"
- ["SELECT", "5", "12"],             //| selects ", world"
- ["DELETE"],                        //| "Hello, world!" -> "Hello!"
- ["SELECT", "4", "6"],              //| selects "o!"
- ["MOVE", "1"]                      //| moves cursor before "e", deselects "o!"
- ])) 
-
- // returns: [ "Hello cruel world!",
-//            "Hello cruel world!",
-//            "Hello, world!",
-//            "Hello, world!",
-//            "Hello!",
-//            "Hello!",
-//            "Hello!" ]
+console.log(canFinish(2,[[1,0]]))
