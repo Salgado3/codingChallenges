@@ -1987,49 +1987,133 @@ c.right = f;
   
   
 // console.log(fib(1000), 9227465)  
-var canFinish = function(numCourses, prerequisites) {
-  const graph = buildGraph(numCourses, prerequisites)
-  const distance = {}
+// const graph = {
+//   a: ['c', 'b'],
+//   b: ['c'],
+//   c: [],
+//   q: ['r'],
+//   r: ['s', 'u', 't'],
+//   s: ['t'],
+//   t: ['u'],
+//   u: []
+// };
+
+// const longestPath = (graph) => {
+//   let distance = {}
   
-for(let node in graph){
-if(graph[node].length === 0) distance[node] = true
+//   for(let node in graph) {
+//   if(graph[node].length === 0) distance[node] = 0
 
-}
+// }
+
+//   for(let node in graph) {
+//    traverse(graph, node, distance)
+
+//  }
+//  console.log(...Object.values(distance))
+// return Math.max(...Object.values(distance))
+// };
+
+
+
+// const traverse = (graph, node, distance)=> {
+//  if(node in distance) return distance[node]
+ 
+//   let maxPath = 0
+//  for(let neighbor of graph[node]) {
+//    let attempt = traverse(graph, neighbor, distance)
+//    if(attempt > maxPath) maxPath = attempt
+
+//  }
+ 
+//  distance[node] = 1 + maxPath
+
+//  return distance[node]
+// }
+
+
+// console.log(longestPath(graph))
+
+
+
+// Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+
+// var exist = function(board, word) {
+//   let visited = new Set()
   
-for(let node in graph) {
-if (traverse(graph, node, distance) === false) return false
+//   let count = 0
+// for(let r = 0; r < board.length; r++){
+// for(let c = 0; c < board[0].length; c++){
+ 
+//    if(traverseBoard(board, r, c, word, visited, count) === true) {
+//     count++
+//         visited = new Set()
+        
+//         console.log(count, visited)
+//    }
+   
 
-}   
+// }
+
+// }
+
+// return count === word.length-1 ? true : false
+// };
+
+
+// const traverseBoard = (board, r, c, word, visited, count) => {
+//  const rowInbounds = 0 <= r && r < board.length
+//  const colInbounds = 0 <=  c && c < board[0].length
+//  if(!rowInbounds || !colInbounds) return false
+
+
+//   // let pos = r +"," + c 
+//   // if(visited.has(pos)) return false
+//   // visited.add(pos)
+ 
+//   if(board[r][c] !== word[count]) return false
+//   if(board[r][c] === word[count]) return true
+//      traverseBoard(board, r+1, c, word, visited, count)
+//      traverseBoard(board, r-1, c, word, visited, count)
+//      traverseBoard(board, r, c+1, word, visited, count)
+//      traverseBoard(board, r, c-1, word, visited, count)
+
+
+// }
+// console.log(word[1])
+// console.log(exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],
+// "SEE"
+// ))
+
+// console.log(exist(board,word))
+
+
+// const exist = function(board, word) {
+//   const n = board.length, m = board[0].length;
+//   if (word.length < 1) return false;
+
+//   const dfs = (i, j, pos) => {
+//       if (i === n || i < 0 || j === m || j < 0 || board[i][j] !== word[pos]) return false;
+//       if (pos === word.length-1) return true;
+//       board[i][j] = "."; // choose this elem so we don't find it again
+//       const found = 
+//           dfs(i+1,j, pos+1) || // check every direction and see if any of them return a match
+//           dfs(i-1,j, pos+1) ||
+//           dfs(i,j+1, pos+1) ||
+//           dfs(i,j-1, pos+1);
+
+//       board[i][j] = word[pos]; // unchoose element
+//       return found;
+//   };
   
-  return true
-};
+//   for (let i=0;i<n;i++) {
+//       for (let j=0;j<m;j++) {
+//           if (board[i][j] === word[0]) {
+//               const match = dfs(i,j, 0);
+//               if (match) return true;
+//           }
+//       }
+//   }
 
-
-const traverse = (graph, node, distance)=> {
-if(node in distance) return true
-
-
-for(let neighbor of graph[node]){
- if(traverse(graph, neighbor, distance) === true) return true
-}
-return false
-}
-
-
-const buildGraph = (numCourses, prerequisites) => {
-let graph = {}
-let reverse = prerequisites.reverse()
-for(let i = 0; i < numCourses; i++) {
-    graph[i] = []
-}
-
-for(let edge of reverse) {
- const[a,b] = edge
-
-graph[a].push(b)
-
-}
-return graph
-}
-
-console.log(canFinish(2,[[1,0]]))
+//   return false; 
+// };
