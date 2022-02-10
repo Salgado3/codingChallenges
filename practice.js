@@ -2117,3 +2117,80 @@ c.right = f;
 
 //   return false; 
 // };
+
+// var frequencySort = function(s) {
+//   let map = {}
+//   let result = []
+//   for(let char of s) {
+//   if(map[char]) map[char]+=1
+//   else map[char] = 1
+// }
+ 
+// let sortedMap = Object.keys(map).sort((a,b)=> map[b]-map[a])
+
+//   for(let char of sortedMap){
+//      result.push(char.repeat(map[char]))  
+     
+//   }
+// return result.join("")
+// };
+// console.log(frequencySort("tree"))
+
+
+// var exist = function(board, word) {
+//   if(word.length < 1) return false
+
+// for(let r = 0; r < board.length; r++){
+// for(let c = 0; c < board[0].length; c++){
+
+// if(traverseBoard(board, r, c, word, i=0)) return true
+//  }
+// }
+
+// return false
+// };
+
+
+// const traverseBoard = (board, r, c, word,i) => {
+// const rowInbounds = 0 <= r && r < board.length
+// const colInbounds = 0 <=  c && c < board[0].length
+// if(!rowInbounds || !colInbounds) return false
+
+// if(board[r][c] !== word[i]) return false
+
+// if(i === word.length-1) return true
+
+//  board[r][c] = "-"
+
+// let result =
+//    traverseBoard(board, r+1, c, word, i+1)||
+//    traverseBoard(board, r-1, c, word, i+1)||
+//    traverseBoard(board, r, c+1, word, i+1)||
+//    traverseBoard(board, r, c-1, word, i+1)
+   
+//   board[r][c] = word[i]
+//   return result
+// };
+
+
+const map1 = new Map();
+
+map1.set('a', 1);
+map1.set('b', 2);
+map1.set('c', 3);
+
+console.log(Object.keys(map1));
+// expected output: 1
+
+map1.set('a', 97);
+
+console.log(map1.get('a'));
+// expected output: 97
+
+console.log(map1.size);
+// expected output: 3
+
+map1.delete('b');
+
+console.log();
+// expected output: 2
