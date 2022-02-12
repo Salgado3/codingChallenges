@@ -1,8 +1,18 @@
-Given an array of numbers, return all pairs that add up to a given sum. The numbers can be used more than once.
 
-describe("Two Sum", () => {
- it("Should implement two sum", () => {
-  assert.deepEqual(twoSum([1, 2, 2, 3, 4], 4), [[2, 2], [3, 1]]);
- });
-});
 
+function partsSums(arr,i = 0) {
+     
+     if(arr[i] === arr[arr.length-1]) return[arr[i]]
+     if(arr.length === 0) return [0]
+     if(arr.length=== 1) return [ls]
+    
+    return arr[i] + partsSums(arr[i+1])
+  }
+
+
+
+
+
+console.log(partsSums([1, 2, 3, 4, 5, 6]))
+
+// [21, 20, 18, 15, 11, 6, 0]
