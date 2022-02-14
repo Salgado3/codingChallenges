@@ -1018,15 +1018,15 @@ c.right = f;
 //12/16/2021
 
 
-function fib(n){
-  let arr = [0,1]
-  for(let i = 2; i <= n; i++){
-    arr[i] = arr[i - 2] + arr[i - 1]
-  }
-  return arr[n]
-}
-console.log(fib(2), 1)
-console.log(fib(4), 3)
+// function fib(n){
+//   let arr = [0,1]
+//   for(let i = 2; i <= n; i++){
+//     arr[i] = arr[i - 2] + arr[i - 1]
+//   }
+//   return arr[n]
+// }
+// console.log(fib(2), 1)
+// console.log(fib(4), 3)
 
 
 
@@ -2198,38 +2198,57 @@ console.log(fib(4), 3)
 
 // Numbers, strings, booleans, NAN, undefined, null
 
-let string = "hi"
- string+="!"
+// let string = "hi"
+//  string+="!"
  
 
 
-   let obj = [
-     {"language": "javaScript", "name": "john"},
-     {"language": "C"},
-     {"language": "C"},
-     {"language": "javaScript"}
-    ]
-   let map = new Map()
+//    let obj = [
+//      {"language": "javaScript", "name": "john"},
+//      {"language": "C"},
+//      {"language": "C"},
+//      {"language": "javaScript"}
+//     ]
+//    let map = new Map()
 
-   let newObj = { 
-  }
-  for(let key of obj){ //{"language": "javaScript", "name": "john"},
-   if(newObj[key.language]) map.set(key.language, map.get(key.language)+1)
+//    let newObj = { 
+//   }
+//   for(let key of obj){ //{"language": "javaScript", "name": "john"},
+//    if(newObj[key.language]) map.set(key.language, map.get(key.language)+1)
  
-   else map.set(key.language, 1)
+//    else map.set(key.language, 1)
+//   }
+  
+   
+//    for(let key of obj){ //{"language": "javaScript", "name": "john"},
+//     if(newObj[key.language]) newObj[key.language]+1
+  
+//     else newObj[key.language] = 1
+//    }
+   
+//  console.log(Object.values(newObj))
+
+//  console.log(map.values())
+
+
+//  let stack = [] // pop() push()
+//  let queue = [] // pop() shift()
+//2/13/2022
+//https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/javascript/6209e04457240a0049310afa
+function duplicateCount(text){
+  let sorted =text.toLowerCase()
+  let obj = {}
+ 
+  
+  for(let char of sorted){
+    if(obj[char]) obj[char]++
+    else obj[char] = 1
   }
   
-   
-   for(let key of obj){ //{"language": "javaScript", "name": "john"},
-    if(newObj[key.language]) newObj[key.language]+1
+  let count = 0
+ for(let vals in obj) {
+   if(obj[vals]> 1) count++
+ }
   
-    else newObj[key.language] = 1
-   }
-   
- console.log(Object.values(newObj))
-
- console.log(map.values())
-
-
- let stack = [] // pop() push()
- let queue = [] // pop() shift()
+  return count
+}
