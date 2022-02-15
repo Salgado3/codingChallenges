@@ -2235,20 +2235,20 @@ c.right = f;
 //  let queue = [] // pop() shift()
 //2/13/2022
 //https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/javascript/6209e04457240a0049310afa
-function duplicateCount(text){
-  let sorted =text.toLowerCase()
-  let obj = {}
+// function duplicateCount(text){
+//   let sorted =text.toLowerCase()
+//   let obj = {}
  
   
-  for(let char of sorted){
-    if(obj[char]) obj[char]++
-    else obj[char] = 1
-  }
+//   for(let char of sorted){
+//     if(obj[char]) obj[char]++
+//     else obj[char] = 1
+//   }
   
-  let count = 0
- for(let vals in obj) {
-   if(obj[vals]> 1) count++
- }
+//   let count = 0
+//  for(let vals in obj) {
+//    if(obj[vals]> 1) count++
+//  }
   
-  return count
-}
+//   return count
+// }
