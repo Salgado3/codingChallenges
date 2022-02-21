@@ -2252,17 +2252,17 @@ c.right = f;
   
 //   return count
 // }
-// 2/16
-function isPangram(string){
-  let map = new Map()
+// 2/20
+// function isPangram(string){
+//   let map = new Map()
   
-  for(let char of string) {
-    if(!map.has(char)) map.set(char, true)
+//   for(let char of string) {
+//     if(!map.has(char)) map.set(char, true)
     
-  }
-  console.log(map.size)
-  return map.size > 25 ? true: false
-  }
+//   }
+//   console.log(map.size)
+//   return map.size > 25 ? true: false
+//   }
 
 
-  console.log(isPangram("abcdefghijklmopqrstuvwxyz"))
+//   console.log(isPangram("abcdefghijklmopqrstuvwxyz"))
