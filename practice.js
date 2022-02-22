@@ -2284,13 +2284,49 @@ c.right = f;
 //   { firstName: 'Laia', lastName: 'P.', country: 'Andorra', continent: 'Europe', age: 55, language: 'Ruby' },
 //   { firstName: 'Oliver', lastName: 'Q.', country: 'Australia', continent: 'Oceania', age: 65, language: 'PHP' },
 // ];
-function allContinents(list) {
-  let continentSet = new Set()
+// function allContinents(list) {
+//   let continentSet = new Set()
   
-  for(let devs of list ) {
-   if(devs.continent === "Africa" || "Americas" || "Asia" || "Europe" || "Oceania") continentSet.add(devs.continent)
-}
+//   for(let devs of list ) {
+//    if(devs.continent === "Africa" || "Americas" || "Asia" || "Europe" || "Oceania") continentSet.add(devs.continent)
+// }
 
-return continentSet.size === 5 ? true : false
+// return continentSet.size === 5 ? true : false
 
-}
+// }
+
+// 2/22/2022  anki problems leetcode & Structy
+
+// Given a string of characters, return the character that appears the most often.
+
+// describe("Max Character", () => {
+//  it("Should return max character", () => {
+//   assert.equal(max("Hello World!"), "l");
+//  });
+// });
+
+
+let maxChar = (str) => {
+  let map = new Map()
+  for(let char of str){
+   if(map.has(char)) map.set(char, map.get(char)+1)
+   else map.set(char, 1)
+  }
+  
+
+  let maxCount = 0 
+  let maxChar = ""
+  
+  for(let [keys, values] of map){
+  if(map.get(keys) > maxCount){
+      maxCount = map.get(keys)
+      maxChar = keys
+      
+    }
+  } 
+
+return maxChar 
+
+} 
+
+console.log(maxChar("hello world"))
