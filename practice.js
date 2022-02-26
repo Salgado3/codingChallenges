@@ -2306,27 +2306,27 @@ c.right = f;
 // });
 
 
-let maxChar = (str) => {
-  let map = new Map()
-  for(let char of str){
-   if(map.has(char)) map.set(char, map.get(char)+1)
-   else map.set(char, 1)
-  }
+// let maxChar = (str) => {
+//   let map = new Map()
+//   for(let char of str){
+//    if(map.has(char)) map.set(char, map.get(char)+1)
+//    else map.set(char, 1)
+//   }
   
 
-  let maxCount = 0 
-  let maxChar = ""
+//   let maxCount = 0 
+//   let maxChar = ""
   
-  for(let [keys, values] of map){
-  if(map.get(keys) > maxCount){
-      maxCount = map.get(keys)
-      maxChar = keys
+//   for(let [keys, values] of map){
+//   if(map.get(keys) > maxCount){
+//       maxCount = map.get(keys)
+//       maxChar = keys
       
-    }
-  } 
+//     }
+//   } 
 
-return maxChar 
+// return maxChar 
 
-} 
+// } 
 
-console.log(maxChar("hello world"))
+// console.log(maxChar("hello world"))
