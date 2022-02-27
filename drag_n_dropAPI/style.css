@@ -19,6 +19,10 @@ box-sizing: border-box;
     border: 2px solid red;
 }
 
+.container_shadow{
+    box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue;
+}
+
 .item {
     height: 40px;
     width: 40px;
