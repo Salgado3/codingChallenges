@@ -1,0 +1,274 @@
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+<style> 
+  *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+  }
+  .App {
+    margin-top: 1%;
+    display:flex;
+    justify-content:space-evenly;
+    color: #7e1fff;
+  }
+
+  .navBar{
+   
+    background: #7e1fff;
+    height: 10%;
+    width: 40vw;
+   border-radius: 5% 5% 0% 0%;
+  }
+
+  .newCardH1_container {
+    background: white;
+    border-radius: 5% 5% 0% 0%;
+    width: 30%;
+    
+  }
+  .newCardH1 {
+    border: 1px solid black;
+    height: 75%;
+    color: #7e1fff;
+  }
+
+  .main_container{
+   height: 90%;
+   display:flex;
+   flex-direction: column;
+   justify-content: space-around;
+  }
+/*   .form_Sections{
+    
+  } */
+
+  .NewCardForm {
+    display:flex;
+    flex-direction: column;
+   height: 90vh;
+   width: 40vw;
+   color: #7e1fff;
+   border: .75px solid gray;
+   border-radius: 2% 2%;
+    box-shadow: 5px 2.5px 5px grey;
+ }
+
+  .delete_Button{
+    display:inline-block
+    
+  }
+
+/* styles for cards */
+  .NewCards {
+   display: flex;
+
+    margin: 2.5% 0%;
+    border: 2px solid black;
+    max-height: 150px;
+    border-radius: 2% 2%;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+  }
+  .NewCards:hover {
+  
+    border: 2.5px solid blue;
+    
+  }
+  .deck_of_cards{
+     width: 40vw;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+
+</style>
+
+
+
+<div id="root"></div>
+
+
+
+
+<script>
+const NewCardForm = () =>{
+   const [formData, setFormData] = React.useState(
+     {
+      publisher:"", 
+      textInput: "",
+      media_Type: "",
+      date: "",
+     
+    });
+    function handleChange(event) {
+        const {name,value} = event.target
+        setFormData(prevFormData => {
+            return{
+              ...prevFormData,
+              [name]: value
+ 
+     }
+
+    })
+      
+    }
+
+  function handleSubmit(event) {
+     event.preventDefault()
+     Data.push(formData)
+  }
+ 
+ return(
+ <div className = "NewCardForm">
+    <nav className = "navBar">
+       <section className = "newCardH1_container">
+           <button type="submit" className = "newCardH1"> New Card</button>
+       </section>
+    </nav>
+   <div className ="main_container">
+ <form onSubmit={handleSubmit} className="publisher_Form"> 
+     <section className="form_Sections">
+       
+         <label htmlFor="publisherName">Publisher</label>
+         <select 
+           id="publisherName"
+           name="publisher" 
+           value={formData.publisher}
+           onChange={handleChange}
+          >
+         <option value=""> --Choose --</option>
+         <option value="CNN">CNN</option>
+         <option value="Houston Cronicle">Houston Cronicle</option>
+         <option value="Yahoo!">Yahoo</option>
+         </select>
+     
+    </section>     
+    <section className="form_Sections text_input">
+      
+       <h3>text</h3>     
+       <textarea onChange={handleChange} name="textInput" value={formData.textInput}/> 
+      
+   </section>
+   <section className="form_Sections media_input">
+    
+       <legend> Media </legend>
+       <label htmlFor="media_None"> None </label>
+       <input 
+        type="radio" 
+        id="media_None" 
+        name="media_Type" 
+        value={formData.media_Type}
+        checked={formData.media_Type === `${formData.media_Type}`} 
+        onChange={handleChange}
+        />
+
+       <label htmlFor="media_Img"> Image </label>      
+       <input type="radio" 
+        id="media_Img" 
+        name="media_Type" 
+        value={formData.media_Type}
+        checked={formData.media_Type === `${formData.media_Type}`} 
+        onChange={handleChange}
+       />
+       
+       <label htmlFor="media_Video"> Video </label>
+       <input type="radio" 
+        id="media_Video" 
+        name="media_Type" 
+        value={formData.media_Type} 
+        checked={formData.media_Type === `${formData.media_Type}`}
+        onChange={handleChange}/>   
+   </section>
+  
+   <section className="form_Sections date_input">
+       <h3>Published Time </h3>
+     <input type="datetime-local" id="time_pub" name="date"/>
+   </section>
+  
+  <button className="delete_Button">Delete Card</button>
+    </form>
+       </div>
+
+   </div>
+)};
+
+const Cards = (props) =>{
+  return(
+    <div className="NewCards" key = {props.id}> 
+      <section className="card_info"> 
+       <h2 className="publisher_title">{props.title}  </h2> 
+       <p className="text_paragraph"> {props.text} </p>
+       <span className="time_published">{props.date}</span>
+      </section>
+      <section className="media_display">
+        <img src={'{props.media}'}/>
+      </section>
+
+
+    </div>
+
+  )};
+
+const Data = [
+    { 
+      "id": 0,
+     "publisher": "CNN",
+     "textInput": "The First stock-market `correction since October has begun,` says Morgan Stanley analyst who called 2021 tech rout",
+     "Media": "urlGoeshere",
+     "date": "published dateGoes here"
+    },
+      { 
+      "id": 1,
+     "publisher": "Houston Cronicle",
+     "textInput": "The case for Jaden Schwartz, his absence on the left side will be another difficult gap",
+     "Media": "urlGoeshere",
+     "date": "published dateGoes here"
+    },
+      { 
+      "id": 2,
+     "publisher": "Yahoo!",
+     "textInput": "Lady Gaga Pays homeage to Italy as `House of Gucci` Wraps Filming and bids adieu to Italy",
+     "Media": "https://s.yimg.com/os/creatr-uploaded-images/2022-03/02bb35f0-99d5-11ec-bfff-46b1df77f3a4",
+     "date": "published dateGoes here"
+    }
+
+ ]
+ 
+
+
+  
+const App = () => {
+  const completedCards = Data.map(dataSet => {
+  return ( 
+    <Cards
+       key = {Data.indexOf(dataSet)}  
+      title = {dataSet.publisher}
+      text  = {dataSet.textInput}
+      media = {dataSet.media ? data.media: null}
+      date = {dataSet.date}
+    />
+   )
+     
+  })
+  return( 
+    <div className="App">
+
+       <NewCardForm/>
+      <div className="deck_of_cards">
+       
+         {completedCards}
+      </div>
+     </div>
+     
+)};
+
+
+
+
+
+ReactDOM.render( <App />, document.getElementById('root') );
+</script>

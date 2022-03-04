@@ -9,18 +9,20 @@ box-sizing: border-box;
     display: flex;
     justify-content: space-evenly;
    align-items: flex-end;
+   flex-wrap: wrap;
 }
 .container {
    display: flex;
    justify-content: center;
    align-items: center;
+   margin: 5% 10%;
     height: 80px;
     width: 80px;
     border: 2px solid red;
 }
 
 .container_shadow{
-    box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue;
+    box-shadow: -5px -5px 30px 5px rgb(255, 230, 0), 5px 5px 30px 5px rgb(24, 24, 124);
 }
 
 .item {
