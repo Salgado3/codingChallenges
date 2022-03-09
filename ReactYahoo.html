@@ -1,297 +1,445 @@
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script
+  src="https://unpkg.com/react@17/umd/react.development.js"
+  crossorigin
+></script>
+<script
+  src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+  crossorigin
+></script>
 
-<style> 
-  *{
+<style>
+  * {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
   }
   .App {
     margin-top: 1%;
-    display:flex;
-    justify-content:space-evenly;
+    display: flex;
+    justify-content: space-evenly;
     color: #7e1fff;
   }
 
-  .navBar{
-   
+  .navBar {
     background: #7e1fff;
-    height: 10%;
+    height: 12.5%;
     width: 40vw;
-   border-radius: 5% 5% 0% 0%;
+    border-radius: 5% 5% 0% 0%;
   }
 
   .newCardH1_container {
-    background: white;
-    border-radius: 5% 5% 0% 0%;
-    width: 30%;
-    
+    display: inline-block;
+    background: #7e1fff;
+    margin: 2.5% 0% 0% 10%;
+    border-radius: 8px;
+    width: 40%;
   }
-  .newCardH1 {
+  .newCard_button,
+  .updateCard_button {
+    margin-top: 1%;
+    display: inline-block;
     border: 1px solid black;
-    height: 75%;
     color: #7e1fff;
+    border-radius: 14px;
+    width: 100%;
+    padding: 5% 10%;
   }
 
-  .main_container{
-   height: 90%;
-   display:flex;
-   flex-direction: column;
-   justify-content: space-around;
+  .main_container {
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+    height: 90%;
+    display: flex;
+    background: #f0f3f5;
+    flex-direction: column;
   }
-/*   .form_Sections{
-    
-  } */
+
+  .publisher_Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+  }
 
   .NewCardForm {
-    display:flex;
+    display: flex;
     flex-direction: column;
-   height: 90vh;
-   width: 40vw;
-   color: #7e1fff;
-   border: .75px solid gray;
-   border-radius: 2% 2%;
+    height: 90vh;
+    width: 40vw;
+    color: #7e1fff;
+    border-radius: 2% 2%;
     box-shadow: 5px 2.5px 5px grey;
- }
-
-  .delete_Button{
-    display:inline-block
-    
   }
 
-/* styles for cards */
-  .NewCards {
-   display: flex;
+  .delete_Button {
+    display: inline-block;
+    border: 1px solid black;
+    color: #7e1fff;
+    border-radius: 8px;
+    width: 40%;
+    padding: 2.5% 5%;
+    margin-left: 7%;
+  }
 
+  /* styles for cards */
+  .NewCards {
+    display: flex;
+    justify-content: space-between;
     margin: 2.5% 0%;
     border: 2px solid black;
+    min-height: 100px;
     max-height: 150px;
-    border-radius: 2% 2%;
-    font-size: 14px;
-    font-weight: bold;
+    border-radius: 8px;
     color: black;
   }
   .NewCards:hover {
-  
     border: 2.5px solid blue;
-    
   }
-  .deck_of_cards{
-     width: 40vw;
-     display: flex;
+  .card_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    max-width: 100%;
+    margin: 0% 0% 0% 5%;
+  }
+  .publisher_title {
+    margin-top: 1%;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .text_paragraph {
+    font-size: 14px;
+    text-align: justify;
+    font-weight: bold;
+    padding: 0.5% 2.5%;
+  }
+  .deck_of_cards {
+    width: 40vw;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    
+  }
+  .media_display {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 5% 2.5%;
+    height: 90%;
+    width: 30%;
+    border: 1px solid red;
+    border-radius: 15px;
   }
 
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  /*style for form Elements*/
+  .form_Sections {
+    display: flex;
+    flex-direction: column;
+    margin: 0% 5%;
+  }
+  #publisherName {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 40px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+  .input_textArea {
+    margin-top: 2.5%;
+    resize: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 75px;
+  }
+  .media_input {
+    width: 40%;
+    height: 20%;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 5.5%;
+  }
+  .media_input label {
+    display: inline-block;
+    width: 50%;
+    padding: 2.25%;
+    margin: 2%;
+    color: #989fa6;
+  }
+  .date_input h3 {
+    margin-bottom: 2.5%;
+  }
+  .date_input {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 70px;
+    background: #f0f3f5;
+  }
+  #time_pub {
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+  .delete_Button {
+    align-self: flex-end;
+    margin: 0 5% 10% 0%;
+    border-radius: 14px;
+  }
 </style>
-
-
 
 <div id="root"></div>
 
-
-
-
 <script>
-import React from 'react';
-import ReactDOM from 'react-dom';
-//updating state on every change on form
-const NewCardForm = (props) =>{
-  console.log(props.data, "data in newCardForm")
-   const [formData, setFormData] = React.useState(
-     {
-      publisher:"", 
+  const uniqueId = () => {
+    return `id ${Math.floor(Math.random() * 10000)}`;
+  };
+
+  const NewCardForm = (props) => {
+    const initialState = {
+      id: uniqueId(),
+      publisher: "",
       textInput: "",
       media_Type: "",
       date: "",
-     
-    });
-    //keeping track of inputs in form
+    };
+
+    const [formData, setFormData] = React.useState(initialState);
+
     function handleChange(event) {
-        const {name,value} = event.target
-        setFormData(prevFormData => {
-            return{
-              ...prevFormData,
-              [name]: value
- 
-     }
-
-    })
-      
+      const { name, value } = event.target;
+      setFormData((prevFormData) => {
+        return {
+          ...prevFormData,
+          [name]: value,
+        };
+      });
     }
- //fires on button submit. need to conect to card comp
-  function handleSubmit(event) {
-     event.preventDefault()
-     props.data[props.data.length] = formData
-     console.log(props.data)
-  }
- 
- return(
- <div className = "NewCardForm">
-    <nav className = "navBar">
-       <section className = "newCardH1_container">
-           <button form="form_NewCard" className = "newCardH1" > New Card</button>
-       </section>
-    </nav>
-   <div className ="main_container">
- <form onSubmit={handleSubmit} className="publisher_Form" id="form_NewCard"> 
-     <section className="form_Sections">
-       
-         <label htmlFor="publisherName">Publisher</label>
-         <select 
-           id="publisherName"
-           name="publisher" 
-           value={formData.publisher}
-           onChange={handleChange}
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      props.setData((prevData) => {
+        return [...prevData, formData];
+      });
+
+      setFormData({ ...initialState, id: uniqueId() });
+    }
+    function handleUpdate(event) {
+      event.preventDefault();
+      props.setData((prevData) => {
+        let updatedCard = prevData.findIndex((x) => x.id === event.target.id);
+        prevData[updatedCard] = formData;
+        return [...prevData];
+      });
+
+      setFormData({ ...initialState, id: uniqueId() });
+    }
+
+    function handleDeleteCard() {
+      if (props.clickedCard) {
+        props.setData((prevData) => {
+          if (prevData.length === 1) {
+            setFormData({ ...initialState, id: uniqueId() });
+            return [{ initialState }];
+          } else {
+            setFormData({ ...initialState, id: uniqueId() });
+            //set focus
+            return [...prevData.filter((x) => x.id !== props.clickedCard.id)];
+          }
+        });
+      }
+    }
+    React.useEffect(() => {
+      if (props.clickedCard) setFormData(props.clickedCard);
+    }, [props.clickedCard]);
+
+    return (
+      <div className="NewCardForm">
+        <nav className="navBar">
+          <section className="newCardH1_container">
+            <button form="form_NewCard" className="newCard_button">
+              New Card
+            </button>
+            <button
+              form="form_NewCard"
+              type="button"
+              className="updateCard_button"
+              onClick={handleUpdate}
+            >
+              Update
+            </button>
+          </section>
+        </nav>
+        <div className="main_container">
+          <form
+            onSubmit={handleSubmit}
+            className="publisher_Form"
+            id="form_NewCard"
           >
-         <option value=""> --Choose --</option>
-         <option value="CNN">CNN</option>
-         <option value="Houston Cronicle">Houston Cronicle</option>
-         <option value="Yahoo!">Yahoo</option>
-         </select>
-     
-    </section>     
-    <section className="form_Sections text_input">
-      
-       <h3>text</h3>     
-       <textarea onChange={handleChange} name="textInput" value={formData.textInput}/> 
-      
-   </section>
-   <section className="form_Sections media_input">
-    
-       <legend> Media </legend>
-       <label htmlFor="media_None"> None </label>
-       <input 
-        type="radio" 
-        id="media_None" 
-        name="media_Type" 
-        value="None"
-        checked={formData.media_Type === `None`} 
-        onChange={handleChange}
-        />
+            <section className="form_Sections">
+              <label htmlFor="publisherName">Publisher</label>
+              <select
+                id="publisherName"
+                name="publisher"
+                value={formData.publisher}
+                onChange={handleChange}
+                required
+              >
+                <option value=""> --Choose --</option>
+                <option value="CNN">CNN</option>
+                <option value="Houston Cronicle">Houston Cronicle</option>
+                <option value="Yahoo!">Yahoo</option>
+              </select>
+            </section>
+            <section className="form_Sections text_input">
+              <h3>Text</h3>
+              <textarea
+                className="input_textArea"
+                onChange={handleChange}
+                name="textInput"
+                value={formData.textInput}
+                placeHolder="Enter headline text"
+                required
+              />
+            </section>
+            <section className="form_Sections media_input">
+              <legend> Media </legend>
+              <label htmlFor="media_None" required>
+                {" "}
+                None{" "}
+              </label>
+              <input
+                type="radio"
+                id="media_None"
+                name="media_Type"
+                value=""
+                checked={formData.media_Type === ""}
+                onChange={handleChange}
+              />
 
-       <label htmlFor="media_Img"> Image </label>      
-       <input 
-        type="radio" 
-        id="media_Img" 
-        name="media_Type" 
-        value="Image"
-        checked={formData.media_Type === `Image`} 
-        onChange={handleChange}
-       />
-       
-       <label htmlFor="media_Video"> Video </label>
-       <input type="radio" 
-        id="media_Video" 
-        name="media_Type" 
-        value="Video"
-        checked={formData.media_Type === `Video`}
-        onChange={handleChange}/>   
-   </section>
-  
-   <section className="form_Sections date_input">
-       <h3>Published Time </h3>
-     <input 
-      
-      type="datetime-local" 
-      id="time_pub" 
-      name="date"
-      onChange={handleChange}
-      value={formData.date}
-      />
-   </section>
-  
-  <button className="delete_Button">Delete Card</button>
-    </form>
-       </div>
+              <label htmlFor="media_Img">Image</label>
+              <input
+                type="radio"
+                id="media_Img"
+                name="media_Type"
+                value="Image"
+                checked={formData.media_Type === `Image`}
+                onChange={handleChange}
+              />
 
-   </div>
-)};
+              <label htmlFor="media_Video">Video </label>
+              <input
+                type="radio"
+                id="media_Video"
+                name="media_Type"
+                value="Video"
+                checked={formData.media_Type === `Video`}
+                onChange={handleChange}
+              />
+            </section>
 
-const Cards = (props) =>{
-  return(
-    <div className="NewCards" key = {props.id}> 
-      <section className="card_info"> 
-       <h2 className="publisher_title">{props.title}  </h2> 
-       <p className="text_paragraph"> {props.text} </p>
-       <span className="time_published">{props.date}</span>
-      </section>
-      <section className="media_display">
-        <img src={props.media_Type}/>
-      </section>
-
-
-    </div>
-
-  )};
-
-
-  
-
-  
-const App = () => {
-  console.log("app function rendered")
-  const Data = [
-    { 
-      "id": 0,
-     "publisher": "CNN",
-     "textInput": "The First stock-market `correction since October has begun,` says Morgan Stanley analyst who called 2021 tech rout",
-     "media_type": "urlGoeshere",
-     "date": "published dateGoes here"
-    },
-      { 
-      "id": 1,
-     "publisher": "Houston Cronicle",
-     "textInput": "The case for Jaden Schwartz, his absence on the left side will be another difficult gap",
-     "media_type": "urlGoeshere",
-     "date": "published dateGoes here"
-    },
-      { 
-      "id": 2,
-     "publisher": "Yahoo!",
-     "textInput": "Lady Gaga Pays homeage to Italy as `House of Gucci` Wraps Filming and bids adieu to Italy",
-     "media_type": "https://s.yimg.com/os/creatr-uploaded-images/2022-03/02bb35f0-99d5-11ec-bfff-46b1df77f3a4",
-     "date": "published dateGoes here"
-    }
-  ]
-
-React.useEffect(()=> {
- console.log("use Effect is working")
- console.log(Data, "this is the data in useEffect")
-}, [Data.length])
-
-function handleSubmit() {
-
-  
-}
-
- //attempting to pass in form info to cards
-  const completedCards = Data.map(dataSet => {
-  return ( 
-    <Cards 
-    
-      key = {Data.indexOf(dataSet)}  
-      title = {dataSet.publisher}
-      text  = {dataSet.textInput}
-      media = {dataSet.media_type}
-      date = {dataSet.date}
-    />
-   )
-     
-  })
-  return( 
-    <div className="App">
-        <NewCardForm data= {Data} onSubmit={handleSubmit}/>
-      <div className="deck_of_cards">
-         {completedCards}
+            <section className="form_Sections date_input">
+              <h3>Published Time</h3>
+              <input
+                type="datetime-local"
+                id="time_pub"
+                name="date"
+                onChange={handleChange}
+                value={formData.date}
+                required
+              />
+            </section>
+          </form>
+          <button className="delete_Button" onClick={handleDeleteCard}>
+            Delete Card
+          </button>
+        </div>
       </div>
-     </div>
-     
-)};
+    );
+  };
 
+  const Cards = (props) => {
+    const imgUrl =
+      "https://s.yimg.com/os/creatr-uploaded-images/2022-03/02bb35f0-99d5-11ec-bfff-46b1df77f3a4";
+    const videoUrl =
+      "https://s.yimg.com/os/creatr-uploaded-images/2022-03/02bbab20-99d5-11ec-bbef-9427ff56467b";
 
-export default App;
+    return (
+      <div className="NewCards" key={props.id} onClick={props.handleClick}>
+        <section className="card_info">
+          <h2 className="publisher_title">{props.title} </h2>
+          <p className="text_paragraph"> {props.text} </p>
+          <span className="time_published">{props.date}</span>
+        </section>
+        {props.media && (
+          <section className="media_display">
+            <img src={props.media === "Image" ? imgUrl : videoUrl} />
+          </section>
+        )}
+      </div>
+    );
+  };
 
+  const App = () => {
+    const [data, setData] = React.useState([
+      {
+        id: 0,
+        publisher: "CNN",
+        textInput:
+          "The First stock-market `correction since October has begun,` says Morgan Stanley analyst who called 2021 tech rout",
+        media: "",
+        date: "2022-03-05T19:08",
+      },
+      {
+        id: 1,
+        publisher: "Houston Cronicle",
+        textInput:
+          "The case for Jaden Schwartz, his absence on the left side will be another difficult gap",
+        media: "Image",
+        date: "2022-03-06T19:08",
+      },
+      {
+        id: 2,
+        publisher: "Yahoo!",
+        textInput:
+          "Lady Gaga Pays homeage to Italy as `House of Gucci` Wraps Filming and bids adieu to Italy",
+        media: "Video",
+        date: "2022-03-07T19:08",
+      },
+    ]);
+
+    const [editCard, setEditCard] = React.useState(null);
+
+    function handleEditCard(cardData) {
+      setEditCard(cardData);
+    }
+
+    const completedCards = data.map((dataSet) => {
+      return (
+        <Cards
+          handleClick={() => handleEditCard(dataSet)}
+          key={dataSet.id}
+          title={dataSet.publisher}
+          text={dataSet.textInput}
+          media={dataSet.media}
+          date={dataSet.date}
+        />
+      );
+    });
+    return (
+      <div className="App">
+        <NewCardForm clickedCard={editCard} setData={setData} />
+        <div className="deck_of_cards">{completedCards}</div>
+      </div>
+    );
+  };
+
+  ReactDOM.render(<App />, document.getElementById("root"));
 </script>
