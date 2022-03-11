@@ -1,41 +1,37 @@
 // function targetSum (nums, target){
 
 //     let pairs = new Map()
-    
-    
+
 //     for(let i=0; i <nums.length; i++){
-    
+
 //     console.log(pairs)
 //     let num1 = nums[i]
 //     let num2 = target -num1
-    
-    
+
 //     if(pairs.has(num2)){
 //     return [pairs.get(num2), i]
-    
+
 //     }
 //     pairs.set(i, num1)
-    
+
 //     }
-    
+
 //     }
-    
-    
+
 //     console.log(targetSum([2,11,15,7],9))
 
 // function zeroAtEnd (arr) {
 
 //     let count = 0; //3
 //     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i] !== 0) arr[count++] = arr[i]; 
+//         if (arr[i] !== 0) arr[count++] = arr[i];
 //         console.log(arr[i], "<-this is arr[i] for loop", `this is the the count-> ${count}`)
 //     }
 //     while (count < arr.length) arr[count++] = 0;
 //     console.log(`while loop count ${count} and arr[count]-> ${arr[count]}`)
 //     return arr;
 //     }
-    
-    
+
 //     console.log(zeroAtEnd([1,2,3,0,4,6,0,2]))
 
 // let num1 = [[1, 2], [3, 4], [5, ]]
@@ -55,13 +51,13 @@
 //     "D":500,
 //     "M":1000
 //     }
-    
-//      let result = 0; 
-    
+
+//      let result = 0;
+
 //         for (i=0; i < s.length; i++){
 //             const cur = map[s[i]]; //map[s[0]] = map[I] = 1
 //             const next = map[s[i+1]]; //map[s[0 + 1]] = map[V] = 5
-    
+
 //             if (cur < next){
 //                 result += next - cur // IV -> 5 - 1 = 4
 //                 // 0 += 5 - 1
@@ -71,10 +67,10 @@
 //                 result += cur
 //             }
 //         }
-    
-//         return result; 
+
+//         return result;
 //     };
-    
+
 //     // romanToInt(('XXVII'), 27)
 //     // romanToInt(('IV'), 4)
 //     console.log(romanToInt(('C'), 100000))
@@ -95,7 +91,7 @@
 //     };
 
 //     let minSwaps = findMinRotations([0, 0], tops[0]);
-    
+
 //     if (minSwaps === -1)
 //         minSwaps = findMinRotations([0, 0], bottoms[0]);
 
@@ -104,14 +100,10 @@
 
 // minDominoRotations([2,1,2,4,2,2],[5,2,6,2,3,2])
 
-
-
 // 219. Contains Duplicate II
 // Easy
 
 // Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
-
- 
 
 // Example 1:
 
@@ -130,7 +122,7 @@
 
 // var containsNearbyDuplicate = function(nums, k) {
 //     let map = new Map()
-    
+
 //     for(let i = 0; i <nums.length; i++){
 //             let current = nums[i]
 //             console.log(map)
@@ -139,16 +131,12 @@
 //     } else{
 //             map.set(nums[i], i)}
 
-    
-//        } 
-    
+//        }
+
 //     return false
 //     };
-    
-    
+
 //     containsNearbyDuplicate([1,2,3,1,2,3],2)
-
-
 
 // function maxCost(cost, labels, dailyCount) {
 //     // Write your code here
@@ -156,12 +144,12 @@
 //     let maxSum = 0
 //     let tempSum = 0
 //     let laptopCount = 0
-    
+
 //      for(let i =0; i<labels.length;i++){
 //          map.set(labels[i],cost[i])
 //      }
 //     console.log(map)
-    
+
 //     for(let i =0; i<labels.length;i++) {
 //         if(labels[i] === "legal"){
 //             laptopCount++
@@ -175,48 +163,37 @@
 //             tempSum = 0
 //             laptopCount = 0
 //             }
-        
-        
-        
+
 //     }
-    
-    
+
 //     return maxSum
 
 // }
-    
-//     console.log(maxCost([2,5,3,11,1], ["legal","illegal", "legal","illegal","legal"], 2))
 
+//     console.log(maxCost([2,5,3,11,1], ["legal","illegal", "legal","illegal","legal"], 2))
 
 // var gimme = function (inputArray) {
 // console.log(inputArray, `this is array before reassignment`)
 
 // function sort() {
-    
+
 //    let sorted = inputArray.sort((a,b)=> a-b)[1]
 //    console.log(sorted, `this is sorted after being sorted`)
 //    return sorted
-   
+
 // }
 
-    
 //     return inputArray.indexOf(sort())
-   
+
 //    };
 //    console.log((gimme([2, 3, 1])))
-   
-   
+
 //    console.log((gimme([5, 10, 14])))
-
-
-
 
 // var freqAlphabets = function(s) {
 //     let map = new Map()
 //     let result = ""
-  
-  
-  
+
 //   // //hash map built
 //    let alpha= " abcdefghijklmnopqrstuvwxyz"
 //   for(let i= 1; i<alpha.length;i++){
@@ -226,29 +203,26 @@
 //       map.set(i+"#",alpha[i])
 //   }
 //   }
-  
-  
+
 //   //iritarating through map and adding to result
 //   for(let i= 0; i<s.length;i++){
-  
+
 //   if(s[i+2]=="#"){
-  
+
 //   result += map.get(s.slice(i,i+3))
 //   i+=2;
 //   }else {
 //      result+=map.get(s[i])
-  
-  
+
 //   }
-    
+
 //   }
-  
+
 //  return map
-  
+
 //   };
 
 // console.log(freqAlphabets("10#11#12"))
-
 
 //11/2
 
@@ -257,16 +231,16 @@
 //     let stack = []
 //     for(let i=0;i<s.length;i++){
 //      if(s[i]=="(" || s[i]=="{" || s[i]=="[")   {
-         
+
 //          stack.push(s[i])
 //      } else {
 //          let last = stack.pop()
 //     if(!((s[i] =="}" && last =="{")||(s[i] ==")" && last =="(")||(s[i] =="]" && last =="[") )){
 //         return false
 //     }
-         
+
 //      }
-    
+
 //     }if(stack.length !== 0){
 //         return false}
 //        return true
@@ -275,7 +249,7 @@
 //     console.log(isValid("()[]{}"))
 
 // var singleNumber = function(nums) {
-    
+
 //   let map = new Map()
 //   let singleNum;
 
@@ -284,10 +258,9 @@
 //       if(map.has(nums[i])){
 //         map.set(nums[i], 2)
 //       }else{
-  
+
 //       map.set(nums[i], 1)
 //     }
-
 
 // }
 // nums.map(number => {
@@ -301,7 +274,7 @@
 // 11/12/2021
 
 // function absentVowel(x){
- 
+
 //   let map = new Map()
 //     map.set("a",0)
 //     map.set("e",1)
@@ -313,42 +286,37 @@
 //   for(let i = 0; i<x.length; i++){
 //     map.delete(x[i])
 // }
- 
- 
+
 // return iterator.next().value
 //   }
-  
+
 //   console.log(absentVowel("John Doe hs seven red pples under his bsket"))
 
 //   function decode(message){
 
-    // let alpha = "abcdefghijklmnopqrstuvwxyz"
-    // let reverseAlpha = alpha.split("").reverse().join("")
-    
-    // let indexArr = [...message].map((x,index,arr)=>alpha.indexOf(x))
-    
-    // return indexArr.map(x=> reverseAlpha[x]== " "? " ":reverseAlpha[x]).join("")
-    
-    
-    
-    // }
+// let alpha = "abcdefghijklmnopqrstuvwxyz"
+// let reverseAlpha = alpha.split("").reverse().join("")
 
+// let indexArr = [...message].map((x,index,arr)=>alpha.indexOf(x))
 
-    // for (let n = 1; n <= 100; n++) {
-    //   let output = "";
-    //   if (n % 2 == 0) output += "Fizz";
-    //   if (n % 3 == 0) output += "Buzz";
-    //   console.log(output || n);
-    // }
+// return indexArr.map(x=> reverseAlpha[x]== " "? " ":reverseAlpha[x]).join("")
 
-  //   var addDigits = function(num) {
-  //     if (isNaN(num) || num === 0) return 0;
-  //     if (num < 10) return num;
-  //     return num % 9 === 0 ? 9 : num % 9;
-  // };
+// }
 
-  //    console.log(addDigits(38))
+// for (let n = 1; n <= 100; n++) {
+//   let output = "";
+//   if (n % 2 == 0) output += "Fizz";
+//   if (n % 3 == 0) output += "Buzz";
+//   console.log(output || n);
+// }
 
+//   var addDigits = function(num) {
+//     if (isNaN(num) || num === 0) return 0;
+//     if (num < 10) return num;
+//     return num % 9 === 0 ? 9 : num % 9;
+// };
+
+//    console.log(addDigits(38))
 
 //   var reverseString = function(s) {
 //     let stack = []
@@ -359,15 +327,12 @@
 // return stack
 // };
 
-
 // console.log(reverseString(["h","e","l","l","o"]))
 
-
-// Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)! 
-
+// Given a string of characters as input, write a function that returns it with the characters reversed. No Reverse Method (well brute force it first, but then no reverse method)!
 
 // var reverseString = function(s) {
- 
+
 // for(let i =0; i<s.length/2;i++){
 // let j = s.length-1
 
@@ -383,28 +348,24 @@
 // // console.log(reverseString(["h","e","l","l","o","!"]))
 // console.log(reverseString(["h","e"]))
 
-
-
-
 // var isAnagram = function(s, t) {
 
 //   let map = new Map()
-  
+
 //   if(s.length!=t.length){
 //       return false
 //   }
-  
-  
+
 //   for(let i= 0;i<s.length;i++){
 //       if(map.has(s[i])){
-       
+
 //         map.set(s[i], map.get(s[i])+1)
 //         console.log(map)
 //       }
 
 //    map.set(s[i],1)
 //   }
-  
+
 //   for(let i= 0;i<s.length;i++){
 // if(map.get(s[i])==0){
 //   map.delete(s[i])
@@ -413,50 +374,42 @@
 //   if(!map.has(t[i])){
 //       return false
 //   }else{
-   
+
 //     map.set(s[i], map.get(s[i])-1)
 //   }
-  
-//   }
-  
-//   return true    
-//   };
 
+//   }
+
+//   return true
+//   };
 
 //   // console.log(isAnagram("anagram",
 //   // "nagaram"))
 
-
 //   console.log(isAnagram( "aacc","ccac"))
 
+// function count (string) {
+//   let map = new Map()
 
+// if(string == "")
+// return {}
 
+//   for(let i =0; i<string.length;i++){
+//   if(map.has(string[i])){
+//        map.get(string[i])++
+// }else {
+//   map.set(string[i],1)
+// }
 
+// }
 
-  // function count (string) {  
-  //   let map = new Map() 
-  
-  // if(string == "")
-  // return {}
-  
-  //   for(let i =0; i<string.length;i++){
-  //   if(map.has(string[i])){
-  //        map.get(string[i])++
-  // }else {
-  //   map.set(string[i],1)
-  // }
-  
-  // }
-   
-  // return map.entries()
-  
-  // }
+// return map.entries()
 
-  // console.log(count("abadfefdfgd"))
+// }
 
-  // 11/26
+// console.log(count("abadfefdfgd"))
 
- 
+// 11/26
 
 // function maxMin(arr) {
 
@@ -497,12 +450,12 @@ Output: false
 // const wordPattern = function(pattern, str) {
 //     const words = str.split(" ");
 //     const map = new Map();
-    
+
 //     if(words.length !== pattern.length) return false;
 //     if(new Set(words).size !== new Set(pattern).size) return false;
 
 //     for(let i = 0; i < pattern.length; i++) {
-//         if(map.has(pattern[i]) && 
+//         if(map.has(pattern[i]) &&
 //            map.get(pattern[i]) !== words[i]) return false;
 //         map.set(pattern[i], words[i]);
 //     }
@@ -514,14 +467,12 @@ Output: false
 
 // console.log(wordPattern("abba","dog cat cat dog fish"))
 
-
 // for (let n = 1; n <= 100; n++) {
-  //   let output = "";
-  //   if (n % 2 == 0) output += "Fizz";
-  //   if (n % 3 == 0) output += "Buzz";
-  //   console.log(output || n);
-  // }
-
+//   let output = "";
+//   if (n % 2 == 0) output += "Fizz";
+//   if (n % 3 == 0) output += "Buzz";
+//   console.log(output || n);
+// }
 
 //   Given a string of characters, return the character that appears the most often.
 
@@ -531,8 +482,7 @@ Output: false
 //  });
 // });
 
-// No String or Array Methods (well brute force it first, but then no methods)! 
-
+// No String or Array Methods (well brute force it first, but then no methods)!
 
 // function mostStrings(str) {
 // let noSpaceStr = str.split(" ").join("")
@@ -540,7 +490,7 @@ Output: false
 
 // for(let i=0;i<noSpaceStr.length; i++){
 //     if(map.has(noSpaceStr[i])){
-//         map.set(noSpaceStr[i],map.get(noSpaceStr[i])+1) 
+//         map.set(noSpaceStr[i],map.get(noSpaceStr[i])+1)
 
 //     }else{
 //       map.set(noSpaceStr[i],1)
@@ -573,9 +523,8 @@ Output: false
 // Input: nums = [1,1,1,3,3,4,3,2,4,2]
 // Output: true
 
-
 // function dups(arr) {
-//  let map = new Map() 
+//  let map = new Map()
 
 //  for(let i =0; i<arr.length; i++) {
 //   if (map.has(arr[i])) {
@@ -586,7 +535,6 @@ Output: false
 
 //  }
 //  return false
-
 
 // }
 
@@ -619,14 +567,12 @@ Output: false
 //     }else{
 //       map.set(arr[i], 1)
 //     }
-   
-    
+
 // }
 // return [...map.entries()].reduce((a,c)=>c[1]>a[1]? c: a)[0]
 // }
 // console.log(majorityElement([2,2,1,1,1,2,2]))
 // console.log(majorityElement([3,2,3]))
-
 
 // const maxNumberOfBalloons = text => {
 //   let obj = {}, balloonCount = 0;
@@ -644,26 +590,24 @@ Output: false
 //   return balloonCount;
 // }
 
-
 // console.log(maxNumberOfBalloons("nlaebolko"))
 
 // daily pratice Binary Tree
 
 class Node {
-constructor(val) {
-  this.val = val;
-  this.left = null;
-  this.right = null;
-   }
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
 }
 
-
-const a = new Node("a")
-const b = new Node("b")
-const c = new Node("c")
-const d = new Node("d")
-const e = new Node("e")
-const f = new Node("f")
+const a = new Node("a");
+const b = new Node("b");
+const c = new Node("c");
+const d = new Node("d");
+const e = new Node("e");
+const f = new Node("f");
 
 //     a
 //    /  \
@@ -673,7 +617,7 @@ const f = new Node("f")
 // d  e      f
 
 a.left = b;
-a.right =c;
+a.right = c;
 b.left = d;
 b.right = e;
 c.right = f;
@@ -701,15 +645,12 @@ c.right = f;
 
 // breadthFirstPring(a)
 
-
-
 // const  bfs = (root) => {
 //       let queue = [root ]
-   
 
 //       while(queue.length > 0) {
 //             curr = queue.shift()
-          
+
 //             if(curr.left){
 //               queue.push(curr.left)
 //             }
@@ -720,9 +661,6 @@ c.right = f;
 //             console.log(curr.val)
 //       }
 
-     
-
-
 // }
 
 // bfs(a)
@@ -732,7 +670,6 @@ c.right = f;
 
 //     while(queue.length>0){
 //         curr = queue.shift()
-       
 
 //         if(curr.left){
 //           queue.push(curr.left)
@@ -742,7 +679,6 @@ c.right = f;
 //         }
 //         console.log(curr)
 //     }
-
 
 // }
 
@@ -754,8 +690,8 @@ c.right = f;
 //   let queue = [ root ]
 //     let leftSum = 0
 //         while(queue.length > 0){
-//           let currNode = queue.shift()  
-          
+//           let currNode = queue.shift()
+
 //           if(currNode.left){
 //             queue.push(currNode.left)
 //                 leftSum+=currNode.left.val
@@ -765,28 +701,24 @@ c.right = f;
 //             queue.push(currNode.right)
 //             }
 
-
-// }    
-
+// }
 
 // return leftSum
 // };
 
-
 // sumOfLeftLeaves([3,9,20,null,null,15,7])
-
 
 // const isSameTree = function(p, q) {
 //   const q1 = [];
 //   q1.push(p);
-  
+
 //   const q2 = [];
 //   q2.push(q);
-  
+
 //   while (q1.length && q2.length) {
 //     const curr1 = q1.shift();
 //     const curr2 = q2.shift();
-    
+
 //     // checking null
 //     if (curr1 === null || curr2 === null) {
 //       if (curr1 !== curr2) {
@@ -795,19 +727,19 @@ c.right = f;
 //         continue;
 //       }
 //     }
-    
+
 //     // checking val
 //     if (curr1.val !== curr2.val) return false;
-    
+
 //     // adding children to queues
 //     q1.push(curr1.left, curr1.right);
 //     q2.push(curr2.left, curr2.right);
 //   }
-  
+
 //   if (q1.length || q2.length) {
 //     return false;
 //   }
-  
+
 //   return true;
 // };
 // // 12/6/2021
@@ -831,7 +763,6 @@ c.right = f;
 // var reverseList = function(head) {
 //   let prev = null
 //   let next = null
-
 
 // while(head !== null){
 //   next = head.next
@@ -887,7 +818,7 @@ c.right = f;
 // for(let i=0; i<noteLetters.length;i++){
 //         if(map.get(noteLetters[i]) >0){
 //           map.set(noteLetters[i], map.get(noteLetters[i])-1 )
-         
+
 //         }else{
 //           return false
 //         }
@@ -899,7 +830,7 @@ c.right = f;
 //  console.log(RansomNote("sit ad est sint in in", magazine),true)
 //  console.log(RansomNote("sit ad est sint in in in in", magazine),false)
 
-// Euclids algo 
+// Euclids algo
 
 // let gcd = (a,b) => {
 
@@ -922,7 +853,7 @@ c.right = f;
 // });
 
 // function twoSum (nums, sum) {
-//     let map = new Map() 
+//     let map = new Map()
 //     let resultArr = []
 
 //   for(let i=0; i<nums.length; i++){
@@ -932,20 +863,17 @@ c.right = f;
 //       map.set(nums[i], true)
 //     }else{
 //         resultArr.push([target,nums[i]])
-   
+
 //     }
 //   }
-
 
 // return resultArr
 
 // }
 
-
-
 // var twoSum = function(nums, target) {
 //   let map = new Map();
-  
+
 //   for(let i = 0; i < nums.length; i ++) {
 //       if(map.has(target - nums[i])) {
 //           return [map.get(target - nums[i]), i];
@@ -958,7 +886,6 @@ c.right = f;
 // console.log(twoSum([1, 2, 2, 3, 4], 4))
 
 // daily challenge
-
 
 // var productExceptSelf = function(nums) {
 //   const res = [ 1 ];
@@ -976,7 +903,6 @@ c.right = f;
 // };
 
 // console.log(productExceptSelf([-1,1,0,-3,3]),[0,0,9,0,0])
-
 
 /// 12/13
 
@@ -1002,8 +928,7 @@ c.right = f;
 // Output: 3
 // Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
-
-// Euclids algo 
+// Euclids algo
 
 // let gcd = (bigNum, smallNum) => {
 
@@ -1017,7 +942,6 @@ c.right = f;
 
 //12/16/2021
 
-
 // function fib(n){
 //   let arr = [0,1]
 //   for(let i = 2; i <= n; i++){
@@ -1027,9 +951,6 @@ c.right = f;
 // }
 // console.log(fib(2), 1)
 // console.log(fib(4), 3)
-
-
-
 
 // function fib(n) {
 //   let memo = new Map()
@@ -1045,7 +966,6 @@ c.right = f;
 //     return memo.get(n)
 //   }
 
-
 // }
 
 // var fib = function(n) {
@@ -1053,7 +973,7 @@ c.right = f;
 //     if(n< 2){
 //       return n
 //   }
-  
+
 //       if(!memo.has(n)){
 //         let result = fib(n-1) + fib(n-2)
 //         memo.set(n,result)
@@ -1078,7 +998,7 @@ c.right = f;
 //         map1.set(s1[i],1)
 //       }
 
-// } 
+// }
 // console.log(map1)
 // };
 
@@ -1088,26 +1008,23 @@ c.right = f;
 //   let map = {}
 
 // for(let i = 0; i<numbers.length; i++) {
-//     let num1 = numbers[i] 
+//     let num1 = numbers[i]
 //     let compliment = targetSum - num1
-      
+
 //       if(map[compliment]!== undefined) {
 //         console.log([i,map[compliment]])
-    
+
 //     }
 //      map[num1] = i
-    
+
 // }
 
 // };
-
-
 
 // pairSum([3, 2, 5, 4, 1], 8)
 
 // function bfs (root) {
 //   let queue = [ root ]
-
 
 //   while(queue>0) {
 //       let current  = queue.shift()
@@ -1121,16 +1038,9 @@ c.right = f;
 
 //     }
 
-
-
 //   }
 
-
 // }
-
-
-
-
 
 // function meanArrays(arr) {
 //   let set = new Set()
@@ -1150,14 +1060,11 @@ c.right = f;
 // }
 
 // }
-  
+
 // return set
 // }
 
-
 // console.log(meanArrays([[3,3,4,2], [4,4],[4,0,3,3],[2,3],[3,3,3]]))
-
-
 
 // function division(a, k) {
 // let hashMap = new Map()
@@ -1173,12 +1080,7 @@ c.right = f;
 //       hashMap.set(current)
 //     }
 
-
-
 // }
-
-
-
 
 // }
 
@@ -1194,10 +1096,8 @@ c.right = f;
 // }
 // console.log(number)
 
-
-
 // for(let i =0 ; i <5; i++) {
- 
+
 // setTimeout(function(){
 //   console.log(i)},1000)
 
@@ -1209,7 +1109,6 @@ c.right = f;
 // Write a function, mostFrequentChar, that takes in a string as an argument. The function should return the most frequent character of the string. If there are ties, return the character that appears earlier in the string.
 
 // You can assume that the input string is non-empty.
-
 
 //1/8/2022
 
@@ -1234,8 +1133,7 @@ c.right = f;
 //   if(head.val === targetVal) return head.next
 //          let previous = null
 //          let current = head
-  
-  
+
 //       while(current!==null){
 //         if(current.val === targetVal) {
 //           prev.next = current.next
@@ -1244,11 +1142,11 @@ c.right = f;
 //              prev = current
 //            current = current.next
 //       }
-  
+
 //     return head
 //   };
-  
-// 1/12/2022 
+
+// 1/12/2022
 
 // String ends with? (JavaScript)
 // ← back to kata solutions
@@ -1256,12 +1154,12 @@ c.right = f;
 // countTheShellz12
 
 // function solution(str, ending){
- 
+
 // for(let i = 0; i < ending.length; i++) {
 //     if(str[str.length-1-i] === ending[ending.length-1-i]){
 //            continue
-//           }else {return false} 
-     
+//           }else {return false}
+
 // }
 
 // return true
@@ -1269,13 +1167,12 @@ c.right = f;
 // 1/14/2022
 
 // const mostFrequentChar = (s) => {
-//   let map = new Map() 
+//   let map = new Map()
 //   let max = 0
 //   let maxChar
 // for( let char of s) {
 //    map.has(char) ? map.set(char,map.get(char)+1): map.set(char,1)
 // }
-
 
 // for(let [key,value] of map.entries()) {
 //   if(value> max) {
@@ -1300,7 +1197,7 @@ c.right = f;
 //   let graph = buildGraph(edges)
 //   let stack = [nodeA]
 //   let visited = new Set()
-  
+
 //   while(stack.length > 0) {
 //     let current = stack.pop()
 //     if(current === nodeB) return true
@@ -1309,8 +1206,8 @@ c.right = f;
 //    if(visited.has(neighbor)){
 //           continue;
 //        }else{
-//        visited.add(neighbor)  
-//        stack.push(neighbor)  
+//        visited.add(neighbor)
+//        stack.push(neighbor)
 //         }
 
 //    }
@@ -1320,23 +1217,19 @@ c.right = f;
 // return false
 // };
 
-
 // function buildGraph(edges) {
-//  const graph = {} 
-
+//  const graph = {}
 
 // for(let edge of edges) {
 //     const [a,b] = edge
 
-// if(!(a in graph)) graph[a] = []  
-// if(!(b in graph)) graph[b] = []   
+// if(!(a in graph)) graph[a] = []
+// if(!(b in graph)) graph[b] = []
 //  graph[a].push(b)
 //  graph[b].push(a)
 // }
 // return graph
 // }
-
-
 
 // const edges = [
 //   ['i', 'j'],
@@ -1353,7 +1246,7 @@ c.right = f;
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
 // You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
- 
+
 // Example 1:
 
 // Input: prices = [7,1,5,3,6,4]
@@ -1367,13 +1260,12 @@ c.right = f;
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-
 // function sellStock(arr) {
 //    let profit = 0
 //    let min = Infinity
 
 // for(let prices of arr) {
-//     if(prices < min) min = prices 
+//     if(prices < min) min = prices
 //     if(profit <prices-min) profit = prices-min
 // }
 
@@ -1407,11 +1299,9 @@ c.right = f;
 
 // console.log(minMaxArr([15,11,10,7,12]),[15,7,12,10,11])
 
-
 // function zerosAtEnd (arr){
 //   let i = 0
 //   let j = arr.length-1
-
 
 //   while(i<j){
 //   if(arr[j] == 0) {
@@ -1420,7 +1310,7 @@ c.right = f;
 //     i++
 //   }else {
 //    [arr[i],arr[j]] = [ arr[j],arr[i] ]
-   
+
 //   }
 
 // }
@@ -1428,8 +1318,6 @@ c.right = f;
 // }
 
 // console.log(zerosAtEnd([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]))
-
-
 
 // const grid = [
 //   ['W', 'L', 'W', 'W', 'W'],
@@ -1440,7 +1328,6 @@ c.right = f;
 //   ['L', 'L', 'W', 'W', 'W'],
 // ];
 
-
 // console.log(grid[0])
 // console.log(grid[0].length)
 
@@ -1448,9 +1335,6 @@ c.right = f;
 // console.log(grid.length)
 
 // given a grid, find if a string exists on the grid. it must be connected and you can only have neighbors up, down, right, left.
-
-
-
 
 // word: "ABC" => true
 // word : "FAD"=> true
@@ -1480,17 +1364,16 @@ c.right = f;
 //   let pos = `${r},${c}`
 //   if(visited.has(pos)) return false
 //   visited.add(pos)
-    
+
 //       if(!grid[r][c] !== word.charAt(count)) return false
 
-    
 //   explore(grid,word, r, c, visited, count+1)
 //   explore(grid,word, r, c, visited, count+1)
 //   explore(grid,word, r, c, visited, count+1)
 //   explore(grid,word, r, c, visited, count+1)
- 
+
 //   return true
-// } 
+// }
 
 // let grid = [
 //   ["A","B","C","D"],
@@ -1499,7 +1382,6 @@ c.right = f;
 // ]
 
 // console.log(wordSearch(grid,"ABC"))
-
 
 // The idea
 
@@ -1544,10 +1426,9 @@ c.right = f;
 //             }
 //         }
 //     }
-    
+
 //     return result;
 // };
-
 
 // 1/21/2022
 
@@ -1557,14 +1438,11 @@ c.right = f;
 //  for(char of s1) {
 //    !map.has(char) ?  map.set(char, 1):  map.set(char, map.get(char)+1)
 
-
-
 // }
 // return map
 // };
 
 // console.log(anagrams('night', 'thing'))
-
 
 // const rotate = function(nums, k) {
 //   k = k % nums.length
@@ -1578,7 +1456,7 @@ c.right = f;
 // }
 
 // const revNums = (nums, start, end)=> {
- 
+
 //   while(start < end){
 //    [nums[start], nums[end]] =  [nums[end], nums[start]]
 
@@ -1588,31 +1466,24 @@ c.right = f;
 
 // }
 
-
 // const maxArea = function(height) {
 //   let area = 0, left = 0, right = height.length-1
-
 
 //  while(left < right) {
 //       const tempArea =(right-left)*Math.min(height[left], height[right])
 
-//     height[left] <= height[right] ? left++ : right --    
+//     height[left] <= height[right] ? left++ : right --
 
 //    area = Math.max(tempArea, area)
-
 
 //  }
 //   return area
 // };
 
-
-
-
-
 // const numIdenticalPairs = function(nums) {
 //   const map = {}
 //   let count = 0
-  
+
 //   for (const number of nums) {
 //       if (map[number]) {
 //           count += map[number];
@@ -1632,41 +1503,35 @@ c.right = f;
 // [12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
 // [12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
 
-
-
 // function mostNum (nums) {
 //   let map = new Map()
 //   let max = 0
 //   let maxKey = 0
 //   for(let num of nums) {
 //   if(map.has(num)) map.set(num, map.get(num)+1)
-  
+
 //   else map.set(num, 1)
-  
+
 //   }
 //   for(let [key,value] of map.entries()) {
-//    if(value > max){ 
-//    max = value 
+//    if(value > max){
+//    max = value
 //    maxKey = key
 //   }
 //    if(value === max) {
 //        if(maxKey < key) {
-//    max = value 
+//    max = value
 //    maxKey = key
 //     }
 //      }
 //     }
-  
+
 //   return maxKey
 //   }
-  
-
 
 // console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12]), 12)
-// console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12, 10]), 12) 
+// console.log(mostNum([12, 10, 8, 12, 7, 6, 4, 10, 12, 10]), 12)
 // console.log(mostNum([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]),3)
-
-
 
 // const runningSum = nums => {
 //   nums.reduce((a,c,i,arr) => arr[i] += a)
@@ -1679,7 +1544,7 @@ c.right = f;
 //   return nums
 // };
 
-// 169. Majority Element 
+// 169. Majority Element
 
 // function majorityEl (arr) {
 // let map = new Map()
@@ -1698,11 +1563,10 @@ c.right = f;
 // console.log(majorityEl([3,2,3]), 3)
 // console.log(majorityEl([2,2,1,1,1,2,2]), 2)
 
-
-// Write a function that takes a list of pin objects, each with a height attribute and an id attribute, and returns a grid layout.  
+// Write a function that takes a list of pin objects, each with a height attribute and an id attribute, and returns a grid layout.
 
 // 1. The function also takes a number of columns.
-// 2. Column ‘height’ is the sum of the heights of the pins already placed in that column.  
+// 2. Column ‘height’ is the sum of the heights of the pins already placed in that column.
 // 3. The highest scoring pins, should be placed in the column with the smallest column height.  If there is a tie, insert the pin into the first/leftmost column.  Return a grid layout of the pins.
 // 4. The output should be a list of lists
 
@@ -1718,14 +1582,12 @@ c.right = f;
 // Output
 // [
 //    # This list has the pins for the first column
-//    [ {'id': 1, 'height': 200}, 
-//      {'id': 4, 'height': 100} ], 
+//    [ {'id': 1, 'height': 200},
+//      {'id': 4, 'height': 100} ],
 //    # This list has the pins for the second column
-//    [ {'id': 2, 'height': 150}, 
+//    [ {'id': 2, 'height': 150},
 //      {'id': 3, 'height': 50} ]
 // ]
-
-
 
 // function pinterestGrid(pins, colNums) {
 //   let resultArr = []
@@ -1734,45 +1596,43 @@ c.right = f;
 //   resultArr.push([])
 //    i++
 //   }
-  
+
 //   for(let pin of pins) {
 //      let {id, height} = pin
 //   if(resultArr[0].length === 0){
 //     resultArr[0].push({id, height})
 //     continue
-//   } 
-  
-  
+//   }
+
 //   let min = Infinity
 //   let minIndex = 0
 //   if(resultArr[0].length>0){
-  
+
 //   for(let i = 0; i<resultArr.length; i++) {
-  
+
 //          let totalHeight = 0
 //      for(let obj of resultArr[i]){
 //          totalHeight+=obj.height
-  
+
 //      }
 //       if(totalHeight < min) {
 //         min = totalHeight
-//         minIndex = i  
+//         minIndex = i
 //       }
 //   }
-  
+
 //   }
-  
+
 //   resultArr[minIndex].push({id, height})
 //   }
-  
+
 //   return resultArr
 //   }
-  
+
 //   console.log(pinterestGrid([ {'id': 1, 'height':200},
 //   {'id': 2, 'height':150},
 //   {'id': 3, 'height':50},
 //   {'id': 4, 'height':100} ], 2))
-  
 
 // function vowelShift(str) {
 // let vowels = "aeiou"
@@ -1792,11 +1652,9 @@ c.right = f;
 // return result.join("")
 // }
 
-
-//  console.log(vowelShift( "codesignal"),"cadosegnil")  
+//  console.log(vowelShift( "codesignal"),"cadosegnil")
 
 //  ///
-
 
 //  Simple Text Editor
 
@@ -1804,7 +1662,7 @@ c.right = f;
 //   let lines = input.split("\n");
 //   let str = "";
 //   let last = [];
-  
+
 //   for (var i=1; i <= parseInt(lines[0]); i++) {
 //       var command = parseInt(lines[i].split(" ")[0]),
 //           args = lines[i].split(" ")[1];
@@ -1825,11 +1683,10 @@ c.right = f;
 //               str = last.pop();
 //               break;
 //       }
-      
-//   }
-  
-// } 
 
+//   }
+
+// }
 
 // let obj ={
 // jotNote: "Testing on the 27th to make sure it still works",
@@ -1840,7 +1697,6 @@ c.right = f;
 // for(let keys in obj) {
 //   if(keys ==="jotNote") obj[keys] = "hello world"
 // }
-
 
 // console.log(obj)
 // 3. Longest Substring Without Repeating Characters
@@ -1865,9 +1721,8 @@ c.right = f;
 // console.log(lengthOfLongestSubstring("pwwkew"),3)
 // // console.log(lengthOfLongestSubstring("dvdf"),3)
 
-// let text = "Hello, this is CodeSignal!" 
+// let text = "Hello, this is CodeSignal!"
 // let letters = ["e", "i", "h", "l", "o", "s"]
-
 
 // function oneJobPlease (text, letters) {
 //   let textArr = text.split(" ")
@@ -1880,14 +1735,13 @@ c.right = f;
 //      count++
 //       break
 //    }
-      
+
 //    }
- 
-   
+
 //  }
- 
+
 //  return textArr.length - count
- 
+
 //  }
 //  console.log(oneJobPlease(text,letters),2)
 // function performActions(actions) {
@@ -1971,22 +1825,21 @@ c.right = f;
 // };
 
 // const fib = (n) => {
- 
+
 //   if(n ===0 || n === 1) return n
 //       let result = []
 //         result[0] = 1
 //         result[1] = 1
-    
+
 //      for(let i =2; i < n; i++) {
 //      result[i] = result[i-1] + result[i-2]
 //      console.log(result)
 //    }
-  
+
 //   return result[n-1]
 //   };
-  
-  
-// console.log(fib(1000), 9227465)  
+
+// console.log(fib(1000), 9227465)
 // const graph = {
 //   a: ['c', 'b'],
 //   b: ['c'],
@@ -2000,7 +1853,7 @@ c.right = f;
 
 // const longestPath = (graph) => {
 //   let distance = {}
-  
+
 //   for(let node in graph) {
 //   if(graph[node].length === 0) distance[node] = 0
 
@@ -2014,44 +1867,38 @@ c.right = f;
 // return Math.max(...Object.values(distance))
 // };
 
-
-
 // const traverse = (graph, node, distance)=> {
 //  if(node in distance) return distance[node]
- 
+
 //   let maxPath = 0
 //  for(let neighbor of graph[node]) {
 //    let attempt = traverse(graph, neighbor, distance)
 //    if(attempt > maxPath) maxPath = attempt
 
 //  }
- 
+
 //  distance[node] = 1 + maxPath
 
 //  return distance[node]
 // }
 
-
 // console.log(longestPath(graph))
-
-
 
 // Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
 
 // var exist = function(board, word) {
 //   let visited = new Set()
-  
+
 //   let count = 0
 // for(let r = 0; r < board.length; r++){
 // for(let c = 0; c < board[0].length; c++){
- 
+
 //    if(traverseBoard(board, r, c, word, visited, count) === true) {
 //     count++
 //         visited = new Set()
-        
+
 //         console.log(count, visited)
 //    }
-   
 
 // }
 
@@ -2060,24 +1907,21 @@ c.right = f;
 // return count === word.length-1 ? true : false
 // };
 
-
 // const traverseBoard = (board, r, c, word, visited, count) => {
 //  const rowInbounds = 0 <= r && r < board.length
 //  const colInbounds = 0 <=  c && c < board[0].length
 //  if(!rowInbounds || !colInbounds) return false
 
-
-//   // let pos = r +"," + c 
+//   // let pos = r +"," + c
 //   // if(visited.has(pos)) return false
 //   // visited.add(pos)
- 
+
 //   if(board[r][c] !== word[count]) return false
 //   if(board[r][c] === word[count]) return true
 //      traverseBoard(board, r+1, c, word, visited, count)
 //      traverseBoard(board, r-1, c, word, visited, count)
 //      traverseBoard(board, r, c+1, word, visited, count)
 //      traverseBoard(board, r, c-1, word, visited, count)
-
 
 // }
 // console.log(word[1])
@@ -2087,7 +1931,6 @@ c.right = f;
 
 // console.log(exist(board,word))
 
-
 // const exist = function(board, word) {
 //   const n = board.length, m = board[0].length;
 //   if (word.length < 1) return false;
@@ -2096,7 +1939,7 @@ c.right = f;
 //       if (i === n || i < 0 || j === m || j < 0 || board[i][j] !== word[pos]) return false;
 //       if (pos === word.length-1) return true;
 //       board[i][j] = "."; // choose this elem so we don't find it again
-//       const found = 
+//       const found =
 //           dfs(i+1,j, pos+1) || // check every direction and see if any of them return a match
 //           dfs(i-1,j, pos+1) ||
 //           dfs(i,j+1, pos+1) ||
@@ -2105,7 +1948,7 @@ c.right = f;
 //       board[i][j] = word[pos]; // unchoose element
 //       return found;
 //   };
-  
+
 //   for (let i=0;i<n;i++) {
 //       for (let j=0;j<m;j++) {
 //           if (board[i][j] === word[0]) {
@@ -2115,7 +1958,7 @@ c.right = f;
 //       }
 //   }
 
-//   return false; 
+//   return false;
 // };
 
 // var frequencySort = function(s) {
@@ -2125,17 +1968,16 @@ c.right = f;
 //   if(map[char]) map[char]+=1
 //   else map[char] = 1
 // }
- 
+
 // let sortedMap = Object.keys(map).sort((a,b)=> map[b]-map[a])
 
 //   for(let char of sortedMap){
-//      result.push(char.repeat(map[char]))  
-     
+//      result.push(char.repeat(map[char]))
+
 //   }
 // return result.join("")
 // };
 // console.log(frequencySort("tree"))
-
 
 // var exist = function(board, word) {
 //   if(word.length < 1) return false
@@ -2149,7 +1991,6 @@ c.right = f;
 
 // return false
 // };
-
 
 // const traverseBoard = (board, r, c, word,i) => {
 // const rowInbounds = 0 <= r && r < board.length
@@ -2167,11 +2008,10 @@ c.right = f;
 //    traverseBoard(board, r-1, c, word, i+1)||
 //    traverseBoard(board, r, c+1, word, i+1)||
 //    traverseBoard(board, r, c-1, word, i+1)
-   
+
 //   board[r][c] = word[i]
 //   return result
 // };
-
 
 // const map1 = new Map();
 
@@ -2200,8 +2040,6 @@ c.right = f;
 
 // let string = "hi"
 //  string+="!"
- 
-
 
 //    let obj = [
 //      {"language": "javaScript", "name": "john"},
@@ -2211,25 +2049,23 @@ c.right = f;
 //     ]
 //    let map = new Map()
 
-//    let newObj = { 
+//    let newObj = {
 //   }
 //   for(let key of obj){ //{"language": "javaScript", "name": "john"},
 //    if(newObj[key.language]) map.set(key.language, map.get(key.language)+1)
- 
+
 //    else map.set(key.language, 1)
 //   }
-  
-   
+
 //    for(let key of obj){ //{"language": "javaScript", "name": "john"},
 //     if(newObj[key.language]) newObj[key.language]+1
-  
+
 //     else newObj[key.language] = 1
 //    }
-   
+
 //  console.log(Object.values(newObj))
 
 //  console.log(map.values())
-
 
 //  let stack = [] // pop() push()
 //  let queue = [] // pop() shift()
@@ -2238,32 +2074,30 @@ c.right = f;
 // function duplicateCount(text){
 //   let sorted =text.toLowerCase()
 //   let obj = {}
- 
-  
+
 //   for(let char of sorted){
 //     if(obj[char]) obj[char]++
 //     else obj[char] = 1
 //   }
-  
+
 //   let count = 0
 //  for(let vals in obj) {
 //    if(obj[vals]> 1) count++
 //  }
-  
+
 //   return count
 // }
 // 2/20
 // function isPangram(string){
 //   let map = new Map()
-  
+
 //   for(let char of string) {
 //     if(!map.has(char)) map.set(char, true)
-    
+
 //   }
 //   console.log(map.size)
 //   return map.size > 25 ? true: false
 //   }
-
 
 //   console.log(isPangram("abcdefghijklmopqrstuvwxyz"))
 // 2/22/2022
@@ -2286,7 +2120,7 @@ c.right = f;
 // ];
 // function allContinents(list) {
 //   let continentSet = new Set()
-  
+
 //   for(let devs of list ) {
 //    if(devs.continent === "Africa" || "Americas" || "Asia" || "Europe" || "Oceania") continentSet.add(devs.continent)
 // }
@@ -2305,73 +2139,77 @@ c.right = f;
 //  });
 // });
 
-
 // let maxChar = (str) => {
 //   let map = new Map()
 //   for(let char of str){
 //    if(map.has(char)) map.set(char, map.get(char)+1)
 //    else map.set(char, 1)
 //   }
-  
 
-//   let maxCount = 0 
+//   let maxCount = 0
 //   let maxChar = ""
-  
+
 //   for(let [keys, values] of map){
 //   if(map.get(keys) > maxCount){
 //       maxCount = map.get(keys)
 //       maxChar = keys
-      
+
 //     }
-//   } 
+//   }
 
-// return maxChar 
+// return maxChar
 
-// } 
+// }
 
 // console.log(maxChar("hello world"))
 
 // 2/26/2022
-var list1 = [
-  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 19, language: 'Python' },
-  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 29, language: 'JavaScript' },
-  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 39, language: 'Ruby' },
-  { firstName: 'Noa', lastName: 'A.', country: 'Israel', continent: 'Asia', age: 40, language: 'Ruby' },
-  { firstName: 'Andrei', lastName: 'E.', country: 'Romania', continent: 'Europe', age: 59, language: 'C' },
-  { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 60, language: 'C' },
-  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 75, language: 'Python' },
-  { firstName: 'Chloe', lastName: 'K.', country: 'Guernsey', continent: 'Europe', age: 88, language: 'Ruby' },
-  { firstName: 'Viktoria', lastName: 'W.', country: 'Bulgaria', continent: 'Europe', age: 98, language: 'PHP' },
-  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript' }
-];
+// var list1 = [
+//   { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 19, language: 'Python' },
+//   { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 29, language: 'JavaScript' },
+//   { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 39, language: 'Ruby' },
+//   { firstName: 'Noa', lastName: 'A.', country: 'Israel', continent: 'Asia', age: 40, language: 'Ruby' },
+//   { firstName: 'Andrei', lastName: 'E.', country: 'Romania', continent: 'Europe', age: 59, language: 'C' },
+//   { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 60, language: 'C' },
+//   { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 75, language: 'Python' },
+//   { firstName: 'Chloe', lastName: 'K.', country: 'Guernsey', continent: 'Europe', age: 88, language: 'Ruby' },
+//   { firstName: 'Viktoria', lastName: 'W.', country: 'Bulgaria', continent: 'Europe', age: 98, language: 'PHP' },
+//   { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript' }
+// ];
 
-const list2 = [
-  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 29, language: 'Ruby' },
-  { firstName: 'Amar', lastName: 'V.', country: 'Bosnia and Herzegovina', continent: 'Europe', age: 32, language: 'Ruby' },
-];
+// const list2 = [
+//   { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 29, language: 'Ruby' },
+//   { firstName: 'Amar', lastName: 'V.', country: 'Bosnia and Herzegovina', continent: 'Europe', age: 32, language: 'Ruby' },
+// ];
 
+// const list3 = [
+//   { firstName: 'Sofia', lastName: 'P.', country: 'Italy', continent: 'Europe', age: 41, language: 'Clojure' },
+//   { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' },
+//   { firstName: 'Sou', lastName: 'B.', country: 'Japan', continent: 'Asia', age: 43, language: 'Python' },
+//   { firstName: 'Rimas', lastName: 'C.', country: 'Jordan', continent: 'Asia', age: 44, language: 'Java' }
+// ];
 
-const list3 = [
-  { firstName: 'Sofia', lastName: 'P.', country: 'Italy', continent: 'Europe', age: 41, language: 'Clojure' },
-  { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' },
-  { firstName: 'Sou', lastName: 'B.', country: 'Japan', continent: 'Asia', age: 43, language: 'Python' },
-  { firstName: 'Rimas', lastName: 'C.', country: 'Jordan', continent: 'Asia', age: 44, language: 'Java' }
-];
+// function isAgeDiverse(list) {
 
+//   let set = new Set()
 
-function isAgeDiverse(list) {
- 
-  let set = new Set()
- 
+// for(let keys in list){
 
-for(let keys in list){
+//  if(!set.has(String(list[keys].age).split("")[0]) ||!set.has("100") ) {
+//   String(list[keys].age).length < 3 ?set.add(String(list[keys].age).split("")[0]+","):set.add("100")
 
- if(!set.has(String(list[keys].age).split("")[0]) ||!set.has("100") ) {
-  String(list[keys].age).length < 3 ?set.add(String(list[keys].age).split("")[0]+","):set.add("100")
-
-}
-}
-console.log(set)
- return set.size >9 ? true: false
-}
-console.log(isAgeDiverse(list3))
+// }
+// }
+// console.log(set)
+//  return set.size >9 ? true: false
+// }
+// console.log(isAgeDiverse(list3))
+//3/8/2022
+React.useEffect(() => {
+  async function getMemes() {
+    const res = await fetch("https://api.imgflip.com/get_memes");
+    const data = await res.json();
+    setAllMemes(data.data.memes);
+  }
+  getMemes();
+}, []);
