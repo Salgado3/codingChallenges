@@ -2214,36 +2214,54 @@ c.right = f;
 //   getMemes();
 // }, []);
 
-
 // 3/15/2022
-https://leetcode.com/problems/pacific-atlantic-water-flow/
+//https:leetcode.com/problems/pacific-atlantic-water-flow/
 // 417. Pacific Atlantic Water Flow
-var pacificAtlantic = function(heights) {
-  let visited = new Set()
-  let result = []
- for(let r= 0; r < heights.length; r++) {
-   for(let c - 0; c <heights[0].length; c++){
-        if(explore (heights, r, c, visited)
-         )
-   
-   }
 
-}    
+var pacificAtlantic = function (heights) {
+  const Rows = heights.length;
+  const Cols = heights[0].length;
 
+  let pacSet = new Set();
+  let atlSet = new Set();
 
+  for (let r = 0; r < heights.length; r++) {
+    explore(r, 0, pacSet, heights[r][0], heights);
+    explore(r, Cols - 1, atlSet, heights[r][Cols - 1], heights);
+  }
 
+  for (let c = 0; c < heights[0].length; c++) {
+    explore(0, c, pacSet, heights[0][c], heights);
+    explore(Rows - 1, c, atlSet, heights[Rows - 1][c], heights);
+  }
+
+  let result = [];
+
+  for (let r = 0; r < heights.length; r++) {
+    for (let c = 0; c < heights[0].length; c++) {
+      const pos = r + "," + c;
+
+      if (pacSet.has(pos) && atlSet.has(pos)) {
+        result.push([r, c]);
+      }
+    }
+  }
+
+  return result;
 };
 
+const explore = (r, c, visit, prevHeight, heights) => {
+  let pos = r + "," + c;
+  const rowInbounds = 0 <= r && r < heights.length;
+  const colInbounds = 0 <= c && c < heights[0].length;
+  if (!rowInbounds || !colInbounds) return false;
+  if (heights[r][c] < prevHeight) return false;
+  if (visit.has(pos)) return false;
 
-const explore = (heights, r, c, visisted) {
-    const rowInbounds = 0<= r && r <heights.length
-    const colInbounds = 0 <= c && c< heights[0].length
-  if(!rowInbounds || !colInbounds) return false
-  if(heights[r][c]) return false
-    
-  explore(heights, r+1, c, visisted)
-  explore(heights, r-1, c, visisted)
-  explore(heights, r, c+1, visisted)
-  explore(heights, r, c-1, visisted)
-    
-}
+  visit.add(pos);
+
+  explore(r + 1, c, visit, heights[r][c], heights);
+  explore(r - 1, c, visit, heights[r][c], heights);
+  explore(r, c + 1, visit, heights[r][c], heights);
+  explore(r, c - 1, visit, heights[r][c], heights);
+};
