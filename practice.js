@@ -2205,11 +2205,45 @@ c.right = f;
 // }
 // console.log(isAgeDiverse(list3))
 //3/8/2022
-React.useEffect(() => {
-  async function getMemes() {
-    const res = await fetch("https://api.imgflip.com/get_memes");
-    const data = await res.json();
-    setAllMemes(data.data.memes);
-  }
-  getMemes();
-}, []);
+// React.useEffect(() => {
+//   async function getMemes() {
+//     const res = await fetch("https://api.imgflip.com/get_memes");
+//     const data = await res.json();
+//     setAllMemes(data.data.memes);
+//   }
+//   getMemes();
+// }, []);
+
+
+// 3/15/2022
+https://leetcode.com/problems/pacific-atlantic-water-flow/
+// 417. Pacific Atlantic Water Flow
+var pacificAtlantic = function(heights) {
+  let visited = new Set()
+  let result = []
+ for(let r= 0; r < heights.length; r++) {
+   for(let c - 0; c <heights[0].length; c++){
+        if(explore (heights, r, c, visited)
+         )
+   
+   }
+
+}    
+
+
+
+};
+
+
+const explore = (heights, r, c, visisted) {
+    const rowInbounds = 0<= r && r <heights.length
+    const colInbounds = 0 <= c && c< heights[0].length
+  if(!rowInbounds || !colInbounds) return false
+  if(heights[r][c]) return false
+    
+  explore(heights, r+1, c, visisted)
+  explore(heights, r-1, c, visisted)
+  explore(heights, r, c+1, visisted)
+  explore(heights, r, c-1, visisted)
+    
+}
