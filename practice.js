@@ -2265,3 +2265,44 @@ const explore = (r, c, visit, prevHeight, heights) => {
   explore(r, c + 1, visit, heights[r][c], heights);
   explore(r, c - 1, visit, heights[r][c], heights);
 };
+
+// 3/16/2022
+// decompress braces 
+https://structy.net/problems/premium/decompress-braces
+
+
+const decompressBraces = (s) => {
+  const numStr = "123456789"
+  let stack = []
+
+
+for(char of s) {
+if(numStr.includes(char)) {
+  stack.push(Number(char))
+}else {
+
+ if(char === "}"){
+    let segment = ""
+  while(typeof stack[stack.length-1] !== "number") {
+         let popped = stack.pop()
+     segment = popped + segment
+  }
+   let poppedNum = stack.pop()
+   stack.push(repeat(segment, poppedNum))
+}else if(char !== "{"){
+   stack.push(char)
+}
+
+}
+}
+return stack.join("")
+};
+
+
+function repeat (str, num) {
+ 
+ return str.repeat(num)
+}
+
+
+

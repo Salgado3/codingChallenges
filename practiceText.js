@@ -1,17 +1,11 @@
-let obj1 = {
- "1" : 1,
- "2" : 2,
- "3" : 3
+const arr = ["HTML", "JavaScript", "CSS"];
 
+let sorted = copySorted(arr);
+sorted = sorted.sort((a, b) => a.localeCompare(b));
+sorted.push("hello");
+console.log(sorted); // CSS, HTML, JavaScript
+console.log(arr); // HTML, JavaScript, CSS (no changes)
+console.log(sorted == arr);
+function copySorted(arr) {
+  return arr;
 }
-let obj2 = {
-  "1" : 1,
-  "2" : 2,
-  "3" : 3
- 
- }
- 
-
-console.log(obj1)
-
-console.log(obj1 === obj2)
