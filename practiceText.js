@@ -1,11 +1,29 @@
-const arr = ["HTML", "JavaScript", "CSS"];
+createPost: async (req, res) => {
+  if (Post.findOne({ activityName: req.body.activityName })) {
+    try {
+      await Post.findOneAndUpdate(
+        { activityName: req.body.activityName },
+        {
+          $inc: { time: Number(req.body.time) },
+        }
+      );
+      console.log("Likes +1");
+      res.redirect(`/feed`);
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    try {
+      await Post.create({
+        activityName: req.body.activityName,
+        time: Number(req.body.time),
 
-let sorted = copySorted(arr);
-sorted = sorted.sort((a, b) => a.localeCompare(b));
-sorted.push("hello");
-console.log(sorted); // CSS, HTML, JavaScript
-console.log(arr); // HTML, JavaScript, CSS (no changes)
-console.log(sorted == arr);
-function copySorted(arr) {
-  return arr;
-}
+        user: req.user.id,
+      });
+      console.log("Post has been added!");
+      res.redirect("/feed");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+};

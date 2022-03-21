@@ -2218,91 +2218,106 @@ c.right = f;
 //https:leetcode.com/problems/pacific-atlantic-water-flow/
 // 417. Pacific Atlantic Water Flow
 
-var pacificAtlantic = function (heights) {
-  const Rows = heights.length;
-  const Cols = heights[0].length;
+// var pacificAtlantic = function (heights) {
+//   const Rows = heights.length;
+//   const Cols = heights[0].length;
 
-  let pacSet = new Set();
-  let atlSet = new Set();
+//   let pacSet = new Set();
+//   let atlSet = new Set();
 
-  for (let r = 0; r < heights.length; r++) {
-    explore(r, 0, pacSet, heights[r][0], heights);
-    explore(r, Cols - 1, atlSet, heights[r][Cols - 1], heights);
-  }
+//   for (let r = 0; r < heights.length; r++) {
+//     explore(r, 0, pacSet, heights[r][0], heights);
+//     explore(r, Cols - 1, atlSet, heights[r][Cols - 1], heights);
+//   }
 
-  for (let c = 0; c < heights[0].length; c++) {
-    explore(0, c, pacSet, heights[0][c], heights);
-    explore(Rows - 1, c, atlSet, heights[Rows - 1][c], heights);
-  }
+//   for (let c = 0; c < heights[0].length; c++) {
+//     explore(0, c, pacSet, heights[0][c], heights);
+//     explore(Rows - 1, c, atlSet, heights[Rows - 1][c], heights);
+//   }
 
-  let result = [];
+//   let result = [];
 
-  for (let r = 0; r < heights.length; r++) {
-    for (let c = 0; c < heights[0].length; c++) {
-      const pos = r + "," + c;
+//   for (let r = 0; r < heights.length; r++) {
+//     for (let c = 0; c < heights[0].length; c++) {
+//       const pos = r + "," + c;
 
-      if (pacSet.has(pos) && atlSet.has(pos)) {
-        result.push([r, c]);
-      }
-    }
-  }
+//       if (pacSet.has(pos) && atlSet.has(pos)) {
+//         result.push([r, c]);
+//       }
+//     }
+//   }
 
-  return result;
-};
+//   return result;
+// };
 
-const explore = (r, c, visit, prevHeight, heights) => {
-  let pos = r + "," + c;
-  const rowInbounds = 0 <= r && r < heights.length;
-  const colInbounds = 0 <= c && c < heights[0].length;
-  if (!rowInbounds || !colInbounds) return false;
-  if (heights[r][c] < prevHeight) return false;
-  if (visit.has(pos)) return false;
+// const explore = (r, c, visit, prevHeight, heights) => {
+//   let pos = r + "," + c;
+//   const rowInbounds = 0 <= r && r < heights.length;
+//   const colInbounds = 0 <= c && c < heights[0].length;
+//   if (!rowInbounds || !colInbounds) return false;
+//   if (heights[r][c] < prevHeight) return false;
+//   if (visit.has(pos)) return false;
 
-  visit.add(pos);
+//   visit.add(pos);
 
-  explore(r + 1, c, visit, heights[r][c], heights);
-  explore(r - 1, c, visit, heights[r][c], heights);
-  explore(r, c + 1, visit, heights[r][c], heights);
-  explore(r, c - 1, visit, heights[r][c], heights);
-};
+//   explore(r + 1, c, visit, heights[r][c], heights);
+//   explore(r - 1, c, visit, heights[r][c], heights);
+//   explore(r, c + 1, visit, heights[r][c], heights);
+//   explore(r, c - 1, visit, heights[r][c], heights);
+// };
 
 // 3/16/2022
 // decompress braces 
 https://structy.net/problems/premium/decompress-braces
 
 
-const decompressBraces = (s) => {
-  const numStr = "123456789"
-  let stack = []
+// const decompressBraces = (s) => {
+//   const numStr = "123456789"
+//   let stack = []
 
 
-for(char of s) {
-if(numStr.includes(char)) {
-  stack.push(Number(char))
-}else {
+// for(char of s) {
+// if(numStr.includes(char)) {
+//   stack.push(Number(char))
+// }else {
 
- if(char === "}"){
-    let segment = ""
-  while(typeof stack[stack.length-1] !== "number") {
-         let popped = stack.pop()
-     segment = popped + segment
-  }
-   let poppedNum = stack.pop()
-   stack.push(repeat(segment, poppedNum))
-}else if(char !== "{"){
-   stack.push(char)
-}
+//  if(char === "}"){
+//     let segment = ""
+//   while(typeof stack[stack.length-1] !== "number") {
+//          let popped = stack.pop()
+//      segment = popped + segment
+//   }
+//    let poppedNum = stack.pop()
+//    stack.push(repeat(segment, poppedNum))
+// }else if(char !== "{"){
+//    stack.push(char)
+// }
 
-}
-}
-return stack.join("")
-};
+// }
+// }
+// return stack.join("")
+// };
 
 
-function repeat (str, num) {
+// function repeat (str, num) {
  
- return str.repeat(num)
-}
+//  return str.repeat(num)
+// }
 
+// 3/21/2022
 
+https://leetcode.com/problems/climbing-stairs/
+// 70. Climbing Stairs
 
+var climbStairs = function(n) {
+  let one = 1
+  let two = 1
+ 
+ for(let i = 0 ; i <n-1; i++){
+     const temp = one
+      one = one + two
+      two = temp
+  
+     }
+     return one
+ };
