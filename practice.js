@@ -2373,6 +2373,24 @@ const generate = (words, synonyms) => {
    
 }
 
+// 3/25/2022 
+// Daily challenge
 
+// How many pages in a book?
+// https://www.codewars.com/kata/622de76d28bf330057cd6af8/train/javascript
 
+function amountOfPages(summary){
+  let digits = 0 
 
+for(let i =1; digits <=summary; i++) {
+
+  if(i <10){
+   digits++
+ }else {
+   digits+= Number(i.toString().length)
+ }
+
+if(digits === summary) return i
+}
+
+}
