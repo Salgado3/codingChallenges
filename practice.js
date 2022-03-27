@@ -2379,18 +2379,45 @@ const generate = (words, synonyms) => {
 // How many pages in a book?
 // https://www.codewars.com/kata/622de76d28bf330057cd6af8/train/javascript
 
-function amountOfPages(summary){
-  let digits = 0 
+// function amountOfPages(summary){
+//   let digits = 0 
 
-for(let i =1; digits <=summary; i++) {
+// for(let i =1; digits <=summary; i++) {
 
-  if(i <10){
-   digits++
- }else {
-   digits+= Number(i.toString().length)
- }
+//   if(i <10){
+//    digits++
+//  }else {
+//    digits+= Number(i.toString().length)
+//  }
 
-if(digits === summary) return i
+// if(digits === summary) return i
+// }
+
+// }
+// 3/26/2022
+
+// You have a two-dimensional list in the following format:
+
+// data = [[2, 5], [3, 4], [8, 7]]
+
+// Each sub-list contains two items, and each item in the sub-lists is an integer.
+
+// Write a function process_data()/processData() that processes each sub-list like so:
+
+//     [2, 5] --> 2 - 5 --> -3
+//     [3, 4] --> 3 - 4 --> -1
+//     [8, 7] --> 8 - 7 --> 1
+
+// and then returns the product of all the processed sub-lists: -3 * -1 * 1 --> 3.
+
+// For input, you can trust that neither the main list nor the sublists will be empty.
+function processData(data){
+  let result = []
+for(let [first, second] of data) {
+    result.push(Number(first) - Number(second))
+  
+  
 }
-
+  
+  return result.reduce((a,c)=> a*c,1)
 }
