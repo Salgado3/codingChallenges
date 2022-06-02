@@ -1,0 +1,123 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/******************************************
+  /* BASE
+  /*******************************************/
+
+body {
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/returnExcuse/img/bgBig.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+/******************************************
+  /* MODULES
+  /*******************************************/
+h1 {
+  font-size: 4vw;
+  width: 90vw;
+  color: white;
+  text-shadow: 4px 3px 0 #7a7a7a, 2px 4px 3px rgba(206, 204, 11, 0.68);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1vw;
+
+  padding: 2rem;
+  text-align: center;
+  color: #000000;
+}
+
+.postit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  border-width: 2px;
+  border-color: #210707;
+  background-color: #eeb44f;
+  border-style: solid;
+  border-radius: 0px;
+  box-shadow: 3px 4px 0px rgba(188, 200, 0, 0.77);
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.btn {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+/******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+.css-input {
+  text-align: center;
+  padding: 5px;
+  font-size: 27px;
+  border-width: 2px;
+  border-color: #210707;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 0px;
+  box-shadow: 3px 4px 0px rgba(188, 200, 0, 0.77);
+  text-shadow: 5px 22px 0px rgba(234, 232, 0, 0);
+}
+.css-input:focus {
+  outline: none;
+}
+
+button {
+  box-shadow: 3px 4px 0px 0px #fce2c1;
+  background: linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
+  background-color: #ffc477;
+  border-radius: 5px;
+  border: 1px solid #eeb44f;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 14px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+}
+button:hover {
+  background: linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
+  background-color: #fb9e25;
+}
+button:active {
+  position: relative;
+  top: 1px;
+}
+
+/******************************************
+  /* RESPONSIVE
+  /*******************************************/
